@@ -14,7 +14,7 @@ nums2 = [2,5,6], n = 3
 Output: [1,2,2,3,5,6]
 ```
 
-**Solution Explanation**:
+**Solution**:
 To merge two sorted arrays, we can use a two-pointer approach. We initialize two pointers, one for each array, starting from the end of the valid elements in each array. We compare the elements pointed to by such pointers, and fill nums1 from the end with the largest element, updating the pointers accordingly.
 
 **Notes**:
