@@ -68,3 +68,25 @@ To remove duplicates from a sorted array nums, we can use a two-pointer approach
 **Notes**:
 - Time complexity: O(n), where n is the length of the array nums.
 - Space complexity: O(1), as the removal is done in-place without using extra space.
+
+## 80. Remove Duplicates from Sorted Array II
+
+**Description**:
+Given a sorted array `nums`, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.
+
+Do not allocate extra space for another array; you must do this by modifying the input array in-place with O(1) extra memory.
+
+**Example**:
+```plaintext
+Input: nums = [1,1,1,2,2,3]
+Output: 5, nums = [1,1,2,2,3]
+```
+
+**Solution**:
+To remove duplicates from a sorted array nums while keeping at most two duplicates of each element, we can utilize two pointers. We initialize two pointers, l and r, to track the position of the elements in the array. We also use a counter count to count the number of consecutive duplicates. We iterate over the array using the pointer r, counting consecutive duplicates. If we encounter a new element, we copy it to the position pointed by l, updating l accordingly. We repeat this process, copying at most two duplicates of each element, until we have processed all elements in the array.
+
+[Link to code](080_remove_duplicates_2.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the array nums.
+- Space complexity: O(1), as the removal is done in-place without using extra space.
