@@ -90,3 +90,25 @@ To remove duplicates from a sorted array nums while keeping at most two duplicat
 **Notes**:
 - Time complexity: O(n), where n is the length of the array nums.
 - Space complexity: O(1), as the removal is done in-place without using extra space.
+
+## 169. Majority Element
+
+**Description**:
+Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊n / 2⌋ times.
+
+You may assume that the majority element always exists in the array.
+
+**Example**:
+```plaintext
+Input: [3,2,3]
+Output: 3
+```
+
+**Solution**:
+To efficiently find the majority element, we can utilize the Boyer-Moore Voting Algorithm. This algorithm allows us to determine the majority element in a single pass through the array while maintaining a count of the current majority element. The key idea is to update the count based on whether the current element is equal to the majority element, and reset the majority element and count if the count reaches 0.
+
+[Link to code](169_majority_element.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the size of the array.
+- Space complexity: O(1), as the algorithm uses constant extra space.
