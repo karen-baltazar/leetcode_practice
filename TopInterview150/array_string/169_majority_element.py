@@ -1,20 +1,17 @@
 class Solution(object):
     def majorityElement(self, nums):
+        # Hint: What happens to the count when we encounter different elements? [Boyer-Moore Voting Algorithm]
+        count = 0 
+        res = 0
 
-        # Initialize an empty dictionary.
-        dict = {}
+        # Iterate through the array.
+        for n in nums:
+            # If count is 0, update the majority element.
+            if count == 0:
+                res = n
+            
+            # Increment or decrement the count based on whether the current element is equal to the majority element.
+            count += (1 if n == res else -1)
+        
+        return res 
 
-        # Iterate over each element in the nums list.
-        for elem in nums:
-            # If the element is not in the dictionary, add it with a count of 1.
-            if elem not in dict:
-                dict[elem] = 1
-            # If the element is already in the dictionary, increment its count.
-            else:
-                dict[elem] += 1
-
-        v = list(dict.values())  # List of occurrence counts.
-        k = list(dict.keys())    # List of unique elements.
-
-        # Return the element with the maximum occurrence count.
-        return k[v.index(max(v))]
