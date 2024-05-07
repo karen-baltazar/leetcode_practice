@@ -112,3 +112,24 @@ To efficiently find the majority element, we can utilize the Boyer-Moore Voting 
 **Notes**:
 - Time complexity: O(n), where n is the size of the array.
 - Space complexity: O(1), as the algorithm uses constant extra space.
+
+## 189. Rotate Array
+
+**Description**:
+Given an array `nums`, rotate the array to the right by `k` steps, where `k` is non-negative.
+
+**Example**:
+```plaintext
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+```
+
+**Solution**:
+To rotate the array in-place, we adjust the value of k to ensure it's within the range of the list length. Then, we rotate the list by reversing sublists: first, we reverse the entire list, then we reverse the first k elements, and finally, we reverse the remaining elements.
+
+[Link to code](189_rotate_array.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the array.
+- Space complexity: O(1), as the rotation is done in-place without using extra space.
+
