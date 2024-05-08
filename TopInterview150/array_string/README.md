@@ -153,3 +153,23 @@ To maximize profit, we want to find the maximum difference between two prices (b
 **Notes**:
 - Time complexity: O(n), where n is the length of the prices array.
 - Space complexity: O(1), as the algorithm uses only a constant amount of extra space.
+
+## 122. Best Time to Buy and Sell Stock II
+**Description**:
+Given an array `prices` where `prices[i]` is the price of a given stock on the `i`-th day, find the maximum profit you can achieve by buying and selling stocks multiple times. You may complete as many transactions as you like, but you must sell the stock before you buy again.
+
+**Example**:
+```plaintext
+Input: prices = [7,1,5,3,6,4]
+Output: 7
+Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4. Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
+```
+
+**Solution**:
+To maximize profit, we want to exploit all possible price increases. We iterate through the prices array and whenever there is a price increase, we add it to the total profit. This approach allows us to capture all possible profit from the stock prices.
+
+[Link to code](122_buy_sell_stock_2.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the prices array.
+- Space complexity: O(1), as the algorithm uses only a constant amount of extra space.
