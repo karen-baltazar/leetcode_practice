@@ -133,3 +133,23 @@ To rotate the array in-place, we adjust the value of k to ensure it's within the
 - Time complexity: O(n), where n is the length of the array.
 - Space complexity: O(1), as the rotation is done in-place without using extra space.
 
+## 121. Best Time to Buy and Sell Stock
+
+**Description**:
+Given an array `prices` where `prices[i]` is the price of a given stock on the `i`-th day, find the maximum profit you can achieve from this stock by buying on one day and selling on another day.
+
+**Example**:
+```plaintext
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+```
+
+**Solution**:
+To maximize profit, we want to find the maximum difference between two prices (buying price and selling price). We iterate through the prices array and keep track of the minimum price encountered so far. For each price, we calculate the profit if we sell at that price and update the maximum profit if necessary.
+
+[Link to code](121_buy_sell_stock.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the prices array.
+- Space complexity: O(1), as the algorithm uses only a constant amount of extra space.
