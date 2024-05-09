@@ -173,3 +173,23 @@ To maximize profit, we want to exploit all possible price increases. We iterate 
 **Notes**:
 - Time complexity: O(n), where n is the length of the prices array.
 - Space complexity: O(1), as the algorithm uses only a constant amount of extra space.
+
+## 55. Jump Game
+**Description**:
+You are given an array `nums` where `nums[i]` represents the maximum jump length from position `i`. Determine if you can reach the last index starting from the first index.
+
+**Example**:
+```plaintext
+Input: nums = [2,3,1,1,4]
+Output: True
+Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+```
+
+**Solution**:
+To solve this problem, we start from the end and try to reach the start. At each step, we check if the current position can reach the previous position by comparing the maximum jump length from the current position (nums[i]) with the distance to the previous position (j - i). If the maximum jump length is greater than or equal to the distance, we update the target position. Finally, if the target position is 0, it means we can reach the last index from the first index, so we return True; otherwise, we return False.
+
+[Link to code](055_jump_game.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the nums array.
+- Space complexity: O(1), as the algorithm uses only a constant amount of extra space.
