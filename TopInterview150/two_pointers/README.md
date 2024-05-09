@@ -12,7 +12,7 @@ Output: true
 ```
 
 **Solution**:
-To check if a string is a palindrome, we can utilize a two-pointer approach. We filter out non-alphanumeric characters, convert the string to lowercase, and then compare characters symmetrically from both ends.
+This solution utilizes a two-pointer approach to check if a string is a palindrome. We iterate through the string from both ends, comparing characters while skipping non-alphanumeric characters and ignoring case sensitivity.
 
 [Link to code](125_valid_palindrome.py)
 
