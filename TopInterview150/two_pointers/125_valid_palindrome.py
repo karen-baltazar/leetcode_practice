@@ -1,19 +1,20 @@
 class Solution(object):
     def isPalindrome(self, s):
-        # Hint: Utilize two pointers to compare characters from both ends
-        # Filter out non-alphanumeric characters and convert to lowercase
-        f = filter(unicode.isalnum, s.lower())
-        s1 = "".join(f)
-        
+        # Hint: Utilize two pointers to compare characters from both ends.
         i = 0
-        j = len(s1) - 1
+        j = len(s) - 1
         
-        # Compare characters from both ends towards the middle
-        while i <= j:
-            if s1[i] != s1[j]:
-                return False
+        while i < j:
+            while i < j and not s[i].isalnum():
+                i += 1
             
+            while i < j and not s[j].isalnum():
+                j -= 1
+            
+            if s[i].lower() != s[j].lower():
+                return False
+
             i += 1
-            j -= 1
+            j -= 1            
         
         return True
