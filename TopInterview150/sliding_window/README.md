@@ -19,3 +19,25 @@ To find the minimal length of a subarray with a sum greater than or equal to tar
 **Notes**:
 - Time complexity: O(n), where n is the length of the array `nums`.
 - Space complexity: O(1), as we are using only a few extra variables.
+
+## 3. Longest Substring Without Repeating Characters
+
+**Description**:
+Given a string `s`, find the length of the longest substring without repeating characters.
+
+**Example**:
+```plaintext
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+```
+
+**Solution**:
+To find the length of the longest substring without repeating characters, we can use a sliding window approach with two pointers. We use a set to keep track of the characters in the current window. If a character is repeated, we move the left pointer to the right until the character is no longer in the window.
+
+[Link to code](003_longest_substring.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the string.
+- Space complexity: O(min(n, m)), where n is the length of the string and m is the character set size.
+
