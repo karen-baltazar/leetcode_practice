@@ -17,5 +17,5 @@ To find the minimal length of a subarray with a sum greater than or equal to tar
 [Link to code](209_minimum_size_sum.py)
 
 **Notes**:
-Time complexity: O(n), where n is the length of the array `nums`.
-Space complexity: O(1), as we are using only a few extra variables.
+- Time complexity: O(n), where n is the length of the array `nums`.
+- Space complexity: O(1), as we are using only a few extra variables.
