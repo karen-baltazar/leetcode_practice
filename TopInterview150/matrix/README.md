@@ -40,3 +40,27 @@ We use sets to track the digits we have seen so far for each row, column, and su
 **Notes**:
 - Time complexity: O(n^2), where n is the length of the board (9 in this case).
 - Space complexity: O(n), due to the use of sets to track seen digits.
+
+## 54. Spiral Matrix
+
+**Description**:
+Given an `m x n` matrix, return all elements of the matrix in spiral order.
+
+**Example**:
+```plaintext
+Input: matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
+```
+
+**Solution**:
+To traverse the matrix in spiral order, we maintain boundaries for the top, bottom, left, and right. We iterate through the matrix and adjust these boundaries after processing each row or column. This ensures we cover all elements in the required order.
+
+[Link to code](054_spiral_matrix.py)
+
+**Notes**:
+- Time complexity: O(m * n), where m is the number of rows and n is the number of columns.
+- Space complexity: O(1) for extra space used (excluding the output list).
