@@ -45,3 +45,23 @@ To solve this problem, we traverse both linked lists while adding the correspond
 **Notes**:
 - Time complexity: O(max(n, m)), where n and m are the lengths of the input lists.
 - Space complexity: O(max(n, m)), for the space required by the result list.
+
+## 21. Merge Two Sorted Lists
+
+**Description**:
+Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.
+
+**Example**:
+```plaintext
+Input: list1 = [1,2,4], list2 = [1,3,4]
+Output: [1,1,2,3,4,4]
+```
+
+**Solution**:
+To solve this problem, we use a dummy node to simplify the construction of the merged list. We compare the current nodes of both input lists and attach the smaller node to the merged list. We continue this process until one of the lists is exhausted. Finally, we attach any remaining nodes from the non-exhausted list to the merged list.
+
+[Link to code](021_merge_two_sorted_lists.py)
+
+**Notes**:
+- Time complexity: O(n + m), where n and m are the lengths of the input lists.
+- Space complexity: O(1), as the merged list is constructed in-place.
