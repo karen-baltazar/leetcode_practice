@@ -128,3 +128,43 @@ To solve this problem, we first find the length of the list and the tail node. W
 **Notes**:
 - Time complexity: O(n), where n is the number of nodes in the linked list.
 - Space complexity: O(1), as we modify the list in place with a few extra pointers.
+
+## 146. LRU Cache
+
+**Description**:
+Design a data structure that follows the constraints of a Least Recently Used (LRU) cache. Implement the `LRUCache` class:
+- `LRUCache(int capacity)` initializes the LRU cache with positive size `capacity`.
+- `int get(int key)` returns the value of the `key` if the `key` exists, otherwise returns `-1`.
+- `void put(int key, int value)` updates the value of the `key` if the `key` exists. Otherwise, adds the `key-value` pair to the cache. If the number of keys exceeds the `capacity` from this operation, evicts the least recently used `key`.
+
+**Example**:
+```plaintext
+Input:
+["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+Output:
+[null, null, null, 1, null, -1, null, -1, 3, 4]
+
+Explanation:
+LRUCache lRUCache = new LRUCache(2);
+lRUCache.put(1, 1); // cache is {1=1}
+lRUCache.put(2, 2); // cache is {1=1, 2=2}
+lRUCache.get(1);    // return 1
+                    // cache is {2=2, 1=1}
+lRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
+lRUCache.get(2);    // returns -1 (not found)
+lRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is {3=3, 4=4}
+lRUCache.get(1);    // return -1 (not found)
+lRUCache.get(3);    // return 3
+                    // cache is {4=4, 3=3}
+lRUCache.get(4);    // return 4
+```
+
+**Solution**:
+To solve this problem, we use an `OrderedDict` from the `collections` module. This data structure maintains the order of the keys based on their usage. When we access or insert a key, we move it to the end to mark it as most recently used. If the cache exceeds its capacity, we remove the least recently used item, which is the first item in the ordered dictionary.
+
+[Link to code](146_lru_cache.py)
+
+**Notes**:
+- Time complexity for get and put: O(1), since all operations on OrderedDict (insertion, deletion, access) are O(1).
+- Space complexity: O(capacity), where capacity is the size of the cache.
