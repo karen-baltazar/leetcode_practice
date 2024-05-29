@@ -86,3 +86,24 @@ To solve this problem, we can use a two-pointer technique. We first move the rig
 **Notes**:
 - Time complexity: O(L), where L is the length of the linked list.
 - Space complexity: O(1), as we are using only a few extra pointers.
+
+## 82. Remove Duplicates from Sorted List II
+
+**Description**:
+Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. Return the linked list sorted as well.
+
+**Example**:
+```plaintext
+Input: head = [1,2,3,3,4,4,5]
+Output: [1,2,5]
+Explanation: Given linked list: 1->2->3->3->4->4->5, remove all nodes that have duplicate numbers (3 and 4), leaving 1->2->5.
+```
+
+**Solution**:
+To solve this problem, we use a dummy node to handle edge cases where the head itself might be a duplicate. We maintain two pointers: `prev` to track the node before the sequence of duplicates and `head` to traverse the list. When we find duplicates, we skip all nodes with the same value and link the previous node to the node after the last duplicate. Otherwise, we just move the `prev` pointer forward.
+
+[Link to code](082_remove_duplicates_2.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the linked list.
+- Space complexity: O(1), as the list is modified in place using only a few extra pointers.
