@@ -107,3 +107,24 @@ To solve this problem, we use a dummy node to handle edge cases where the head i
 **Notes**:
 - Time complexity: O(n), where n is the number of nodes in the linked list.
 - Space complexity: O(1), as the list is modified in place using only a few extra pointers.
+
+## 61. Rotate List
+
+**Description**:
+Given the head of a linked list, rotate the list to the right by `k` places.
+
+**Example**:
+```plaintext
+Input: head = [1,2,3,4,5], k = 2
+Output: [4,5,1,2,3]
+Explanation: Rotate the list to the right by 2 places: 1->2->3->4->5 becomes 4->5->1->2->3.
+```
+
+**Solution**:
+To solve this problem, we first find the length of the list and the tail node. We then calculate the effective rotations needed, which is `k % length`. If no rotation is needed, we return the head. Otherwise, we find the new tail node, which is `(length - k - 1)` nodes from the start, and the new head node, which is the node after the new tail. We then break the list at the new tail and connect the old tail to the old head to complete the rotation.
+
+[Link to code](061_rotate_list.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the linked list.
+- Space complexity: O(1), as we modify the list in place with a few extra pointers.
