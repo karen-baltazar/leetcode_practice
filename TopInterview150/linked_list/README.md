@@ -65,3 +65,24 @@ To solve this problem, we use a dummy node to simplify the construction of the m
 **Notes**:
 - Time complexity: O(n + m), where n and m are the lengths of the input lists.
 - Space complexity: O(1), as the merged list is constructed in-place.
+
+## 19. Remove Nth Node From End of List
+
+**Description**:
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+**Example**:
+```plaintext
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+Explanation: Given linked list: 1->2->3->4->5, the 2nd node from the end is 4, so we remove 4.
+```
+
+**Solution**:
+To solve this problem, we can use a two-pointer technique. We first move the right pointer `n` steps ahead, and then move both the left and right pointers together until the right pointer reaches the end of the list. This way, the left pointer will be just before the nth node from the end. We then adjust the pointers to skip the nth node.
+
+[Link to code](019_remove_node_from_end.py)
+
+**Notes**:
+- Time complexity: O(L), where L is the length of the linked list.
+- Space complexity: O(1), as we are using only a few extra pointers.
