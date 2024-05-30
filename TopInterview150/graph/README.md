@@ -129,3 +129,50 @@ To solve this problem, we model the equations as a graph where each variable is 
 **Notes**:
 - Time complexity: O(N + Q), where N is the number of equations and Q is the number of queries.
 - Space complexity: O(N), for the adjacency list and the queue used in BFS.
+
+## 207. Course Schedule
+
+**Description**:
+There are a total of `numCourses` courses you have to take, labeled from `0` to `numCourses-1`. Some courses may have prerequisites, where `prerequisites[i] = [ai, bi]` indicates that you must take course `bi` before course `ai`. Given the total number of courses and a list of prerequisite pairs, return `true` if you can finish all courses. Otherwise, return `false`.
+
+**Example**:
+```plaintext
+Input: numCourses = 2, prerequisites = [[1,0]]
+Output: true
+Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So it is possible.
+```
+
+**Solution**:
+To solve this problem, we use Depth-First Search (DFS) to detect cycles in the graph. We represent the courses and their prerequisites as a directed graph using an adjacency list, where each course points to its prerequisites. We then iterate through each course, using a recursive DFS function to check for cycles. During the DFS, we maintain a set to track the nodes currently in the recursion stack, which helps in detecting cycles. If a course is already in this set, it means we've encountered a cycle, so we return False. If a course has no prerequisites or all its prerequisites can be completed without cycles, we mark it as such and return True. This ensures that each course and its dependencies are checked efficiently. If all courses can be processed without detecting any cycles, we return True, indicating that it is possible to finish all courses.
+
+**Detailed Explanation**:
+
+1. **Graph Representation**:
+   - We represent the courses and their prerequisites as a directed graph.
+   - Each course is a node, and a prerequisite relationship `A -> B` indicates that course `A` depends on course `B`.
+
+2. **Building the Graph**:
+   - We use a dictionary to store the list of prerequisites for each course.
+   - For each course, we populate the dictionary with its corresponding prerequisites.
+
+3. **Depth-First Search (DFS)**:
+   - We use DFS to detect cycles in the graph.
+   - A cycle indicates that it's impossible to complete the courses due to circular dependencies.
+   - We maintain a set, `visitSet`, to track the nodes (courses) currently in the DFS path. This helps in detecting cycles.
+   - If a course is already in `visitSet`, it means we've encountered a cycle, so we return `False`.
+   - If a course has no prerequisites (`preMap[crs] == []`), it means it can be completed, so we return `True`.
+
+4. **Processing Each Course**:
+   - For each course, we initiate a DFS.
+   - If any course leads to a cycle detection during its DFS, we return `False` indicating that it's not possible to complete all courses.
+   - If all courses are processed without detecting any cycles, we return `True`.
+
+5. **Handling Edge Cases**:
+   - If there are no prerequisites, it means all courses can be completed, so we directly return `True`.
+   - If there are isolated courses with no dependencies, they can be completed independently.
+
+[Link to code](207_course_selection.py)
+
+**Notes**:
+- Time complexity: O(V + E), where V is the number of courses and E is the number of prerequisite pairs.
+- Space complexity: O(V + E), due to the adjacency list and the recursion stack in the worst case.
