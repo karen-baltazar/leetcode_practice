@@ -24,3 +24,34 @@ To solve this problem, we use Depth-First Search (DFS). We iterate through each 
 **Notes**:
 - Time complexity: O(m * n), where m is the number of rows and n is the number of columns in the grid.
 - Space complexity: O(m * n), due to the space used by the visited set and the recursion stack in the worst case.
+
+## 130. Surrounded Regions
+
+**Description**:
+Given an `m x n` matrix `board` containing `'X'` and `'O'`, capture all regions that are 4-directionally surrounded by `'X'`. A region is captured by flipping all `'O'`s into `'X'`s in that surrounded region.
+
+**Example**:
+```plaintext
+Input: board = [
+  ["X","X","X","X"],
+  ["X","O","O","X"],
+  ["X","X","O","X"],
+  ["X","O","X","X"]
+]
+Output: [
+  ["X","X","X","X"],
+  ["X","X","X","X"],
+  ["X","X","X","X"],
+  ["X","O","X","X"]
+]
+Explanation: Surrounded regions should not be on the border, which means that any 'O' on the border of the board are not flipped to 'X'. Any 'O' that is not on the border and not connected to an 'O' on the border will be flipped to 'X'.
+```
+
+**Solution**:
+To solve this problem, we use Depth-First Search (DFS) to mark all `'O'`s connected to the border as temporary `'T'`. These `'O'`s cannot be surrounded. After marking, we iterate over the board to flip all surrounded `'O'`s to `'X'`. Finally, we revert the temporary `'T'`s back to `'O'`.
+
+[Link to code](130_surrounded_regions.py)
+
+**Notes**:
+- Time complexity: O(m * n), where m is the number of rows and n is the number of columns.
+- Space complexity: O(m * n), due to the recursion stack in the worst case.
