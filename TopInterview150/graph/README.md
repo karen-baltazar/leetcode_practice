@@ -55,3 +55,30 @@ To solve this problem, we use Depth-First Search (DFS) to mark all `'O'`s connec
 **Notes**:
 - Time complexity: O(m * n), where m is the number of rows and n is the number of columns.
 - Space complexity: O(m * n), due to the recursion stack in the worst case.
+
+## 133. Clone Graph
+
+**Description**:
+Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a value (`int`) and a list (`List[Node]`) of its neighbors.
+
+**Example**:
+```plaintext
+Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
+Output: [[2,4],[1,3],[2,4],[1,3]]
+
+Explanation:
+Node 1's value is 1, and its neighbors are nodes 2 and 4.
+Node 2's value is 2, and its neighbors are nodes 1 and 3.
+Node 3's value is 3, and its neighbors are nodes 2 and 4.
+Node 4's value is 4, and its neighbors are nodes 1 and 3.
+```
+
+**Solution**:
+To solve this problem, we use Depth-First Search (DFS) with a dictionary to map each original node to its copy. This ensures that each node is copied only once, and the same copy is used whenever the node is encountered again.
+
+[Link to code](133_clone_graph.py)
+
+**Notes**:
+- Time complexity: O(N + M), where N is the number of nodes and M is the number of edges in the graph.
+- Space complexity: O(N), due to the space required for the dictionary and the recursion stack.
+
