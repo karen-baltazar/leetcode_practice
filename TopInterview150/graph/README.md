@@ -176,3 +176,48 @@ To solve this problem, we use Depth-First Search (DFS) to detect cycles in the g
 **Notes**:
 - Time complexity: O(V + E), where V is the number of courses and E is the number of prerequisite pairs.
 - Space complexity: O(V + E), due to the adjacency list and the recursion stack in the worst case.
+
+## 210. Course Schedule II
+
+**Description**:
+There are a total of `numCourses` courses you have to take, labeled from 0 to `numCourses-1`. Some courses may have prerequisites, where `prerequisites[i] = [ai, bi]` indicates that you must take course `bi` before course `ai`. Given the total number of courses and a list of prerequisite pairs, return the ordering of courses you should take to finish all courses. If there are multiple valid orderings, return any of them. If it is impossible to finish all courses, return an empty array.
+
+**Example**:
+```plaintext
+Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+Output: [0,2,1,3]
+Explanation: There are a total of 4 courses to take. To take course 3 you should have finished both courses 1 and 2. Both courses 1 and 2 should be taken after you finish course 0. So a valid course order is [0,1,2,3]. Another valid order is [0,2,1,3].
+```
+
+**Solution**:
+To solve this problem, we use Depth-First Search (DFS) to detect cycles in the graph and find the topological order of courses. We represent the courses and their prerequisites as a directed graph using an adjacency list. We then iterate through each course, using a recursive DFS function to check for cycles and build the topological order. During the DFS, we maintain two sets: one to track the nodes currently in the recursion stack (to detect cycles) and another to track the nodes that have been visited. If a cycle is detected, we return an empty list. If all courses can be processed without detecting any cycles, we return the topological order.
+
+**Detailed Explanation**:
+
+1. **Graph Representation**:
+   - We represent the courses and their prerequisites as a directed graph.
+   - Each course is a node, and a prerequisite relationship `A -> B` indicates that course `A` depends on course `B`.
+
+2. **Building the Graph**:
+   - We use a dictionary to store the list of prerequisites for each course.
+   - For each course, we populate the dictionary with its corresponding prerequisites.
+
+3. **Depth-First Search (DFS)**:
+   - We use DFS to detect cycles and to build the topological order of courses.
+   - A cycle indicates that it's impossible to complete the courses due to circular dependencies.
+   - We maintain two sets: one (`cycle`) to track nodes in the current DFS path to detect cycles, and another (`visit`) to track nodes that have been fully processed.
+
+4. **Processing Each Course**:
+   - For each course, we initiate a DFS.
+   - If any course leads to a cycle detection during its DFS, we return an empty list indicating that it's not possible to complete all courses.
+   - If a course has no remaining prerequisites or all its prerequisites can be completed without cycles, we add it to the result list (`output`).
+
+5. **Handling Edge Cases**:
+   - If there are no prerequisites, all courses can be completed in any order, so we directly return the list of courses.
+   - If there are isolated courses with no dependencies, they can be completed independently.
+
+[Link to code](210_course_schedule_2.py)
+
+**Notes**:
+- Time complexity: O(V + E), where V is the number of courses and E is the number of prerequisite pairs.
+- Space complexity: O(V + E), due to the adjacency list and the recursion stack in the worst case.
