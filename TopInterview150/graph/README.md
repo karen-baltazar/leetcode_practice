@@ -82,3 +82,50 @@ To solve this problem, we use Depth-First Search (DFS) with a dictionary to map 
 - Time complexity: O(N + M), where N is the number of nodes and M is the number of edges in the graph.
 - Space complexity: O(N), due to the space required for the dictionary and the recursion stack.
 
+## 399. Evaluate Division
+
+**Description**:
+You are given equations in the format `A / B = k`, where `A` and `B` are variables represented as strings, and `k` is a real number (floating point). Given some queries, return the answers. If the answer does not exist, return `-1.0`.
+
+**Example**:
+```plaintext
+Input: equations = [["a","b"],["b","c"]], values = [2.0,3.0], queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]
+Output: [6.0,0.5,-1.0,1.0,-1.0]
+
+Explanation:
+Given: a / b = 2.0, b / c = 3.0
+queries are: a / c = ?, b / a = ?, a / e = ?, a / a = ?, x / x = ?
+return: [6.0, 0.5, -1.0, 1.0, -1.0 ]
+```
+
+**Solution**:
+To solve this problem, we model the equations as a graph where each variable is a node, and each equation provides a directed edge with a weight corresponding to the division result. We then use Breadth-First Search (BFS) to find the value of each query by traversing the graph.
+
+**Detailed Explanation**:
+
+1. **Graph Representation**:
+   - We represent the equations as a graph using an adjacency list.
+   - Each variable in the equations is a node.
+   - Each equation `A / B = k` is represented as a directed edge from `A` to `B` with weight `k`, and from `B` to `A` with weight `1/k`.
+
+2. **Building the Graph**:
+   - We use a defaultdict of lists to store the adjacency list.
+   - For each equation, we add both directed edges (`A -> B` and `B -> A`) to the graph.
+
+3. **Breadth-First Search (BFS)**:
+   - We use BFS to find the path from the source variable to the target variable.
+   - BFS is chosen because it ensures that we find the shortest path in an unweighted graph, which is important for minimizing the number of multiplications/divisions.
+   - We initialize the BFS with a queue containing the source node and a cumulative product of `1.0`.
+   - We use a set to keep track of visited nodes to avoid cycles.
+   - For each node, we traverse its neighbors, updating the cumulative product, and add unvisited neighbors to the queue.
+   - If we reach the target node, we return the current cumulative product.
+   - If we exhaust the queue without finding the target node, we return `-1.0`.
+
+4. **Handling Edge Cases**:
+   - If either the source or target node in a query does not exist in the graph, we return `-1.0`.
+
+[Link to code](399_evaluate_division.py)
+
+**Notes**:
+- Time complexity: O(N + Q), where N is the number of equations and Q is the number of queries.
+- Space complexity: O(N), for the adjacency list and the queue used in BFS.
