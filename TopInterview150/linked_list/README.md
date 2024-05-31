@@ -168,3 +168,24 @@ To solve this problem, we use an `OrderedDict` from the `collections` module. Th
 **Notes**:
 - Time complexity for get and put: O(1), since all operations on OrderedDict (insertion, deletion, access) are O(1).
 - Space complexity: O(capacity), where capacity is the size of the cache.
+
+## 92. Reverse Linked List II
+
+**Description**:
+Given the head of a singly linked list and two integers `left` and `right` where `left <= right`, reverse the nodes of the list from position `left` to position `right`, and return the reversed list.
+
+**Example**:
+```plaintext
+Input: head = [1,2,3,4,5], left = 2, right = 4
+Output: [1,4,3,2,5]
+Explanation: The portion of the list from position 2 to 4 is reversed.
+```
+
+**Solution**:
+To solve this problem, we use a dummy node to simplify handling edge cases where the sublist to reverse includes the head of the list. We traverse the list to find the node just before the `left` position and then reverse the sublist from `left` to `right`. Finally, we reconnect the reversed sublist back to the original list.
+
+[Link to code](092_reverse_linked_list.py)
+
+**Notes**:
+- Time complexity: O(N), where N is the number of nodes in the list. We perform a single pass to traverse the list and another pass to reverse the sublist.
+- Space complexity: O(1), as we only use a few pointers for the reversal process.
