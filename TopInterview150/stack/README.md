@@ -18,7 +18,7 @@ Output: false
 **Solution**:
 To solve this problem, we use a stack to keep track of the opening brackets. For each closing bracket, we check if it matches the most recent opening bracket on the stack. If it does, we pop the opening bracket from the stack. If it does not, the string is not valid. At the end, if the stack is empty, all brackets were matched correctly.
 
-[Link to code](20_valid_parentheses.py)
+[Link to code](020_valid_parentheses.py)
 
 **Notes**:
 - Time complexity: O(N), where N is the length of the string. We iterate through the string once.
@@ -52,8 +52,46 @@ Output: "/home/foo"
 **Solution**:
 To solve this problem, we use a stack to process each directory in the path. By iterating through the characters in the path, we can build each directory name and decide how to handle it based on the rules given. After processing all directories, we can join the stack to form the canonical path.
 
-[Link to code](20_valid_parentheses.py)
+[Link to code](071_simplify_path.py)
 
 **Notes**:
 - Time complexity: O(N), where N is the length of the path. We iterate through the path once.
 - Space complexity: O(N), for the stack used to store directory names.
+
+## 155. Min Stack
+
+**Description**:
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. Implement the `MinStack` class with the following methods:
+- `push(val)`: Pushes the element `val` onto the stack.
+- `pop()`: Removes the element on the top of the stack.
+- `top()`: Gets the top element of the stack.
+- `getMin()`: Retrieves the minimum element in the stack.
+
+**Example**:
+```plaintext
+Input
+["MinStack","push","push","push","getMin","pop","top","getMin"]
+[[],[-2],[0],[-3],[],[],[],[]]
+
+Output
+[null,null,null,null,-3,null,0,-2]
+
+Explanation
+MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.getMin(); // return -3
+minStack.pop();
+minStack.top();    // return 0
+minStack.getMin(); // return -2
+```
+
+**Solution**:
+To solve this problem, we use two stacks: one for the actual stack operations and another to keep track of the minimum values. By maintaining the minimum stack, we can ensure that retrieving the minimum value is efficient.
+
+[Link to code](155_min_stack.py)
+
+**Notes**:
+- Time complexity for each operation: O(1)
+- Space complexity: O(n), where n is the number of elements in the stack.
