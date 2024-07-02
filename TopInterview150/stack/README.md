@@ -95,3 +95,26 @@ To solve this problem, we use two stacks: one for the actual stack operations an
 **Notes**:
 - Time complexity for each operation: O(1)
 - Space complexity: O(n), where n is the number of elements in the stack.
+
+## 150. Evaluate Reverse Polish Notation
+
+**Description**:
+Evaluate the value of an arithmetic expression in Reverse Polish Notation (postfix notation).
+
+Valid operators are `+`, `-`, `*`, and `/`. Each operand may be an integer or another expression.
+
+**Example**:
+```plaintext
+Input: tokens = ["2", "1", "+", "3", "*"]
+Output: 9
+Explanation: ((2 + 1) * 3) = 9
+```
+
+**Solution**:
+To solve this problem, we use a stack to keep track of operands. When encountering a number, it's pushed onto the stack. When encountering an operator, the top two operands are popped from the stack, the operation is performed, and the result is pushed back onto the stack.
+
+[Link to code](150_evaluate_reverse_polish_notation.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of tokens.
+- Space complexity: O(n), due to the stack used to store operands.
