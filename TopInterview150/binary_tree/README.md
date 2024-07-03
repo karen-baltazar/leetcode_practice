@@ -70,3 +70,29 @@ The iterative approach uses a stack to traverse the tree. For each node, we swap
 **Notes**:
 - Time complexity: O(n), where n is the number of nodes in the binary tree. This is because we visit each node exactly once.
 - Space complexity: O(h) for the recursive approach due to the recursion stack, and O(n) for the iterative approach due to the stack used for traversal.
+
+## 101. Symmetric Tree
+
+**Description**:
+Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+
+**Example**:
+```plaintext
+Input: root = [1,2,2,3,4,4,3]
+Output: true
+
+Input: root = [1,2,2,null,3,null,3]
+Output: false
+```
+
+**Solution**:
+To solve this problem, we use a helper function `isMirror` to recursively compare the left and right subtrees of the tree. The tree is symmetric if:
+- Both subtrees are null.
+- Both subtrees are not null and their root values are equal.
+- The left subtree of the first tree is a mirror image of the right subtree of the second tree, and vice versa.
+
+[Link to code](101_symmetric_tree.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the tree. We visit each node exactly once.
+- Space complexity: O(h), where h is the height of the tree, due to the recursion stack.
