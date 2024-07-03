@@ -43,3 +43,30 @@ To solve this problem, we use a recursive approach. We compare the values of the
 **Notes**:
 - Time complexity: O(n), where n is the number of nodes in the binary trees. This is because we visit each node exactly once.
 - Space complexity: O(h), where h is the height of the binary trees. This is due to the recursion stack used for depth-first traversal.
+
+## 226. Invert Binary Tree
+
+**Description**:
+Given the root of a binary tree, invert the tree, and return its root.
+
+**Example**:
+```plaintext
+Input: root = [4,2,7,1,3,6,9]
+Output: [4,7,2,9,6,3,1]
+
+Input: root = [2,1,3]
+Output: [2,3,1]
+```
+
+**Solution**:
+To solve this problem, we can use either a recursive or iterative approach.
+
+In the recursive approach, we swap the left and right children of each node and then recursively invert the left and right subtrees.
+
+The iterative approach uses a stack to traverse the tree. For each node, we swap its left and right children and then push the children onto the stack to process them.
+
+[Link to code](226_invert_tree.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the binary tree. This is because we visit each node exactly once.
+- Space complexity: O(h) for the recursive approach due to the recursion stack, and O(n) for the iterative approach due to the stack used for traversal.
