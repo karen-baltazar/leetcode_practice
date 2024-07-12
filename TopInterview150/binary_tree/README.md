@@ -119,9 +119,36 @@ Steps:
 3. Recursively construct the left subtree using the elements before the root in `inorder` and the corresponding elements in `preorder`.
 4. Recursively construct the right subtree using the elements after the root in `inorder` and the corresponding elements in `preorder`.
 
-
 [Link to code](105_construct_preorder_inorder.py)
 
 **Notes**:
 - Time complexity: O(n^2) in the worst case due to the slicing of lists and index searches. 
 - Space complexity: O(n), where n is the number of nodes in the tree, due to the recursion stack and the tree structure.
+
+## 106. Construct Binary Tree from Inorder and Postorder Traversal
+
+**Description**:
+Given two integer arrays `inorder` and `postorder` where `inorder` is the inorder traversal of a binary tree and `postorder` is the postorder traversal of the same tree, construct and return the binary tree.
+
+**Example**:
+```plaintext
+Input: inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
+Output: [3,9,20,null,null,15,7]
+```
+
+**Solution**:
+To solve this problem, we use the properties of inorder and postorder traversals:
+- The last element of the postorder traversal is the root of the tree.
+- The inorder traversal splits the tree into left and right subtrees.
+
+Steps:
+1. The last element of `postorder` is the root of the tree.
+2. Find the index of the root in `inorder` to determine the left and right subtrees.
+3. Recursively construct the left subtree using the elements before the root in `inorder` and the corresponding elements in `postorder`.
+4. Recursively construct the right subtree using the elements after the root in `inorder` and the corresponding elements in `postorder`.
+
+[Link to code](106_construct_inorder_postorder.py)
+
+**Notes**:
+- Time complexity: O(n^2) due to list slicing.
+- Space complexity: O(n), due to the recursion stack and the space required for the tree nodes.
