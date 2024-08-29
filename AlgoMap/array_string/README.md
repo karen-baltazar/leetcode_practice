@@ -11,6 +11,7 @@
 | 228            | [Summary Ranges](#228-summary-ranges) | [Explanation](#228-summary-ranges) | [Python Code](./228_summary_ranges.py) |
 | 238            | [Product of Array Except Self](#238-product-of-array-except-self) | [Explanation](#238-product-of-array-except-self) | [Python Code](./238_product_of_array_except_self.py) |
 | 56             | [Merge Intervals](#56-merge-intervals) | [Explanation](#56-merge-intervals) | [Python Code](./56_merge_intervals.py) |
+| 54             | [Merge Intervals](#54-spiral-matrix) | [Explanation](#54-spiral-matrix) | [Python Code](./54_spiral_matrix.py) |
 
 ## 2239. Find Closest Number to Zero
 
@@ -211,3 +212,27 @@ Sort the intervals by their starting points. Then, iterate through the sorted in
 **Notes**:
 - Time complexity: O(n log n), due to the sorting step.
 - Space complexity: O(n), for storing the merged intervals.
+
+## 54. Spiral Matrix
+
+**Description**:
+Given an `m x n` matrix, return all elements of the matrix in spiral order.
+
+**Example**:
+```plaintext
+Input: matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
+```
+
+**Solution**:
+To traverse the matrix in spiral order, we maintain boundaries for the top, bottom, left, and right. We iterate through the matrix and adjust these boundaries after processing each row or column. This ensures we cover all elements in the required order.
+
+[Link to code](054_spiral_matrix.py)
+
+**Notes**:
+- Time complexity: O(m * n), where m is the number of rows and n is the number of columns.
+- Space complexity: O(1) for extra space used (excluding the output list).
