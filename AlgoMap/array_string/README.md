@@ -3,6 +3,7 @@
 | Problem Number | Problem Name                                   | Explanation                                    | Code                                                  |
 |----------------|------------------------------------------------|------------------------------------------------|-------------------------------------------------------|
 | 2239           | [Find Closest Number to Zero](#2239-find-closest-number-to-zero) | [Explanation](#2239-find-closest-number-to-zero) | [Python Code](./2239_find_closest_number_to_zero.py) |
+| 1768           | [Merge Strings Alternately](#1768-merge-strings-alternately) | [Explanation](#1768-merge-strings-alternately) | [Python Code](./1768_merge_strings_alternately.py)  |
 
 ## 2239. Find Closest Number to Zero
 
@@ -25,3 +26,26 @@ To find the number with the smallest absolute value, iterate through the list wh
 **Notes**:
 - Time complexity: O(n), where n is the length of the input list `nums`.
 - Space complexity: O(1), since no additional space is used beyond a few variables.
+
+## 1768. Merge Strings Alternately
+
+**Description**:
+Given two strings `word1` and `word2`, merge them alternately to form a new string. The characters of `word1` and `word2` should be alternated as long as possible. If one string is longer than the other, append the remaining characters of the longer string at the end.
+
+**Example**:
+```plaintext
+Input:
+word1 = "abc"
+word2 = "pqrstu"
+
+Output: "apbqcrstu"
+```
+
+**Solution**:
+To merge the strings alternately, iterate through both strings and add characters from each string to the result list in turn. After reaching the end of the shorter string, append the remaining characters from the longer string.
+
+[Link to code](1768_merge_strings_alternately.py)
+
+**Notes**:
+- Time complexity: O(m + n), where m and n are the lengths of `word1` and `word2`, respectively.
+- Space complexity: O(m + n), due to the space needed to store the merged string.
