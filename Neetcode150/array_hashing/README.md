@@ -9,6 +9,7 @@
 | 271            | [Encode and Decode Strings](#271-encode-and-decode-strings) | [Explanation](#271-encode-and-decode-strings) | [Python Code](./271_encode_decode_strings.py) |
 | 238            | [Product of Array Except Self](#238-product-of-array-except-self) | [Explanation](#238-product-of-array-except-self) | [Python Code](./238_product_of_array_except_self.py) |
 | 36             | [Valid Sudoku](#36-valid-sudoku) | [Explanation](#36-valid-sudoku)                      | [Python Code](./036_valid_sudoku.py)           |
+| 128            | [Longest Consecutive Sequence](#128-longest-consecutive-sequence) | [Explanation](#128-longest-consecutive-sequence) | [Python Code](./128_longest_consecutive_sequence.py) |
 
 ## 217. Contains Duplicate
 
@@ -215,3 +216,28 @@ We use sets to track the digits we have seen so far for each row, column, and su
 **Notes**:
 - Time complexity: O(n^2), where n is the length of the board (9 in this case).
 - Space complexity: O(n), due to the use of sets to track seen digits.
+
+## 128. Longest Consecutive Sequence
+
+**Description**:
+Find the length of the longest consecutive elements sequence in an unsorted array. The sequence should be consecutive, but not necessarily contiguous.
+
+**Example**:
+```plaintext
+Input:
+nums = [100, 4, 200, 1, 3, 2]
+Output: 4
+Explanation: The longest consecutive sequence is [1, 2, 3, 4], which has length 4.
+```
+
+**Solution**:
+1. Convert the input list into a set to enable O(1) access time for each element.
+2. Iterate through each number and check if it is the start of a sequence (i.e., `n-1` is not in the set).
+3. Count the length of the sequence starting from the current number.
+4. Update the length of the longest sequence found so far.
+
+[Link to code](128_longest_consecutive_sequence.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of elements in the input list.
+- Space complexity: O(n) for storing elements in the set.
