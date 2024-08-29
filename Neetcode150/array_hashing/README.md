@@ -6,6 +6,7 @@
 | 1              | [Two Sum](#1-two-sum) | [Explanation](#1-two-sum)                            | [Python Code](./001_two_sum.py)     |
 | 49             | [Group Anagrams](#49-group-anagrams) | [Explanation](#49-group-anagrams)            | [Python Code](./049_group_anagrams.py)           |
 | 347            | [Top K Frequent Elements](#347-top-k-frequent-elements) | [Explanation](#347-top-k-frequent-elements) | [Python Code](./347_top_k_frequent_elements.py) |
+| 271            | [Encode and Decode Strings](#271-encode-and-decode-strings) | [Explanation](#271-encode-and-decode-strings) | [Python Code](./271_encode_decode_strings.py) |
 
 ## 217. Contains Duplicate
 
@@ -120,3 +121,30 @@ To solve this problem, we first count the frequency of each element using a dict
 **Notes**:
 - Time complexity: O(n), where `n` is the number of elements in `nums`.
 - Space complexity: O(n), due to the storage of frequency counts and bucket lists.
+
+## 271. Encode and Decode Strings
+
+**Description**:
+Design an algorithm to encode and decode a list of strings. The encoding and decoding must be reversible.
+
+**Example**:
+```plaintext
+Input:
+["hello","world"]
+
+Output:
+"5#hello5#world"
+
+Decoded Output:
+["hello","world"]
+```
+
+**Solution**:
+To encode the list of strings, concatenate each string's length, a delimiter, and the string itself. For decoding, extract each string length from the encoded string, then retrieve the corresponding string based on its length.
+
+**Python Code**:
+[Link to code](271_encode_decode_strings.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the total number of characters in all strings combined.
+- Space complexity: O(n), as we are storing the encoded string.
