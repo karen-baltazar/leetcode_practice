@@ -8,6 +8,7 @@
 | 392            | [Is Subsequence](#392-is-subsequence) | [Explanation](#392-is-subsequence)               | [Python Code](./392_is_subsequence.py)             |
 | 121            | [Buy Sell Stock](#121-best-time-to-buy-and-sell-stock) | [Explanation](#121-best-time-to-buy-and-sell-stock)          | [Python Code](./121_buy_sell_stock.py)       |
 | 14             | [Longest Common Prefix](#14-longest-common-prefix) | [Explanation](#14-longest-common-prefix) | [Python Code](./14_longest_common_prefix.py) |
+| 228            | [Summary Ranges](#228-summary-ranges) | [Explanation](#228-summary-ranges) | [Python Code](./228_summary_ranges.py) |
 
 ## 2239. Find Closest Number to Zero
 
@@ -140,3 +141,25 @@ To find the longest common prefix, determine the minimum length among all string
 **Notes**:
 - Time complexity: O(n * m), where n is the number of strings and m is the length of the shortest string.
 - Space complexity: O(1), as only a few extra variables are used.
+
+## 228. Summary Ranges
+
+**Description**:
+Given a sorted integer array without duplicates, return the summary of its ranges. A range `[a,b]` is represented as a string `a->b` if `a` is not equal to `b`. Otherwise, it is represented as a string `a`.
+
+**Example**:
+```plaintext
+Input:
+nums = [0,1,2,4,5,7]
+
+Output: ["0->2","4->5","7"]
+```
+
+**Solution**:
+To summarize ranges, traverse the list and identify continuous sequences. Use a while loop to determine the start and end of each range, then format and store these ranges accordingly.
+
+[Link to code](228_summary_ranges.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of elements in the input list.
+- Space complexity: O(n), as the result list stores all ranges.
