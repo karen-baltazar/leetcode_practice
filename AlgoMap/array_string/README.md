@@ -6,6 +6,7 @@
 | 1768           | [Merge Strings Alternately](#1768-merge-strings-alternately) | [Explanation](#1768-merge-strings-alternately) | [Python Code](./1768_merge_strings_alternately.py)  |
 | 13             | [Roman to Integer](#13-roman-to-integer) | [Explanation](#13-roman-to-integer)               | [Python Code](./13_roman_to_integer.py)            |
 | 392            | [Is Subsequence](#392-is-subsequence) | [Explanation](#392-is-subsequence)               | [Python Code](./392_is_subsequence.py)             |
+| 121            | [Buy Sell Stock](#121-best-time-to-buy-and-sell-stock) | [Explanation](#121-best-time-to-buy-and-sell-stock)          | [Python Code](./121_buy_sell_stock.py)       |
 
 ## 2239. Find Closest Number to Zero
 
@@ -95,3 +96,24 @@ To determine if `s` is a subsequence of `t`, use two pointers: one for each stri
 **Notes**:
 - Time complexity: O(n), where n is the length of string `t`.
 - Space complexity: O(1), as only a few extra variables are used.
+
+## 121. Best Time to Buy and Sell Stock
+
+**Description**:
+Given an array `prices` where `prices[i]` is the price of a given stock on the `i`-th day, find the maximum profit you can achieve from this stock by buying on one day and selling on another day.
+
+**Example**:
+```plaintext
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+```
+
+**Solution**:
+To maximize profit, we want to find the maximum difference between two prices (buying price and selling price). We iterate through the prices array and keep track of the minimum price encountered so far. For each price, we calculate the profit if we sell at that price and update the maximum profit if necessary.
+
+[Link to code](121_buy_sell_stock.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the prices array.
+- Space complexity: O(1), as the algorithm uses only a constant amount of extra space.
