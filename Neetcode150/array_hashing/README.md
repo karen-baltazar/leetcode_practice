@@ -5,6 +5,7 @@
 | 217            | [Contains Duplicate](#217-contains-duplicate) | [Explanation](#217-contains-duplicate)                  | [Python Code](./217_contains_duplicate.py)            |
 | 1              | [Two Sum](#1-two-sum) | [Explanation](#1-two-sum)                            | [Python Code](./001_two_sum.py)     |
 | 49             | [Group Anagrams](#49-group-anagrams) | [Explanation](#49-group-anagrams)            | [Python Code](./049_group_anagrams.py)           |
+| 347            | [Top K Frequent Elements](#347-top-k-frequent-elements) | [Explanation](#347-top-k-frequent-elements) | [Python Code](./347_top_k_frequent_elements.py) |
 
 ## 217. Contains Duplicate
 
@@ -94,3 +95,28 @@ To group anagrams, we use a dictionary where each key is a tuple representing th
 **Notes**:
 - Time complexity: O(n * k), where `n` is the number of strings and `k` is the maximum length of a string.
 - Space complexity: O(n * k), due to storing the groups and the character counts.
+
+## 347. Top K Frequent Elements
+
+**Description**:
+Given a non-empty array of integers, return the `k` most frequent elements. You may assume that the answer is guaranteed to be unique.
+
+**Example**:
+```plaintext
+Input:
+nums = [1,1,1,2,2,3]
+k = 2
+
+Output:
+[1, 2]
+```
+
+**Solution**:
+To solve this problem, we first count the frequency of each element using a dictionary. We then organize these elements into a list of lists, where each index represents the frequency of the elements. Finally, we iterate from the end of this list to gather the top `k` most frequent elements.
+
+**Python Code**:
+[Link to code](347_top_k_frequent_elements.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the number of elements in `nums`.
+- Space complexity: O(n), due to the storage of frequency counts and bucket lists.
