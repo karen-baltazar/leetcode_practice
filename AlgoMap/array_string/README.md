@@ -7,6 +7,7 @@
 | 13             | [Roman to Integer](#13-roman-to-integer) | [Explanation](#13-roman-to-integer)               | [Python Code](./13_roman_to_integer.py)            |
 | 392            | [Is Subsequence](#392-is-subsequence) | [Explanation](#392-is-subsequence)               | [Python Code](./392_is_subsequence.py)             |
 | 121            | [Buy Sell Stock](#121-best-time-to-buy-and-sell-stock) | [Explanation](#121-best-time-to-buy-and-sell-stock)          | [Python Code](./121_buy_sell_stock.py)       |
+| 14             | [Longest Common Prefix](#14-longest-common-prefix) | [Explanation](#14-longest-common-prefix) | [Python Code](./14_longest_common_prefix.py) |
 
 ## 2239. Find Closest Number to Zero
 
@@ -117,3 +118,25 @@ To maximize profit, we want to find the maximum difference between two prices (b
 **Notes**:
 - Time complexity: O(n), where n is the length of the prices array.
 - Space complexity: O(1), as the algorithm uses only a constant amount of extra space.
+
+## 14. Longest Common Prefix
+
+**Description**:
+Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string.
+
+**Example**:
+```plaintext
+Input:
+strs = ["flower","flow","flight"]
+
+Output: "fl"
+```
+
+**Solution**:
+To find the longest common prefix, determine the minimum length among all strings and then compare characters at each position up to that length. Return the common prefix found during this comparison.
+
+[Link to code](14_longest_common_prefix.py)
+
+**Notes**:
+- Time complexity: O(n * m), where n is the number of strings and m is the length of the shortest string.
+- Space complexity: O(1), as only a few extra variables are used.
