@@ -20,3 +20,22 @@ To determine if the array contains duplicates, we can use a set to track the uni
 - **Time complexity**: O(n), where n is the length of the array. Each insertion and lookup in the set is O(1) on average.
 - **Space complexity**: O(n), as we store up to n elements in the set.
 
+## 242. Valid Anagram
+
+**Description**:
+Given two strings `s` and `t`, return `True` if `t` is an anagram of `s`, and `False` otherwise. An anagram is a word or phrase formed by rearranging the letters of another, typically using all the original letters exactly once.
+
+**Example**:
+```plaintext
+Input: s = "anagram", t = "nagaram"
+Output: True
+```
+
+**Solution**:
+To check if two strings are anagrams, we can compare the frequency of each character in both strings. We first check if the lengths of the strings are equal. If not, they can't be anagrams. We then create two dictionaries to store the frequency of each character in both strings. Finally, we compare the two dictionaries to determine if the strings are anagrams.
+
+[Link to code](242_valid_anagram.py)
+
+**Notes**:
+- **Time complexity**: O(n), where n is the length of the strings.
+- **Space complexity**: O(n), as we store the frequency of each character in a dictionary.
