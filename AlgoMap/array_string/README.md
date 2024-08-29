@@ -9,6 +9,7 @@
 | 121            | [Buy Sell Stock](#121-best-time-to-buy-and-sell-stock) | [Explanation](#121-best-time-to-buy-and-sell-stock)          | [Python Code](./121_buy_sell_stock.py)       |
 | 14             | [Longest Common Prefix](#14-longest-common-prefix) | [Explanation](#14-longest-common-prefix) | [Python Code](./14_longest_common_prefix.py) |
 | 228            | [Summary Ranges](#228-summary-ranges) | [Explanation](#228-summary-ranges) | [Python Code](./228_summary_ranges.py) |
+| 238            | [Product of Array Except Self](#238-product-of-array-except-self) | [Explanation](#238-product-of-array-except-self) | [Python Code](./238_product_of_array_except_self.py) |
 
 ## 2239. Find Closest Number to Zero
 
@@ -163,3 +164,27 @@ To summarize ranges, traverse the list and identify continuous sequences. Use a 
 **Notes**:
 - Time complexity: O(n), where n is the number of elements in the input list.
 - Space complexity: O(n), as the result list stores all ranges.
+
+## 238. Product of Array Except Self
+
+**Description**:
+Given an integer array `nums`, return an array `output` such that `output[i]` is equal to the product of all the elements of `nums` except `nums[i]`.
+
+**Example**:
+```plaintext
+Input:
+[1,2,3,4]
+
+Output:
+[24,12,8,6]
+```
+
+**Solution**:
+To solve this problem without using division, we can use two passes over the array. The first pass calculates the prefix products (product of all elements before the current element), and the second pass calculates the postfix products (product of all elements after the current element) and combines them with the prefix products.
+
+**Python Code**:
+[Link to code](238_product_of_array_except_self.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the number of elements in the input array.
+- Space complexity: O(1) (excluding the space used for the output array).
