@@ -6,6 +6,7 @@
 | 217            | [Contains Duplicate](#217-contains-duplicate) | [Explanation](#217-contains-duplicate)                  | [Python Code](./217_contains_duplicate.py)            |
 | 382            | [Ransom Note](#382-ransom-note)    | [Explanation](#382-ransom-note)  | [Python Code](./382_ransom_note.py)       |
 | 242            | [Valid Anagram](#242-valid-anagram) | [Explanation](#242-valid-anagram)                         | [Python Code](./242_valid_anagram.py)                 |
+| 1189           | [Maximum Number of Balloons](#1189-max-number-of-balloons)  | [Explanation](#1189-max-number-of-balloons)  | [Python Code](./1189_max_number_of_balloons.py) |
 
 ## 771. Jewels and Stones
 
@@ -92,3 +93,23 @@ To check if two strings are anagrams, we can compare the frequency of each chara
 **Notes**:
 - **Time complexity**: O(n), where n is the length of the strings.
 - **Space complexity**: O(n), as we store the frequency of each character in a dictionary.
+
+## 1189. Maximum Number of Balloons
+
+**Description**:
+Given a string `text`, you need to return the maximum number of instances of the word "balloon" that can be formed using the characters in `text`. Each character in `text` can only be used once.
+
+**Example**:
+```plaintext
+Input: text = "nlaebolko"
+Output: 1
+```
+
+**Solution**:
+The solution involves counting the frequency of the characters 'b', 'a', 'l', 'o', and 'n' in the input text. Since the word "balloon" requires 'l' and 'o' to appear twice, we divide their counts by 2. The result is the minimum number of times we can form the word "balloon" using the characters from the input text.
+
+[Link to code](1189_max_number_of_balloons.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the input text.
+- Space complexity: O(1), since we're only counting a fixed set of characters.
