@@ -4,6 +4,7 @@
 | 242            | [Valid Anagram](#242-valid-anagram) | [Explanation](#242-valid-anagram)                         | [Python Code](./242_valid_anagram.py)                 |
 | 217            | [Contains Duplicate](#217-contains-duplicate) | [Explanation](#217-contains-duplicate)                  | [Python Code](./217_contains_duplicate.py)            |
 | 1              | [Two Sum](#1-two-sum) | [Explanation](#1-two-sum)                            | [Python Code](./001_two_sum.py)     |
+| 49             | [Group Anagrams](#49-group-anagrams) | [Explanation](#49-group-anagrams)            | [Python Code](./049_group_anagrams.py)           |
 
 ## 217. Contains Duplicate
 
@@ -65,3 +66,31 @@ To solve this problem, we use a hash map to store the indices of the numbers we 
 **Notes**:
 - Time complexity: O(n), where n is the number of elements in the input list `nums`.
 - Space complexity: O(n), due to the space used by the hash map to store the indices.
+
+## 49. Group Anagrams
+
+**Description**:
+Given an array of strings `strs`, group the anagrams together. You can return the answer in any order.
+
+**Example**:
+```plaintext
+Input:
+strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+
+Output:
+[
+  ["bat"],
+  ["nat","tan"],
+  ["ate","eat","tea"]
+]
+```
+
+**Solution**:
+To group anagrams, we use a dictionary where each key is a tuple representing the count of each character (from 'a' to 'z') in a word. All anagrams will share the same key, allowing us to group them together efficiently.
+
+**Python Code**:
+[Link to code](049_group_anagrams.py)
+
+**Notes**:
+- Time complexity: O(n * k), where `n` is the number of strings and `k` is the maximum length of a string.
+- Space complexity: O(n * k), due to storing the groups and the character counts.
