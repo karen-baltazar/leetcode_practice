@@ -7,6 +7,7 @@
 | 49             | [Group Anagrams](#49-group-anagrams) | [Explanation](#49-group-anagrams)            | [Python Code](./049_group_anagrams.py)           |
 | 347            | [Top K Frequent Elements](#347-top-k-frequent-elements) | [Explanation](#347-top-k-frequent-elements) | [Python Code](./347_top_k_frequent_elements.py) |
 | 271            | [Encode and Decode Strings](#271-encode-and-decode-strings) | [Explanation](#271-encode-and-decode-strings) | [Python Code](./271_encode_decode_strings.py) |
+| 238            | [Product of Array Except Self](#238-product-of-array-except-self) | [Explanation](#238-product-of-array-except-self) | [Python Code](./238_product_of_array_except_self.py) |
 
 ## 217. Contains Duplicate
 
@@ -148,3 +149,27 @@ To encode the list of strings, concatenate each string's length, a delimiter, an
 **Notes**:
 - Time complexity: O(n), where `n` is the total number of characters in all strings combined.
 - Space complexity: O(n), as we are storing the encoded string.
+
+## 238. Product of Array Except Self
+
+**Description**:
+Given an integer array `nums`, return an array `output` such that `output[i]` is equal to the product of all the elements of `nums` except `nums[i]`.
+
+**Example**:
+```plaintext
+Input:
+[1,2,3,4]
+
+Output:
+[24,12,8,6]
+```
+
+**Solution**:
+To solve this problem without using division, we can use two passes over the array. The first pass calculates the prefix products (product of all elements before the current element), and the second pass calculates the postfix products (product of all elements after the current element) and combines them with the prefix products.
+
+**Python Code**:
+[Link to code](238_product_of_array_except_self.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the number of elements in the input array.
+- Space complexity: O(1) (excluding the space used for the output array).
