@@ -10,6 +10,7 @@
 | 14             | [Longest Common Prefix](#14-longest-common-prefix) | [Explanation](#14-longest-common-prefix) | [Python Code](./14_longest_common_prefix.py) |
 | 228            | [Summary Ranges](#228-summary-ranges) | [Explanation](#228-summary-ranges) | [Python Code](./228_summary_ranges.py) |
 | 238            | [Product of Array Except Self](#238-product-of-array-except-self) | [Explanation](#238-product-of-array-except-self) | [Python Code](./238_product_of_array_except_self.py) |
+| 56             | [Merge Intervals](#56-merge-intervals) | [Explanation](#56-merge-intervals) | [Python Code](./56_merge_intervals.py) |
 
 ## 2239. Find Closest Number to Zero
 
@@ -188,3 +189,25 @@ To solve this problem without using division, we can use two passes over the arr
 **Notes**:
 - Time complexity: O(n), where `n` is the number of elements in the input array.
 - Space complexity: O(1) (excluding the space used for the output array).
+
+## 56. Merge Intervals
+
+**Description**:
+Given a collection of intervals, merge all overlapping intervals. An interval `[a, b]` is represented as a list of integers `[a, b]`. The goal is to combine all intervals that overlap into one continuous interval.
+
+**Example**:
+```plaintext
+Input:
+intervals = [[1,3],[2,6],[8,10],[15,18]]
+
+Output: [[1,6],[8,10],[15,18]]
+```
+
+**Solution**:
+Sort the intervals by their starting points. Then, iterate through the sorted intervals and merge overlapping intervals by comparing the end of the last interval in the merged list with the start of the current interval.
+
+[Link to code](56_merge_intervals.py)
+
+**Notes**:
+- Time complexity: O(n log n), due to the sorting step.
+- Space complexity: O(n), for storing the merged intervals.
