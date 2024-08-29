@@ -4,6 +4,7 @@
 |----------------|------------------------------------------------|------------------------------------------------|-------------------------------------------------------|
 | 2239           | [Find Closest Number to Zero](#2239-find-closest-number-to-zero) | [Explanation](#2239-find-closest-number-to-zero) | [Python Code](./2239_find_closest_number_to_zero.py) |
 | 1768           | [Merge Strings Alternately](#1768-merge-strings-alternately) | [Explanation](#1768-merge-strings-alternately) | [Python Code](./1768_merge_strings_alternately.py)  |
+| 13             | [Roman to Integer](#13-roman-to-integer) | [Explanation](#13-roman-to-integer)               | [Python Code](./13_roman_to_integer.py)            |
 
 ## 2239. Find Closest Number to Zero
 
@@ -49,3 +50,25 @@ To merge the strings alternately, iterate through both strings and add character
 **Notes**:
 - Time complexity: O(m + n), where m and n are the lengths of `word1` and `word2`, respectively.
 - Space complexity: O(m + n), due to the space needed to store the merged string.
+
+## 13. Roman to Integer
+
+**Description**:
+Convert a Roman numeral string to an integer. Roman numerals are represented by seven different symbols: I, V, X, L, C, D, and M. When a smaller numeral appears before a larger one, it indicates subtraction. For example, IV is 4, and IX is 9.
+
+**Example**:
+```plaintext
+Input:
+s = "MCMXCIV"
+
+Output: 1994
+```
+
+**Solution**:
+To convert a Roman numeral string to an integer, use a dictionary to map each Roman numeral to its corresponding integer value. Traverse the string while checking for subtractive cases where a smaller numeral precedes a larger one.
+
+[Link to code](13_roman_to_integer.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the input string.
+- Space complexity: O(1), since the space used is independent of the input size.
