@@ -5,6 +5,7 @@
 | 2239           | [Find Closest Number to Zero](#2239-find-closest-number-to-zero) | [Explanation](#2239-find-closest-number-to-zero) | [Python Code](./2239_find_closest_number_to_zero.py) |
 | 1768           | [Merge Strings Alternately](#1768-merge-strings-alternately) | [Explanation](#1768-merge-strings-alternately) | [Python Code](./1768_merge_strings_alternately.py)  |
 | 13             | [Roman to Integer](#13-roman-to-integer) | [Explanation](#13-roman-to-integer)               | [Python Code](./13_roman_to_integer.py)            |
+| 392            | [Is Subsequence](#392-is-subsequence) | [Explanation](#392-is-subsequence)               | [Python Code](./392_is_subsequence.py)             |
 
 ## 2239. Find Closest Number to Zero
 
@@ -72,3 +73,25 @@ To convert a Roman numeral string to an integer, use a dictionary to map each Ro
 **Notes**:
 - Time complexity: O(n), where n is the length of the input string.
 - Space complexity: O(1), since the space used is independent of the input size.
+
+## 392. Is Subsequence
+
+**Description**:
+Given two strings `s` and `t`, return `true` if `s` is a subsequence of `t`, or `false` otherwise. A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.
+
+**Example**:
+```plaintext
+Input:
+s = "abc", t = "ahbgdc"
+
+Output: true
+```
+
+**Solution**:
+To determine if `s` is a subsequence of `t`, use two pointers: one for each string. Traverse `t` and try to match characters in `s`. If you can match all characters of `s` in order, `s` is a subsequence of `t`.
+
+[Link to code](392_is_subsequence.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of string `t`.
+- Space complexity: O(1), as only a few extra variables are used.
