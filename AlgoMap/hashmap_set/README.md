@@ -4,6 +4,7 @@
 |----------------|------------------------------------|--------------------------------------------------|-------------------------------------------|
 | 771            | [Jewels and Stones](#771-jewels-and-stones) | [Explanation](#771-jewels-and-stones)  | [Python Code](./771_jewels_and_stones.py) |
 | 217            | [Contains Duplicate](#217-contains-duplicate) | [Explanation](#217-contains-duplicate)                  | [Python Code](./217_contains_duplicate.py)            |
+| 382            | [Ransom Note](#382-ransom-note)    | [Explanation](#382-ransom-note)  | [Python Code](./382_ransom_note.py)       |
 
 ## 771. Jewels and Stones
 
@@ -48,3 +49,25 @@ To determine if the array contains duplicates, we can use a set to track the uni
 - **Time complexity**: O(n), where n is the length of the array. Each insertion and lookup in the set is O(1) on average.
 - **Space complexity**: O(n), as we store up to n elements in the set.
 
+## 382. Ransom Note
+
+**Description**:
+Given two strings `ransomNote` and `magazine`, return `True` if `ransomNote` can be constructed using the letters from `magazine`. Each letter in `magazine` can only be used once in `ransomNote`.
+
+**Example**:
+```plaintext
+Input:
+ransomNote = "a"
+magazine = "b"
+
+Output: False
+```
+
+**Solution**:
+The solution involves creating a hashmap (dictionary) to count the frequency of each character in `magazine`. We then check each character in `ransomNote` against this hashmap, decrementing the count each time a character is used. If at any point a character is not available or runs out, return `False`.
+
+[Link to code](382_ransom_note.py)
+
+**Notes**:
+- Time complexity: O(n + m), where n is the length of `ransomNote` and m is the length of `magazine`.
+- Space complexity: O(n), for storing the frequency count of characters in `magazine`.
