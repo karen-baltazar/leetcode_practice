@@ -3,7 +3,7 @@
 |----------------|----------------------------|---------------------------------------------------------|-------------------------------------------------------|
 | 242            | [Valid Anagram](#242-valid-anagram) | [Explanation](#242-valid-anagram)                         | [Python Code](./242_valid_anagram.py)                 |
 | 217            | [Contains Duplicate](#217-contains-duplicate) | [Explanation](#217-contains-duplicate)                  | [Python Code](./217_contains_duplicate.py)            |
-
+| 1              | [Two Sum](#1-two-sum) | [Explanation](#1-two-sum)                            | [Python Code](./001_two_sum.py)     |
 
 ## 217. Contains Duplicate
 
@@ -44,3 +44,24 @@ To check if two strings are anagrams, we can compare the frequency of each chara
 **Notes**:
 - **Time complexity**: O(n), where n is the length of the strings.
 - **Space complexity**: O(n), as we store the frequency of each character in a dictionary.
+
+## 1. Two Sum
+
+**Description**:
+Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`. You may assume that each input would have exactly one solution, and you may not use the same element twice. 
+
+**Example**:
+```plaintext
+Input: nums = [2, 7, 11, 15], target = 9
+Output: [0, 1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+```
+
+**Solution**:
+To solve this problem, we use a hash map to store the indices of the numbers we have seen so far. For each number in the list, we compute the difference between the target and the current number. If this difference exists in the hash map, it means we have found the two numbers that add up to the target. Otherwise, we store the current number and its index in the hash map for future reference.
+
+[Link to code](001_two_sum.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of elements in the input list `nums`.
+- Space complexity: O(n), due to the space used by the hash map to store the indices.
