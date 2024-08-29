@@ -5,6 +5,7 @@
 | 771            | [Jewels and Stones](#771-jewels-and-stones) | [Explanation](#771-jewels-and-stones)  | [Python Code](./771_jewels_and_stones.py) |
 | 217            | [Contains Duplicate](#217-contains-duplicate) | [Explanation](#217-contains-duplicate)                  | [Python Code](./217_contains_duplicate.py)            |
 | 382            | [Ransom Note](#382-ransom-note)    | [Explanation](#382-ransom-note)  | [Python Code](./382_ransom_note.py)       |
+| 242            | [Valid Anagram](#242-valid-anagram) | [Explanation](#242-valid-anagram)                         | [Python Code](./242_valid_anagram.py)                 |
 
 ## 771. Jewels and Stones
 
@@ -71,3 +72,23 @@ The solution involves creating a hashmap (dictionary) to count the frequency of 
 **Notes**:
 - Time complexity: O(n + m), where n is the length of `ransomNote` and m is the length of `magazine`.
 - Space complexity: O(n), for storing the frequency count of characters in `magazine`.
+
+## 242. Valid Anagram
+
+**Description**:
+Given two strings `s` and `t`, return `True` if `t` is an anagram of `s`, and `False` otherwise. An anagram is a word or phrase formed by rearranging the letters of another, typically using all the original letters exactly once.
+
+**Example**:
+```plaintext
+Input: s = "anagram", t = "nagaram"
+Output: True
+```
+
+**Solution**:
+To check if two strings are anagrams, we can compare the frequency of each character in both strings. We first check if the lengths of the strings are equal. If not, they can't be anagrams. We then create two dictionaries to store the frequency of each character in both strings. Finally, we compare the two dictionaries to determine if the strings are anagrams.
+
+[Link to code](242_valid_anagram.py)
+
+**Notes**:
+- **Time complexity**: O(n), where n is the length of the strings.
+- **Space complexity**: O(n), as we store the frequency of each character in a dictionary.
