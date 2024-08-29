@@ -12,6 +12,7 @@
 | 238            | [Product of Array Except Self](#238-product-of-array-except-self) | [Explanation](#238-product-of-array-except-self) | [Python Code](./238_product_of_array_except_self.py) |
 | 56             | [Merge Intervals](#56-merge-intervals) | [Explanation](#56-merge-intervals) | [Python Code](./056_merge_intervals.py) |
 | 54             | [Merge Intervals](#54-spiral-matrix) | [Explanation](#54-spiral-matrix) | [Python Code](./054_spiral_matrix.py) |
+| 48             | [Merge Intervals](#48-rotate-image) | [Explanation](#48-rotate-image) | [Python Code](./048_rotate_image.py) |
 
 ## 2239. Find Closest Number to Zero
 
@@ -236,3 +237,33 @@ To traverse the matrix in spiral order, we maintain boundaries for the top, bott
 **Notes**:
 - Time complexity: O(m * n), where m is the number of rows and n is the number of columns.
 - Space complexity: O(1) for extra space used (excluding the output list).
+
+## 48. Rotate Image
+
+**Description**:
+You are given an `n x n` 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
+
+You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. Do not allocate another 2D matrix and do the rotation.
+
+**Example**:
+```plaintext
+Input: matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+Output: [
+  [7, 4, 1],
+  [8, 5, 2],
+  [9, 6, 3]
+]
+```
+
+**Solution**:
+To rotate the image by 90 degrees in-place, we can process the matrix layer by layer, moving elements from the bottom to the top, the left to the bottom, the top to the right, and the saved top to the right. We adjust the boundaries inward after each full layer rotation.
+
+[Link to code](048_rotate_image.py)
+
+**Notes**:
+- Time complexity: O(n^2), where n is the dimension of the matrix.
+- Space complexity: O(1), since the rotation is done in-place without extra space.
