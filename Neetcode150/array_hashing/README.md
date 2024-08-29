@@ -1,4 +1,9 @@
 # Problems
+| Problem Number | Problem Name               | Explanation                                             | Code                                                  |
+|----------------|----------------------------|---------------------------------------------------------|-------------------------------------------------------|
+| 242            | [Valid Anagram](#242-valid-anagram) | [Explanation](#242-valid-anagram)                         | [Python Code](./242_valid_anagram.py)                 |
+| 217            | [Contains Duplicate](#217-contains-duplicate) | [Explanation](#217-contains-duplicate)                  | [Python Code](./217_contains_duplicate.py)            |
+
 
 ## 217. Contains Duplicate
 
