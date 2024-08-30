@@ -8,6 +8,7 @@
 | 125            | [Valid Palindrome](#125-valid-palindrome)    | [Explanation](#125-valid-palindrome)          | [Python Code](./125_valid_palindrome.py)  |
 | 15             | [3Sum](#15-3sum)                               | [Explanation](#15-3sum)                       | [Python Code](./015_3sum.py)               |
 | 11             | [Container with Most Water](#11-container-with-most-water) | [Explanation](#11-container-with-most-water) | [Python Code](./011_container_with_most_water.py) |
+| 42             | [Trapping Rain Water](#42-trapping-rain-water) | [Explanation](#42-trapping-rain-water)       | [Python Code](./042_trapping_rain_water.py)      |
 
 ## 977. Squares of a Sorted Array
 
@@ -109,11 +110,11 @@ The solution involves using a combination of sorting and the two-pointer techniq
 3. **Use Two Pointers** to find pairs that sum to the negative value of the fixed element.
 4. **Avoid Duplicates** by skipping over duplicate values during the search.
 
+[Link to code](./015_3sum.py)
+
 **Notes**:
 - Time complexity: O(n^2), where n is the length of the input array. This is due to the nested loop structure where we iterate through the array and use two pointers.
 - Space complexity: O(n) for storing the result triplets.
-
-[Link to code](./015_3sum.py)
 
 ## 11. Container with Most Water
 
@@ -129,8 +130,30 @@ Output: 49
 **Solution**:
 The solution uses a two-pointer approach to find the maximum area. The pointers start at the beginning and end of the list and move inward, calculating the area at each step. The pointer pointing to the shorter line is moved to potentially find a taller line that could yield a larger area.
 
+[Link to code](./011_container_with_most_water.py)
+
 **Notes**:
 - Time complexity: O(n), where n is the number of elements in the list. Each element is processed once.
 - Space complexity: O(1), as no additional space is used other than a few variables.
 
-[Link to code](./011_container_with_most_water.py)
+## 42. Trapping Rain Water
+
+**Description**:
+Given `n` non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
+
+**Example**:
+```plaintext
+Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+Output: 6
+```
+
+**Solution**:
+The main solution involves using auxiliary arrays to keep track of the maximum height to the left and right of each element. We then calculate the trapped water above each element by finding the difference between the minimum of the maximum heights and the height of the current element.
+
+An alternative solution uses a two-pointer approach, which saves space but is slightly more complex. This method involves moving two pointers inward from both ends of the list, adjusting the maximum heights and calculating trapped water on the go.
+
+[Link to code](042_trapping_rain_water.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the input list.
+- Space complexity: O(n) for the main solution (O(1) for the alternative solution).
