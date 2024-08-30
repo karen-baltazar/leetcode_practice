@@ -7,6 +7,7 @@
 | 167            | [Two Sum II - Input Array Is Sorted](#167-two-sum-ii-input-array-is-sorted) | [Explanation](#167-two-sum-ii-input-array-is-sorted) | [Python Code](./167_two_sum_ii.py) |
 | 125            | [Valid Palindrome](#125-valid-palindrome)    | [Explanation](#125-valid-palindrome)          | [Python Code](./125_valid_palindrome.py)  |
 | 15             | [3Sum](#15-3sum)                               | [Explanation](#15-3sum)                       | [Python Code](./015_3sum.py)               |
+| 11             | [Container with Most Water](#11-container-with-most-water) | [Explanation](#11-container-with-most-water) | [Python Code](./011_container_with_most_water.py) |
 
 ## 977. Squares of a Sorted Array
 
@@ -112,5 +113,24 @@ The solution involves using a combination of sorting and the two-pointer techniq
 - Time complexity: O(n^2), where n is the length of the input array. This is due to the nested loop structure where we iterate through the array and use two pointers.
 - Space complexity: O(n) for storing the result triplets.
 
-**Code**:
 [Link to code](./015_3sum.py)
+
+## 11. Container with Most Water
+
+**Description**:
+Given an integer array `height` where each element represents the height of a vertical line on a coordinate plane, return the maximum area of water that can be contained between two lines. The width between the lines is the distance between their indices.
+
+**Example**:
+```plaintext
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+```
+
+**Solution**:
+The solution uses a two-pointer approach to find the maximum area. The pointers start at the beginning and end of the list and move inward, calculating the area at each step. The pointer pointing to the shorter line is moved to potentially find a taller line that could yield a larger area.
+
+**Notes**:
+- Time complexity: O(n), where n is the number of elements in the list. Each element is processed once.
+- Space complexity: O(1), as no additional space is used other than a few variables.
+
+[Link to code](./011_container_with_most_water.py)
