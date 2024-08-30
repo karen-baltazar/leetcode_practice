@@ -6,6 +6,7 @@
 | 344            | [Reverse String](#344-reverse-string)    | [Explanation](#344-reverse-string)            | [Python Code](./344_reverse_string.py)    |
 | 167            | [Two Sum II - Input Array Is Sorted](#167-two-sum-ii-input-array-is-sorted) | [Explanation](#167-two-sum-ii-input-array-is-sorted) | [Python Code](./167_two_sum_ii.py) |
 | 125            | [Valid Palindrome](#125-valid-palindrome)    | [Explanation](#125-valid-palindrome)          | [Python Code](./125_valid_palindrome.py)  |
+| 15             | [3Sum](#15-3sum)                               | [Explanation](#15-3sum)                       | [Python Code](./015_3sum.py)               |
 
 ## 977. Squares of a Sorted Array
 
@@ -86,3 +87,30 @@ The solution uses a two-pointer approach. Initialize one pointer at the start of
 **Notes**:
 - Time complexity: O(n), where n is the length of the string.
 - Space complexity: O(1), as no additional space is required.
+
+## 15. 3Sum
+
+**Description**:
+Given an integer array `nums`, return all the unique triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`. 
+
+**Example**:
+```plaintext
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+```
+
+**Solution**:
+The solution involves using a combination of sorting and the two-pointer technique. The array is first sorted to enable the two-pointer approach. For each element in the array (considered as the first element of the triplet), two pointers are used to find two other elements that sum to the negative of the fixed element. To avoid duplicates, we skip over duplicate values during the iteration.
+
+**Algorithm**:
+1. **Sort** the array to apply the two-pointer technique.
+2. **Iterate** over the array with a fixed element.
+3. **Use Two Pointers** to find pairs that sum to the negative value of the fixed element.
+4. **Avoid Duplicates** by skipping over duplicate values during the search.
+
+**Notes**:
+- Time complexity: O(n^2), where n is the length of the input array. This is due to the nested loop structure where we iterate through the array and use two pointers.
+- Space complexity: O(n) for storing the result triplets.
+
+**Code**:
+[Link to code](./015_3sum.py)
