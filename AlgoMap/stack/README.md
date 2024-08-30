@@ -4,6 +4,7 @@
 |----------------|--------------------------------------|--------------------------------------------------|---------------------------------------------------|
 | 20             | [Valid Parentheses](#20-valid-parentheses) | [Explanation](#20-valid-parentheses)             | [Python Code](./020_valid_parentheses.py)           |
 | 682            | [Baseball Game](#682-baseball-game)  | [Explanation](#682-baseball-game)                | [Python Code](./682_baseball_game.py)              |
+| 150            | [Evaluate Reverse Polish Notation](#150-evaluate-reverse-polish-notation) | [Explanation](#150-evaluate-reverse-polish-notation) | [Python Code](./150_evaluate_reverse_polish_notation.py) |
 
 ## 20. Valid Parentheses
 
@@ -52,3 +53,28 @@ The solution uses a list as a record of scores, where each element represents a 
 **Notes**:
 - Time complexity: O(n), where n is the number of operations.
 - Space complexity: O(n), for storing the scores in the list.
+
+## 150. Evaluate Reverse Polish Notation
+
+**Description**:
+Evaluate the value of an arithmetic expression in Reverse Polish Notation. The valid operators are `+`, `-`, `*`, and `/`. Each operand may be an integer or another expression.
+
+Note:
+- Division between two integers should truncate toward zero.
+- The input tokens are always valid Reverse Polish Notation.
+
+**Example**:
+```plaintext
+Input: tokens = ["2","1","+","3","*"]
+Output: 9
+Explanation: ((2 + 1) * 3) = 9
+```
+
+**Solution**:
+The solution uses a stack to keep track of operands. When an operator is encountered, the top two elements are popped from the stack, the operation is performed, and the result is pushed back onto the stack. The final result is the only element remaining in the stack.
+
+[Link to code](150_evaluate_reverse_polish_notation.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of tokens.
+- Space complexity: O(n), for storing the stack.
