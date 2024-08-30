@@ -5,6 +5,7 @@
 | 977            | [Squares of a Sorted Array](#977-squares-of-a-sorted-array) | [Explanation](#977-squares-of-a-sorted-array) | [Python Code](./977_squares_of_a_sorted_array.py) |
 | 344            | [Reverse String](#344-reverse-string)    | [Explanation](#344-reverse-string)            | [Python Code](./344_reverse_string.py)    |
 | 167            | [Two Sum II - Input Array Is Sorted](#167-two-sum-ii-input-array-is-sorted) | [Explanation](#167-two-sum-ii-input-array-is-sorted) | [Python Code](./167_two_sum_ii.py) |
+| 125            | [Valid Palindrome](#125-valid-palindrome)    | [Explanation](#125-valid-palindrome)          | [Python Code](./125_valid_palindrome.py)  |
 
 ## 977. Squares of a Sorted Array
 
@@ -64,4 +65,24 @@ The solution uses a two-pointer approach. Initialize one pointer at the beginnin
 
 **Notes**:
 - Time complexity: O(n), where n is the length of the array.
+- Space complexity: O(1), as no additional space is required.
+
+## 125. Valid Palindrome
+
+**Description**:  
+Given a string `s`, determine if it is a palindrome, considering only alphanumeric characters and ignoring case.
+
+**Example**:
+```plaintext
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+```
+
+**Solution**:  
+The solution uses a two-pointer approach. Initialize one pointer at the start of the string (`start`) and the other at the end (`end`). Skip non-alphanumeric characters and compare the characters at the two pointers. If they do not match, return `False`. If all characters match, return `True`.
+
+[Link to code](125_valid_palindrome.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the string.
 - Space complexity: O(1), as no additional space is required.
