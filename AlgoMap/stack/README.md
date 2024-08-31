@@ -6,6 +6,7 @@
 | 682            | [Baseball Game](#682-baseball-game)  | [Explanation](#682-baseball-game)                | [Python Code](./682_baseball_game.py)              |
 | 150            | [Evaluate Reverse Polish Notation](#150-evaluate-reverse-polish-notation) | [Explanation](#150-evaluate-reverse-polish-notation) | [Python Code](./150_evaluate_reverse_polish_notation.py) |
 | 739            | [Daily Temperatures](#739-daily-temperatures) | [Explanation](#739-daily-temperatures)           | [Python Code](./739_daily_temperatures.py)        |
+| 155            | [Min Stack](#155-min-stack)          | [Explanation](#155-min-stack)                    | [Python Code](./155_min_stack.py)                 |
 
 ## 20. Valid Parentheses
 
@@ -99,3 +100,36 @@ The solution uses a stack to keep track of temperatures and their indices as we 
 **Notes**:
 - Time complexity: O(n), where n is the length of the input list.
 - Space complexity: O(n), for the stack used to store temperatures and indices.
+
+## 155. Min Stack
+
+**Description**:
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+Implement the `MinStack` class:
+- `MinStack()` initializes the stack object.
+- `void push(int val)` pushes the element `val` onto the stack.
+- `void pop()` removes the element on the top of the stack.
+- `int top()` gets the top element of the stack.
+- `int getMin()` retrieves the minimum element in the stack.
+
+**Example**:
+```plaintext
+MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.getMin(); // Returns -3
+minStack.pop();
+minStack.top();    // Returns 0
+minStack.getMin(); // Returns -2
+```
+
+**Solution**:
+The solution uses two stacks: a main stack to store all the values and a min stack to keep track of the minimum values. Every time we push a value, we also check if it's the new minimum. If it is, we push it onto the min stack. When we pop a value, we check if it's the current minimum, and if so, we pop it from the min stack as well. This allows us to get the minimum value in constant time.
+
+[Link to code](155_min_stack.py)
+
+**Notes**:
+- Time complexity: O(1) for all operations.
+- Space complexity: O(n), where n is the number of elements in the stack.
