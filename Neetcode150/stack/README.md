@@ -4,6 +4,7 @@
 |----------------|--------------------------------------|--------------------------------------------------|---------------------------------------------------|
 | 22             | [Generate Parentheses](#22-generate-parentheses) | [Explanation](#22-generate-parentheses)          | [Python Code](./022_generate_parentheses.py)      |
 | 84             | [Largest Rectangle in Histogram](#84-largest-rectangle-in-histogram) | [Explanation](#84-largest-rectangle-in-histogram) | [Python Code](./084_largest_rectangle_in_histogram.py) |
+| 853            | [Car Fleet](#853-car-fleet)          | [Explanation](#853-car-fleet)                    | [Python Code](./853_car_fleet.py)                 |
 
 ## 22. Generate Parentheses
 
@@ -54,3 +55,23 @@ The solution uses a stack-based approach to efficiently calculate the maximum re
 **Notes**:
 - Time complexity: O(n), where n is the number of bars in the histogram.
 - Space complexity: O(n), for the stack.
+
+## 853. Car Fleet
+
+**Description**:
+Given the position and speed of cars heading towards the same target, determine how many car fleets will arrive at the destination.
+
+**Example**:
+```plaintext
+Input: target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]
+Output: 3
+```
+
+**Solution**:
+To solve this problem, we start by pairing each car's position with its speed, and then sort these pairs by position in descending order so that we process cars starting from the closest to the target. For each car, we calculate the time it will take to reach the target and track these times using a stack. If a car's time to reach the target is less than or equal to the time of the car in front of it, it means the current car will catch up and merge into the same fleet as the car ahead. Thus, we only count it as one fleet. The number of fleets that will eventually reach the target is the number of distinct times left in the stack after processing all cars.
+
+[Link to code](./853_car_fleet.py)
+
+**Notes**:
+- Time complexity: O(n log n), where n is the number of cars. The sorting step takes O(n log n) time, and iterating through the cars takes O(n) time.
+- Space complexity: O(n), for the stack used to store the time each car takes to reach the target.
