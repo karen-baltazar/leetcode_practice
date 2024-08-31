@@ -5,6 +5,7 @@
 | 20             | [Valid Parentheses](#20-valid-parentheses) | [Explanation](#20-valid-parentheses)             | [Python Code](./020_valid_parentheses.py)           |
 | 682            | [Baseball Game](#682-baseball-game)  | [Explanation](#682-baseball-game)                | [Python Code](./682_baseball_game.py)              |
 | 150            | [Evaluate Reverse Polish Notation](#150-evaluate-reverse-polish-notation) | [Explanation](#150-evaluate-reverse-polish-notation) | [Python Code](./150_evaluate_reverse_polish_notation.py) |
+| 739            | [Daily Temperatures](#739-daily-temperatures) | [Explanation](#739-daily-temperatures)           | [Python Code](./739_daily_temperatures.py)        |
 
 ## 20. Valid Parentheses
 
@@ -78,3 +79,23 @@ The solution uses a stack to keep track of operands. When an operator is encount
 **Notes**:
 - Time complexity: O(n), where n is the number of tokens.
 - Space complexity: O(n), for storing the stack.
+
+## 739. Daily Temperatures
+
+**Description**:
+Given a list of daily temperatures `temperatures`, return a list `result` such that `result[i]` is the number of days you have to wait after the `i-th` day to get a warmer temperature. If there is no future day for which this is possible, put `0` instead.
+
+**Example**:
+```plaintext
+Input: temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+Output: [1, 1, 4, 2, 1, 1, 0, 0]
+```
+
+**Solution**:
+The solution uses a stack to keep track of temperatures and their indices as we iterate through the list. For each temperature, if it is warmer than the temperature at the top of the stack, we calculate the difference in days and pop the stack. We continue this process until the stack is empty or the current temperature is not warmer than the temperature at the top of the stack. If there are any remaining temperatures in the stack, they are automatically assigned a `0` because no warmer day exists after them.
+
+[Link to code](739_daily_temperatures.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the input list.
+- Space complexity: O(n), for the stack used to store temperatures and indices.
