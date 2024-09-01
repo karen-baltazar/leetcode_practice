@@ -7,6 +7,7 @@
 | 21             | [Merge Two Sorted Lists](#21-merge-two-sorted-lists)| [Explanation](#21-merge-two-sorted-lists)         | [Python Code](./021_merge_two_sorted_lists.py)     |
 | 141            | [Linked List Cycle](#141-linked-list-cycle)| [Explanation](#141-linked-list-cycle)            | [Python Code](./141_linked_list_cycle.py)        |
 | 876            | [Middle of the Linked List](#876-middle-of-the-linked-list) | [Explanation](#876-middle-of-the-linked-list)   | [Python Code](./876_middle_linked_list.py)  |
+| 19             | [Remove Nth Node From End of List](#19-remove-nth-node-from-end-of-list) | [Explanation](#19-remove-nth-node-from-end-of-list) | [Python Code](./019_remove_nth_node_end.py)     |
 
 ## 83. Remove Duplicates from Sorted List
 
@@ -104,6 +105,26 @@ Output: [3]
 To find the middle of the linked list, we use the two-pointer technique. We maintain two pointers, `slow` and `fast`. The `slow` pointer moves one step at a time, while the `fast` pointer moves two steps at a time. When the `fast` pointer reaches the end of the list, the `slow` pointer will be at the middle node. This approach ensures that `slow` will point to the correct middle node, even if the list has an even number of nodes.
 
 [Link to code](./876_middle_linked_list.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the list.
+- Space complexity: O(1), as we are using a constant amount of extra space.
+
+## 19. Remove Nth Node From End of List
+
+**Description**:
+Given the head of a linked list, remove the N-th node from the end of the list and return its head. If the list has fewer nodes than `n`, remove the head node.
+
+**Example**:
+```plaintext
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+```
+
+**Solution**:
+To solve this problem, we use a two-pointer technique. We create a dummy node to handle edge cases easily. Both pointers, `left` and `right`, start at the dummy node. We move the `right` pointer `n+1` steps ahead to create a gap of `n` nodes between `left` and `right`. Then, we move both pointers one step at a time until the `right` pointer reaches the end of the list. At this point, the `left` pointer will be right before the node to be removed. We adjust the `next` pointer of the `left` node to skip the node to be removed.
+
+[Link to code](./019_remove_nth_node_end.py)
 
 **Notes**:
 - Time complexity: O(n), where n is the number of nodes in the list.
