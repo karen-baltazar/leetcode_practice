@@ -8,6 +8,8 @@
 | 141            | [Linked List Cycle](#141-linked-list-cycle)| [Explanation](#141-linked-list-cycle)            | [Python Code](./141_linked_list_cycle.py)        |
 | 876            | [Middle of the Linked List](#876-middle-of-the-linked-list) | [Explanation](#876-middle-of-the-linked-list)   | [Python Code](./876_middle_linked_list.py)  |
 | 19             | [Remove Nth Node From End of List](#19-remove-nth-node-from-end-of-list) | [Explanation](#19-remove-nth-node-from-end-of-list) | [Python Code](./019_remove_nth_node_end.py)     |
+| 138            | [Copy List with Random Pointer](#138-copy-list-with-random-pointer) | [Explanation](#138-copy-list-with-random-pointer) | [Python Code](./138_copy_list_random_pointer.py) |
+
 
 ## 83. Remove Duplicates from Sorted List
 
@@ -129,3 +131,23 @@ To solve this problem, we use a two-pointer technique. We create a dummy node to
 **Notes**:
 - Time complexity: O(n), where n is the number of nodes in the list.
 - Space complexity: O(1), as we are using a constant amount of extra space.
+
+## 138. Copy List with Random Pointer
+
+**Description**:
+Given a linked list where each node contains an additional random pointer, copy the list. Each node in the original list has two pointers: `next` which points to the next node in the list, and `random` which can point to any node in the list or be `null`. The new list should be a deep copy of the original list.
+
+**Example**:
+```plaintext
+Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
+Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
+```
+
+**Solution**:
+We use a two-pass approach to solve this problem. In the first pass, we create a mapping of each original node to its corresponding new copy node and store these mappings in a dictionary. In the second pass, we set the `next` and `random` pointers for each new node using this mapping. This ensures that we correctly replicate the structure of the original list, including the random pointers.
+
+[Link to code](./138_copy_list_random_pointer.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the list.
+- Space complexity: O(n), for storing the node mappings.
