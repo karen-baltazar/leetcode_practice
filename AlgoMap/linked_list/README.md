@@ -5,6 +5,7 @@
 | 83             | [Remove Duplicates from Sorted List](#83-remove-duplicates-from-sorted-list) | [Explanation](#83-remove-duplicates-from-sorted-list) | [Python Code](./083_remove_duplicates_from_sorted_list.py) |
 | 206            | [Reverse Linked List](#206-reverse-linked-list)     | [Explanation](#206-reverse-linked-list)            | [Python Code](./206_reverse_linked_list.py)       |
 | 21             | [Merge Two Sorted Lists](#21-merge-two-sorted-lists)| [Explanation](#21-merge-two-sorted-lists)         | [Python Code](./021_merge_two_sorted_lists.py)     |
+| 141            | [Linked List Cycle](#141-linked-list-cycle)| [Explanation](#141-linked-list-cycle)            | [Python Code](./141_linked_list_cycle.py)        |
 
 ## 83. Remove Duplicates from Sorted List
 
@@ -65,3 +66,24 @@ The solution uses a dummy node to simplify the merging process. We iterate throu
 **Notes**:
 - Time complexity: O(n + m), where n and m are the lengths of `list1` and `list2`, respectively.
 - Space complexity: O(1), as we are not using any additional data structures other than a few pointers.
+
+## 141. Linked List Cycle
+
+**Description**:
+Given a linked list, determine if it has a cycle in it. A cycle is present if a node's next pointer points to an earlier node in the list, creating a loop.
+
+**Example**:
+```plaintext
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the list, where the tail connects to the second node.
+```
+
+**Solution**:
+The solution employs the two-pointer technique. We use two pointers, `slow` and `fast`. `slow` moves one step at a time, while `fast` moves two steps at a time. If there is a cycle in the list, `slow` and `fast` will eventually meet at some point within the cycle. If `fast` reaches the end of the list (i.e., `fast` or `fast.next` is `None`), then there is no cycle.
+
+[Link to code](./141_linked_list_cycle.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the list.
+- Space complexity: O(1), as we are using a constant amount of extra space.
