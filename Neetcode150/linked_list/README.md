@@ -3,6 +3,7 @@
 | Problem Number | Problem Name                                   | Explanation                                          | Code                                       |
 |----------------|------------------------------------------------|------------------------------------------------------|--------------------------------------------|
 | 143            | [Reorder List](#143-reorder-list)              | [Explanation](#143-reorder-list)                     | [Python Code](./143_reorder_list.py)       |
+| 2            | [Add Two Numbers](#2-add-two-numbers)   | [Explanation](#2-add-two-numbers)            | [Python Code](./002_add_two_numbers.py)      |
 
 ## 143. Reorder List
 
@@ -23,3 +24,24 @@ The solution can be approached in two main steps. First, find the middle of the 
 **Notes**:
 - Time complexity: O(n), where n is the number of nodes in the linked list.
 - Space complexity: O(1), as the reordering is done in-place without using additional space.
+
+## 2. Add Two Numbers
+
+**Description**:
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+
+**Example**:
+```plaintext
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.
+```
+
+**Solution**:
+We traverse both linked lists simultaneously, adding corresponding digits. If the sum of the digits is 10 or more, we keep track of the carry to add to the next pair of digits. The process continues until both lists are fully traversed and there is no remaining carry. The resulting sum is stored in a new linked list.
+
+[Link to code](./002_add_two_numbers.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the longer linked list.
+- Space complexity: O(1), as we only use a constant amount of extra space (not counting the output list).
