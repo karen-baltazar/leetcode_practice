@@ -6,6 +6,7 @@
 | 206            | [Reverse Linked List](#206-reverse-linked-list)     | [Explanation](#206-reverse-linked-list)            | [Python Code](./206_reverse_linked_list.py)       |
 | 21             | [Merge Two Sorted Lists](#21-merge-two-sorted-lists)| [Explanation](#21-merge-two-sorted-lists)         | [Python Code](./021_merge_two_sorted_lists.py)     |
 | 141            | [Linked List Cycle](#141-linked-list-cycle)| [Explanation](#141-linked-list-cycle)            | [Python Code](./141_linked_list_cycle.py)        |
+| 876            | [Middle of the Linked List](#876-middle-of-the-linked-list) | [Explanation](#876-middle-of-the-linked-list)   | [Python Code](./876_middle_linked_list.py)  |
 
 ## 83. Remove Duplicates from Sorted List
 
@@ -83,6 +84,26 @@ Explanation: There is a cycle in the list, where the tail connects to the second
 The solution employs the two-pointer technique. We use two pointers, `slow` and `fast`. `slow` moves one step at a time, while `fast` moves two steps at a time. If there is a cycle in the list, `slow` and `fast` will eventually meet at some point within the cycle. If `fast` reaches the end of the list (i.e., `fast` or `fast.next` is `None`), then there is no cycle.
 
 [Link to code](./141_linked_list_cycle.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the list.
+- Space complexity: O(1), as we are using a constant amount of extra space.
+
+## 876. Middle of the Linked List
+
+**Description**:
+Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.
+
+**Example**:
+```plaintext
+Input: head = [1,2,3,4,5]
+Output: [3]
+```
+
+**Solution**:
+To find the middle of the linked list, we use the two-pointer technique. We maintain two pointers, `slow` and `fast`. The `slow` pointer moves one step at a time, while the `fast` pointer moves two steps at a time. When the `fast` pointer reaches the end of the list, the `slow` pointer will be at the middle node. This approach ensures that `slow` will point to the correct middle node, even if the list has an even number of nodes.
+
+[Link to code](./876_middle_linked_list.py)
 
 **Notes**:
 - Time complexity: O(n), where n is the number of nodes in the list.
