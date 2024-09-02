@@ -8,6 +8,7 @@
 | 367            | [Valid Perfect Square](#367-valid-perfect-square) | [Explanation](#367-valid-perfect-square)         | [Python Code](./367_valid_perfect_square.py)   |
 | 74            | [Search a 2D Matrix](#74-search-a-2d-matrix) | [Explanation](#74-search-a-2d-matrix) | [Python Code](./074_search_2d_matrix.py) |
 | 153            | [Find Minimum in Rotated Sorted Array](#153-find-minimum-in-rotated-sorted-array) | [Explanation](#153-find-minimum-in-rotated-sorted-array) | [Python Code](./153_min_in_rotated_array.py) |
+| 33             | [Search in Rotated Sorted Array](#33-search-in-rotated-sorted-array) | [Explanation](#33-search-in-rotated-sorted-array) | [Python Code](./033_search_rotated_array.py) |
 
 ## 704. Binary Search
 
@@ -153,4 +154,27 @@ To find the minimum element in a rotated sorted array, we can use a binary searc
 
 **Notes**:
 - Time complexity: O(log n), where n is the number of elements in the array.
+- Space complexity: O(1), as only a constant amount of extra space is used.
+
+## 33. Search in Rotated Sorted Array
+
+**Description**:
+You are given a rotated sorted array where the rotation point is unknown. Write a function to search for a given target in the array and return its index. If the target is not found, return `-1`. The solution must run in `O(log n)` time complexity.
+
+**Example**:
+```plaintext
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+Explanation: 0 is found at index 4.
+```
+
+**Solution**:
+The problem can be solved in two phases:
+1. First, find the smallest element, which serves as the rotation point using binary search.
+2. After determining the rotation point, perform another binary search in the appropriate subarray based on the target's value.
+
+[Link to code](./033_search_rotated_array.py)
+
+**Notes**:
+- Time complexity: O(log n), since both steps use binary search.
 - Space complexity: O(1), as only a constant amount of extra space is used.
