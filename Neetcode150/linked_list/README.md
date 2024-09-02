@@ -4,6 +4,7 @@
 |----------------|------------------------------------------------|------------------------------------------------------|--------------------------------------------|
 | 143            | [Reorder List](#143-reorder-list)              | [Explanation](#143-reorder-list)                     | [Python Code](./143_reorder_list.py)       |
 | 2            | [Add Two Numbers](#2-add-two-numbers)   | [Explanation](#2-add-two-numbers)            | [Python Code](./002_add_two_numbers.py)      |
+| 287            | [Find the Duplicate Number](#287-find-the-duplicate-number) | [Explanation](#287-find-the-duplicate-number)   | [Python Code](./287_find_duplicate.py)       |
 
 ## 143. Reorder List
 
@@ -45,3 +46,24 @@ We traverse both linked lists simultaneously, adding corresponding digits. If th
 **Notes**:
 - Time complexity: O(n), where n is the length of the longer linked list.
 - Space complexity: O(1), as we only use a constant amount of extra space (not counting the output list).
+
+## 287. Find the Duplicate Number
+
+**Description**:
+Given an array of integers `nums` containing `n + 1` integers where each integer is in the range `[1, n]` inclusive, return the duplicate number. You must solve the problem without modifying the array and use only constant extra space.
+
+**Example**:
+```plaintext
+Input: nums = [1,3,4,2,2]
+Output: 2
+Explanation: The duplicate number is 2.
+```
+
+**Solution**:
+The problem can be solved using Floyd's Tortoise and Hare (Cycle Detection) algorithm. The array can be interpreted as a linked list where each index points to the next node. By using two pointers (a slow and a fast pointer), we can detect the cycle and eventually find the duplicate number which is the entrance of the cycle.
+
+[Link to code](./287_find_duplicate.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of elements in the array.
+- Space complexity: O(1), as we only use a constant amount of extra space.
