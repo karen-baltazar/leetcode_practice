@@ -7,7 +7,7 @@
 | 278            | [First Bad Version](#278-first-bad-version)          | [Explanation](#278-first-bad-version)            | [Python Code](./278_first_bad_version.py)      |
 | 367            | [Valid Perfect Square](#367-valid-perfect-square) | [Explanation](#367-valid-perfect-square)         | [Python Code](./367_valid_perfect_square.py)   |
 | 74            | [Search a 2D Matrix](#74-search-a-2d-matrix) | [Explanation](#74-search-a-2d-matrix) | [Python Code](./074_search_2d_matrix.py) |
-
+| 153            | [Find Minimum in Rotated Sorted Array](#153-find-minimum-in-rotated-sorted-array) | [Explanation](#153-find-minimum-in-rotated-sorted-array) | [Python Code](./153_min_in_rotated_array.py) |
 
 ## 704. Binary Search
 
@@ -128,4 +128,29 @@ The binary search is performed within the identified row, leveraging the sorted 
 
 **Notes**:
 - Time complexity: O(log(m * n)), where m is the number of rows and n is the number of columns. Binary search is performed on the combined elements of the matrix.
+- Space complexity: O(1), as only a constant amount of extra space is used.
+
+## 153. Find Minimum in Rotated Sorted Array
+
+**Description**:
+Suppose an array of length `n` sorted in ascending order is rotated between `1` and `n` times. For example, the array `[0,1,2,4,5,6,7]` might become `[4,5,6,7,0,1,2]` after rotating it 4 times. Given the rotated array `nums`, return the minimum element in the array. You must write an algorithm that runs in `O(log n)` time.
+
+**Example**:
+```plaintext
+Input: nums = [3,4,5,1,2]
+Output: 1
+Explanation: The original array was [1,2,3,4,5] rotated 3 times.
+
+Input: nums = [4,5,6,7,0,1,2]
+Output: 0
+Explanation: The minimum value is 0, which is at the index 4.
+```
+
+**Solution**:
+To find the minimum element in a rotated sorted array, we can use a binary search approach. The idea is to compare the middle element with the rightmost element. If the middle element is greater than the rightmost element, the minimum must lie in the right half. Otherwise, it lies in the left half. This way, we continuously narrow down the search space until we find the minimum element.
+
+[Link to code](./153_min_in_rotated_array.py)
+
+**Notes**:
+- Time complexity: O(log n), where n is the number of elements in the array.
 - Space complexity: O(1), as only a constant amount of extra space is used.
