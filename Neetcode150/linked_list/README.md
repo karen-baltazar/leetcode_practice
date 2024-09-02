@@ -5,6 +5,7 @@
 | 143            | [Reorder List](#143-reorder-list)              | [Explanation](#143-reorder-list)                     | [Python Code](./143_reorder_list.py)       |
 | 2            | [Add Two Numbers](#2-add-two-numbers)   | [Explanation](#2-add-two-numbers)            | [Python Code](./002_add_two_numbers.py)      |
 | 287            | [Find the Duplicate Number](#287-find-the-duplicate-number) | [Explanation](#287-find-the-duplicate-number)   | [Python Code](./287_find_duplicate.py)       |
+| 146            | [LRU Cache](#146-lru-cache)                | [Explanation](#146-lru-cache)                    | [Python Code](./146_lru_cache.py)             |
 
 ## 143. Reorder List
 
@@ -67,3 +68,35 @@ The problem can be solved using Floyd's Tortoise and Hare (Cycle Detection) algo
 **Notes**:
 - Time complexity: O(n), where n is the number of elements in the array.
 - Space complexity: O(1), as we only use a constant amount of extra space.
+
+## 146. LRU Cache
+
+**Description**:
+Design a data structure that follows the constraints of a Least Recently Used (LRU) cache. Implement the `LRUCache` class:
+- `LRUCache(int capacity)` Initializes the LRU cache with positive size `capacity`.
+- `int get(int key)` Returns the value of the key if it exists, otherwise returns `-1`.
+- `void put(int key, int value)` Updates the value of the key if it exists. Otherwise, adds the key-value pair to the cache. If the number of keys exceeds the capacity, remove the least recently used key.
+
+**Example**:
+```plaintext
+Input:
+LRUCache lRUCache = new LRUCache(2);
+lRUCache.put(1, 1); // Cache is {1=1}
+lRUCache.put(2, 2); // Cache is {1=1, 2=2}
+lRUCache.get(1);    // Returns 1
+lRUCache.put(3, 3); // LRU key was 2, evicts key 2, Cache is {1=1, 3=3}
+lRUCache.get(2);    // Returns -1 (not found)
+lRUCache.put(4, 4); // LRU key was 1, evicts key 1, Cache is {4=4, 3=3}
+lRUCache.get(1);    // Returns -1 (not found)
+lRUCache.get(3);    // Returns 3
+lRUCache.get(4);    // Returns 4
+```
+
+**Solution**:
+This solution uses a combination of a doubly linked list and a hash map to keep track of the order of access and the contents of the cache. The doubly linked list allows for efficient reordering of elements (O(1) for insertion and deletion), while the hash map allows for fast access to the elements (O(1) for retrieval and insertion). This ensures that both the `get` and `put` operations run in constant time.
+
+[Link to code](./146_lru_cache.py)
+
+**Notes**:
+- Time complexity: O(1) for both `get` and `put` operations.
+- Space complexity: O(capacity), where `capacity` is the maximum number of elements in the cache.
