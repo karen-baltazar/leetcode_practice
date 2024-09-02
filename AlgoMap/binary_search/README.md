@@ -9,6 +9,7 @@
 | 74            | [Search a 2D Matrix](#74-search-a-2d-matrix) | [Explanation](#74-search-a-2d-matrix) | [Python Code](./074_search_2d_matrix.py) |
 | 153            | [Find Minimum in Rotated Sorted Array](#153-find-minimum-in-rotated-sorted-array) | [Explanation](#153-find-minimum-in-rotated-sorted-array) | [Python Code](./153_min_in_rotated_array.py) |
 | 33             | [Search in Rotated Sorted Array](#33-search-in-rotated-sorted-array) | [Explanation](#33-search-in-rotated-sorted-array) | [Python Code](./033_search_rotated_array.py) |
+| 875            | [Koko Eating Bananas](#875-koko-eating-bananas)       | [Explanation](#875-koko-eating-bananas)          | [Python Code](./875_koko_eating_bananas.py)   |
 
 ## 704. Binary Search
 
@@ -178,3 +179,31 @@ The problem can be solved in two phases:
 **Notes**:
 - Time complexity: O(log n), since both steps use binary search.
 - Space complexity: O(1), as only a constant amount of extra space is used.
+
+## 875. Koko Eating Bananas
+
+**Description**:
+Koko loves to eat bananas, but she can only eat at most one pile per hour. There are `n` piles of bananas, and she has `h` hours to finish all the bananas. Each hour, Koko chooses a pile and eats bananas at a fixed speed of `k` bananas per hour. Determine the minimum integer speed `k` that allows her to eat all the bananas within `h` hours.
+
+**Example**:
+```plaintext
+Input: piles = [3,6,7,11], h = 8
+Output: 4
+Explanation: Koko can eat at a speed of 4 bananas per hour to finish all piles within 8 hours.
+
+Input: piles = [30,11,23,4,20], h = 5
+Output: 30
+Explanation: Koko must eat at a speed of 30 bananas per hour to finish all piles within 5 hours.
+```
+
+**Solution**:
+The problem is solved using binary search to find the minimum speed `k`. The approach involves:
+1. Searching through potential speeds between 1 and the size of the largest pile.
+2. Using a helper function to determine if a given speed allows Koko to finish eating all bananas within `h` hours.
+3. Narrowing down the speed range based on whether the current speed is sufficient or not.
+
+[Link to code](./875_koko_eating_bananas.py)
+
+**Notes**:
+- Time complexity: O(n log m), where `n` is the number of piles and `m` is the maximum number of bananas in a pile. This is because the binary search operates over a range of `m` possible speeds, and each check involves iterating over `n` piles.
+- Space complexity: O(1), since only a constant amount of extra space is used.
