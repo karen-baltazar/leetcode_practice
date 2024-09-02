@@ -5,6 +5,7 @@
 | 704            | [Binary Search](#704-binary-search)         | [Explanation](#704-binary-search)                | [Python Code](./704_binary_search.py)         |
 | 35             | [Search Insert Position](#35-search-insert-position) | [Explanation](#35-search-insert-position)        | [Python Code](./035_search_insert_position.py)   |
 | 278            | [First Bad Version](#278-first-bad-version)          | [Explanation](#278-first-bad-version)            | [Python Code](./278_first_bad_version.py)      |
+| 367            | [Valid Perfect Square](#367-valid-perfect-square) | [Explanation](#367-valid-perfect-square)         | [Python Code](./367_valid_perfect_square.py)   |
 
 ## 704. Binary Search
 
@@ -70,3 +71,28 @@ The problem can be efficiently solved using binary search. The goal is to minimi
 **Notes**:
 - Time complexity: O(log n), where n is the total number of versions.
 - Space complexity: O(1), as the search is done in place without additional memory.
+
+## 367. Valid Perfect Square
+
+**Description**:
+Given a positive integer `num`, write a function to determine if `num` is a perfect square. A perfect square is an integer that is the square of an integer. You **must not** use any built-in library function such as `sqrt`.
+
+**Example**:
+```plaintext
+Input: num = 16
+Output: True
+Explanation: 4 * 4 = 16, so 16 is a perfect square.
+
+Input: num = 14
+Output: False
+Explanation: There is no integer `k` such that `k * k = 14`.
+```
+
+**Solution**:
+To determine if a number is a perfect square without using built-in functions, we can use a binary search approach. The idea is to search for an integer `mid` such that `mid * mid` equals the target number `num`. We start with a range from `1` to `num` and repeatedly divide the range in half, comparing the square of the midpoint to `num`. If the square is equal to `num`, we've found the perfect square. If the square is greater, we search the left half; otherwise, we search the right half. If no such integer exists, `num` is not a perfect square.
+
+[Link to code](./367_valid_perfect_square.py)
+
+**Notes**:
+- Time complexity: O(log n), where n is the value of `num`. Binary search efficiently narrows down the possible candidates.
+- Space complexity O(1), as the algorithm uses a constant amount of extra space.
