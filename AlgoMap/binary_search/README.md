@@ -4,6 +4,7 @@
 |----------------|--------------------------------------------|--------------------------------------------------|-----------------------------------------------|
 | 704            | [Binary Search](#704-binary-search)         | [Explanation](#704-binary-search)                | [Python Code](./704_binary_search.py)         |
 | 35             | [Search Insert Position](#35-search-insert-position) | [Explanation](#35-search-insert-position)        | [Python Code](./035_search_insert_position.py)   |
+| 278            | [First Bad Version](#278-first-bad-version)          | [Explanation](#278-first-bad-version)            | [Python Code](./278_first_bad_version.py)      |
 
 ## 704. Binary Search
 
@@ -46,3 +47,26 @@ This problem is essentially a variation of binary search. The idea is to use the
 **Notes**:
 - Time complexity: O(log n), where n is the number of elements in the array.
 - Space complexity: O(1), as the search is performed in place without additional memory.
+
+## 278. First Bad Version
+
+**Description**:
+You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version fails the quality check. Since each version is developed based on the previous one, all the following versions are also faulty.
+
+Given `n` versions [1, 2, ..., n], you need to find out the first bad one, which causes all the following ones to be bad. You have an API `isBadVersion(version)` that returns whether a version is bad. Implement a function to find the first bad version by making the minimum number of API calls.
+
+**Example**:
+```plaintext
+Input: n = 5, bad = 4
+Output: 4
+Explanation: The first bad version is 4.
+```
+
+**Solution**:
+The problem can be efficiently solved using binary search. The goal is to minimize the number of calls to the `isBadVersion` API by dividing the search space in half. Once a bad version is found, we check if it's the first bad version by verifying the previous version. If it is, we return it; otherwise, we continue searching in the left half.
+
+[Link to code](./278_first_bad_version.py)
+
+**Notes**:
+- Time complexity: O(log n), where n is the total number of versions.
+- Space complexity: O(1), as the search is done in place without additional memory.
