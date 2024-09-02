@@ -6,6 +6,8 @@
 | 35             | [Search Insert Position](#35-search-insert-position) | [Explanation](#35-search-insert-position)        | [Python Code](./035_search_insert_position.py)   |
 | 278            | [First Bad Version](#278-first-bad-version)          | [Explanation](#278-first-bad-version)            | [Python Code](./278_first_bad_version.py)      |
 | 367            | [Valid Perfect Square](#367-valid-perfect-square) | [Explanation](#367-valid-perfect-square)         | [Python Code](./367_valid_perfect_square.py)   |
+| 74            | [Search a 2D Matrix](#74-search-a-2d-matrix) | [Explanation](#74-search-a-2d-matrix) | [Python Code](./074_search_2d_matrix.py) |
+
 
 ## 704. Binary Search
 
@@ -96,3 +98,34 @@ To determine if a number is a perfect square without using built-in functions, w
 **Notes**:
 - Time complexity: O(log n), where n is the value of `num`. Binary search efficiently narrows down the possible candidates.
 - Space complexity O(1), as the algorithm uses a constant amount of extra space.
+
+## 74. Search a 2D Matrix
+
+**Description**:
+Write an efficient algorithm that searches for a target value in an m x n integer matrix. This matrix has the following properties:
+- Integers in each row are sorted in ascending from left to right.
+- Integers in each column are sorted in ascending from top to bottom.
+
+**Example**:
+```plaintext
+Input: matrix = [[1,4,7,11],[2,5,8,12],[3,6,9,16],[10,13,14,17]], target = 5
+Output: True
+Explanation: 5 is present in the matrix.
+
+Input: matrix = [[1,4,7,11],[2,5,8,12],[3,6,9,16],[10,13,14,17]], target = 20
+Output: False
+Explanation: 20 is not present in the matrix.
+```
+
+**Solution**:
+To search for the target value in the 2D matrix, we use a two-step approach:
+1. **Row Identification**: Iterate through the rows to find the row that may contain the target. We check if the target is within the range of the current row.
+2. **Binary Search**: Once the potential row is identified, perform a binary search in that row to find the target value. 
+
+The binary search is performed within the identified row, leveraging the sorted nature of the matrix rows.
+
+[Link to code](./074_search_2d_matrix.py)
+
+**Notes**:
+- Time complexity: O(log(m * n)), where m is the number of rows and n is the number of columns. Binary search is performed on the combined elements of the matrix.
+- Space complexity: O(1), as only a constant amount of extra space is used.
