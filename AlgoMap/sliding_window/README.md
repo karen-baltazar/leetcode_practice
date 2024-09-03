@@ -5,6 +5,7 @@
 | 643            | [Maximum Average Subarray I](#643-maximum-average-subarray-i) | [Explanation](#643-maximum-average-subarray-i)       | [Python Code](./643_maximum_average_subarray.py) |
 | 1004           | [Max Consecutive Ones III](#1004-max-consecutive-ones-iii) | [Explanation](#1004-max-consecutive-ones-iii)        | [Python Code](./1004_max_consecutive_ones_iii.py) |
 | 3              | [Longest Substring Without Repeating Characters](#3-longest-substring-without-repeating-characters) | [Explanation](#3-longest-substring-without-repeating-characters) | [Python Code](./003_longest_substring.py)      |
+| 424            | [Longest Repeating Character Replacement](#424-longest-repeating-character-replacement) | [Explanation](#424-longest-repeating-character-replacement) | [Python Code](./424_character_replacement.py) |
 
 ## 643. Maximum Average Subarray I
 
@@ -66,3 +67,41 @@ The problem can be efficiently solved using a sliding window approach. The idea 
 **Notes**:
 - Time complexity: O(n), where n is the length of the string.
 - Space complexity: O(min(n, m)), where m is the size of the character set.
+
+## 424. Longest Repeating Character Replacement
+
+**Description**:
+Given a string `s` and an integer `k`, you are allowed to replace up to `k` characters in the string, and you need to find the length of the longest substring containing the same letter after performing at most `k` replacements.
+
+**Example**:
+```plaintext
+Input: s = "AABABBA", k = 1
+Output: 4
+Explanation: Replace the one 'B' in "AABABBA" to get "AAAA", which has the longest repeating letters.
+```
+
+**Solution**:
+The solution employs a sliding window technique to efficiently find the longest valid substring that can be transformed into a string with all identical characters by replacing at most `k` characters.
+
+1. **Sliding Window Mechanism**:
+   - The window is defined by two pointers, `left` and `right`, which represent the start and end of the current substring under consideration.
+   - As the `right` pointer expands the window by moving to the right, the count of each character within the window is tracked using an array `char_count`.
+
+2. **Validity Check**:
+   - At each step, the algorithm checks if the current window is valid. A window is considered valid if the number of characters that need to be replaced (i.e., the total number of characters in the window minus the count of the most frequent character) does not exceed `k`.
+   - The check is performed using the condition `(right - left + 1) - max(char_count) <= k`. If this condition holds true, the window is valid, and we may have found a new maximum length for a valid substring.
+
+3. **Handling Invalid Windows**:
+   - If the window becomes invalid (i.e., the condition above is false), the algorithm adjusts by moving the `left` pointer to the right, effectively shrinking the window from the left. This process continues until the window becomes valid again.
+   - The character count for the character that is being excluded (at the `left` pointer) is decremented as the window shrinks.
+
+4. **Updating the Maximum Length**:
+   - Throughout this process, the algorithm keeps track of the maximum length of any valid window encountered.
+
+By the end of the iteration, the length of the longest valid window is returned, representing the longest substring that can be obtained by replacing at most `k` characters to make all characters in the substring the same.
+
+[Link to code](./424_character_replacement.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the string `s`.
+- Space complexity: O(1), since the size of the `char_count` array is constant (26 for uppercase English letters).
