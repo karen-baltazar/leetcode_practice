@@ -6,6 +6,7 @@
 | 1004           | [Max Consecutive Ones III](#1004-max-consecutive-ones-iii) | [Explanation](#1004-max-consecutive-ones-iii)        | [Python Code](./1004_max_consecutive_ones_iii.py) |
 | 3              | [Longest Substring Without Repeating Characters](#3-longest-substring-without-repeating-characters) | [Explanation](#3-longest-substring-without-repeating-characters) | [Python Code](./003_longest_substring.py)      |
 | 424            | [Longest Repeating Character Replacement](#424-longest-repeating-character-replacement) | [Explanation](#424-longest-repeating-character-replacement) | [Python Code](./424_character_replacement.py) |
+| 209            | [Minimum Size Subarray Sum](#209-minimum-size-subarray-sum) | [Explanation](#209-minimum-size-subarray-sum) | [Python Code](./209_min_subarray_sum.py) |
 
 ## 643. Maximum Average Subarray I
 
@@ -105,3 +106,28 @@ By the end of the iteration, the length of the longest valid window is returned,
 **Notes**:
 - Time complexity: O(n), where n is the length of the string `s`.
 - Space complexity: O(1), since the size of the `char_count` array is constant (26 for uppercase English letters).
+
+## 209. Minimum Size Subarray Sum
+
+**Description**:
+Given an array `nums` and an integer `target`, find the minimal length of a contiguous subarray whose sum is greater than or equal to `target`. If no such subarray exists, return 0.
+
+**Example**:
+```plaintext
+Input: target = 7, nums = [2,3,1,2,4,3]
+Output: 2
+Explanation: The subarray [4,3] is the smallest subarray with a sum of at least 7.
+
+Input: target = 11, nums = [1,1,1,1,1,1,1,1]
+Output: 0
+Explanation: No subarray has a sum greater than or equal to 11.
+```
+
+**Solution**:
+The solution employs the sliding window technique to efficiently find the minimal subarray length. It maintains a window defined by two pointers, `left` and `right`. As the `right` pointer expands the window by iterating through the array and accumulating the sum, the `left` pointer shrinks the window from the left when the sum meets or exceeds the target. During this process, the algorithm keeps track of the minimum length of valid subarrays. If no valid subarray is found, it returns 0.
+
+[Link to code](./209_min_subarray_sum.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the array `nums`.
+- Space complexity: O(1), as it uses only a few variables.
