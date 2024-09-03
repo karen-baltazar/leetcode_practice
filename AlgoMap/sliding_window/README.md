@@ -7,6 +7,7 @@
 | 3              | [Longest Substring Without Repeating Characters](#3-longest-substring-without-repeating-characters) | [Explanation](#3-longest-substring-without-repeating-characters) | [Python Code](./003_longest_substring.py)      |
 | 424            | [Longest Repeating Character Replacement](#424-longest-repeating-character-replacement) | [Explanation](#424-longest-repeating-character-replacement) | [Python Code](./424_character_replacement.py) |
 | 209            | [Minimum Size Subarray Sum](#209-minimum-size-subarray-sum) | [Explanation](#209-minimum-size-subarray-sum) | [Python Code](./209_min_subarray_sum.py) |
+| 567            | [Permutation in String](#567-permutation-in-string) | [Explanation](#567-permutation-in-string)            | [Python Code](./567_permutation_in_string.py) |
 
 ## 643. Maximum Average Subarray I
 
@@ -131,3 +132,28 @@ The solution employs the sliding window technique to efficiently find the minima
 **Notes**:
 - Time complexity: O(n), where n is the length of the array `nums`.
 - Space complexity: O(1), as it uses only a few variables.
+
+## 567. Permutation in String
+
+**Description**:
+Given two strings `s1` and `s2`, determine if `s2` contains a permutation of `s1`. In other words, check if one of `s1`'s permutations is a substring of `s2`.
+
+**Example**:
+```plaintext
+Input: s1 = "ab", s2 = "eidbaooo"
+Output: true
+Explanation: s2 contains one permutation of s1 ("ba").
+
+Input: s1 = "ab", s2 = "eidboaoo"
+Output: false
+Explanation: s2 does not contain any permutation of s1.
+```
+
+**Solution**:
+The solution involves creating frequency counts for the characters in `s1` and comparing them with a sliding window of the same length in `s2`. If the frequency counts match at any point, it indicates that `s2` contains a permutation of `s1`. The window slides across `s2`, adjusting the frequency count by removing the character that goes out of the window and adding the new character that enters the window.
+
+[Link to code](./567_permutation_in_string.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of `s2`.
+- Space complexity: O(1), since the frequency array has a fixed size of 26.
