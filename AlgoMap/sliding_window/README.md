@@ -4,6 +4,7 @@
 |----------------|------------------------------------------------|------------------------------------------------------|--------------------------------------------|
 | 643            | [Maximum Average Subarray I](#643-maximum-average-subarray-i) | [Explanation](#643-maximum-average-subarray-i)       | [Python Code](./643_maximum_average_subarray.py) |
 | 1004           | [Max Consecutive Ones III](#1004-max-consecutive-ones-iii) | [Explanation](#1004-max-consecutive-ones-iii)        | [Python Code](./1004_max_consecutive_ones_iii.py) |
+| 3              | [Longest Substring Without Repeating Characters](#3-longest-substring-without-repeating-characters) | [Explanation](#3-longest-substring-without-repeating-characters) | [Python Code](./003_longest_substring.py)      |
 
 ## 643. Maximum Average Subarray I
 
@@ -44,3 +45,24 @@ The solution uses a sliding window approach. We expand the window by moving the 
 **Notes**:
 - Time complexity: O(n), where n is the length of the array.
 - Space complexity: O(1), as only a few variables are used to track the window and the count of zeros.
+
+## 3. Longest Substring Without Repeating Characters
+
+**Description**:
+Given a string `s`, find the length of the longest substring without repeating characters.
+
+**Example**:
+```plaintext
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+```
+
+**Solution**:
+The problem can be efficiently solved using a sliding window approach. The idea is to maintain a window using two pointers, `left` and `right`, which represent the current substring. As the `right` pointer expands the window, if a duplicate character is found, the `left` pointer is moved to shrink the window until the substring is valid again (i.e., contains no repeating characters). The `max_length` variable keeps track of the maximum length of any valid substring encountered during the process.
+
+[Link to code](./003_longest_substring.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the length of the string.
+- Space complexity: O(min(n, m)), where m is the size of the character set.
