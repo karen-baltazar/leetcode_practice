@@ -7,6 +7,7 @@
 | 287            | [Find the Duplicate Number](#287-find-the-duplicate-number) | [Explanation](#287-find-the-duplicate-number)   | [Python Code](./287_find_duplicate.py)       |
 | 146            | [LRU Cache](#146-lru-cache)                | [Explanation](#146-lru-cache)                    | [Python Code](./146_lru_cache.py)             |
 | 23             | [Merge k Sorted Lists](#23-merge-k-sorted-lists)| [Explanation](#23-merge-k-sorted-lists)              | [Python Code](./023_merge_k_sorted_lists.py)|
+| 25             | [Reverse Nodes in k-Group](#25-reverse-nodes-in-k-group) | [Explanation](#25-reverse-nodes-in-k-group)          | [Python Code](./025_reverse_nodes_in_k_group.py)       |
 
 ## 143. Reorder List
 
@@ -123,3 +124,23 @@ This method is efficient because it repeatedly merges two lists, reducing the ov
 **Notes**:
 - Time complexity: O(N log k), where N is the total number of nodes across all k lists, and k is the number of lists.
 - Space complexity: O(1) extra space, not counting the space needed to store the final merged linked list.
+
+## 25. Reverse Nodes in k-Group
+
+**Description**:
+Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list. k is a positive integer, and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
+
+**Example**:
+```plaintext
+Input: head = [1,2,3,4,5], k = 2
+Output: [2,1,4,3,5]
+```
+
+**Solution**:
+The solution uses a helper function to reverse every k nodes in the list. The key idea is to keep track of the next node after the k-group, pass it to the helper function, and directly connect the last node of the reversed group to this next node. This avoids the need for reconnection after reversing the group. The function iteratively processes the list, reversing k nodes at a time, and stops when there are fewer than k nodes left.
+
+[Link to code](./025_reverse_nodes_in_k_group.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the linked list.
+- Space complexity: O(1), as the reversal is done in-place without using extra space.
