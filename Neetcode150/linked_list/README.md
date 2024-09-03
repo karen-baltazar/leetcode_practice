@@ -6,6 +6,7 @@
 | 2            | [Add Two Numbers](#2-add-two-numbers)   | [Explanation](#2-add-two-numbers)            | [Python Code](./002_add_two_numbers.py)      |
 | 287            | [Find the Duplicate Number](#287-find-the-duplicate-number) | [Explanation](#287-find-the-duplicate-number)   | [Python Code](./287_find_duplicate.py)       |
 | 146            | [LRU Cache](#146-lru-cache)                | [Explanation](#146-lru-cache)                    | [Python Code](./146_lru_cache.py)             |
+| 23             | [Merge k Sorted Lists](#23-merge-k-sorted-lists)| [Explanation](#23-merge-k-sorted-lists)              | [Python Code](./023_merge_k_sorted_lists.py)|
 
 ## 143. Reorder List
 
@@ -100,3 +101,25 @@ This solution uses a combination of a doubly linked list and a hash map to keep 
 **Notes**:
 - Time complexity: O(1) for both `get` and `put` operations.
 - Space complexity: O(capacity), where `capacity` is the maximum number of elements in the cache.
+
+## 23. Merge k Sorted Lists
+
+**Description**:
+Given an array of `k` linked lists, where each list is sorted in ascending order, merge all the lists into one sorted linked list and return it.
+
+**Example**:
+```plaintext
+Input: [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+```
+
+**Solution**:
+The solution to this problem employs a divide-and-conquer strategy. Here's how it works:
+1. **Divide**: We pair up each list and merge them using a helper function that merges two sorted lists.
+2. **Conquer**: Continue merging in pairs until only one list remains.
+
+This method is efficient because it repeatedly merges two lists, reducing the overall time complexity.
+
+**Notes**:
+- Time complexity: O(N log k), where N is the total number of nodes across all k lists, and k is the number of lists.
+- Space complexity: O(1) extra space, not counting the space needed to store the final merged linked list.
