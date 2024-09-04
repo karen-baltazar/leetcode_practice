@@ -11,6 +11,7 @@
 | 112 | [Path Sum](#112-path-sum) | [Explanation](#112-path-sum) | [Python Code](./112_path_sum.py) |
 | 572 | [Subtree of Another Tree](#572-subtree-of-another-tree) | [Explanation](#572-subtree-of-another-tree) | [Python Code](./572_subtree.py) |
 | 102 | [Binary Tree Level Order Traversal](#102-binary-tree-level-order-traversal) | [Explanation](#102-binary-tree-level-order-traversal) | [Python Code](./102_level_order.py) |
+| 230 | [Kth Smallest Element in a BST](#230-kth-smallest-element-in-a-bst) | [Explanation](#230-kth-smallest-element-in-a-bst) | [Python Code](./230_kth_smallest.py) |
 
 ## 226. Invert Binary Tree
 
@@ -264,3 +265,34 @@ This problem can be solved using a breadth-first search (BFS) approach with a qu
 **Notes**:
 - Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
 - Space complexity: O(n), accounting for the queue, which may hold up to the entire width of the tree at the deepest level.
+
+## 230. Kth Smallest Element in a BST
+
+**Description**:
+Given the root of a binary search tree (BST) and an integer `k`, return the `k`th smallest element in the tree.
+
+**Example**:
+```plaintext
+Input: root = [3,1,4,null,2], k = 1
+Output: 1
+```
+
+**Solution**:
+This problem is solved using an in-order depth-first search (DFS) traversal. The in-order traversal of a BST visits nodes in ascending order, making it ideal for finding the `k`th smallest element. As we traverse the tree, we decrement a counter starting from `k` until it reaches 0, at which point we have found the `k`th smallest element.
+
+### Detailed Explanation:
+
+- **Depth-First Search (DFS)**: DFS is a technique used to explore a tree or graph structure. It starts from the root and explores as far as possible along each branch before backtracking. In this problem, DFS is used to perform an in-order traversal (left -> root -> right) of the BST.
+  
+- **In-order Traversal**: Since the in-order traversal of a BST yields nodes in sorted order, we can simply traverse the tree, counting nodes as we go. When our count matches `k`, the current node's value is the `k`th smallest.
+
+- **Implementation**:
+  - We initialize `count` with the value of `k`, and as we traverse the tree, we decrement `count`.
+  - When `count` reaches 0, we've encountered the `k`th smallest element, and we store it in `result`.
+  - The recursion ensures that the traversal happens in the correct order, visiting all nodes from the smallest to the largest.
+
+[Link to code](230_kth_smallest.py)
+
+**Notes**:
+- Time complexity: O(h + k), where `h` is the height of the tree and `k` is the number of nodes we need to visit to find the `k`th smallest element.
+- Space complexity: O(h), due to the recursive call stack, where `h` is the height of the tree.
