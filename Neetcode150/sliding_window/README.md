@@ -3,6 +3,7 @@
 | Problem Number | Problem Name                                   | Explanation                                          | Code                                       |
 |----------------|------------------------------------------------|------------------------------------------------------|--------------------------------------------|
 | 76             | [Minimum Window Substring](#76-minimum-window-substring) | [Explanation](#76-minimum-window-substring)          | [Python Code](./076_minimum_window_substring.py) |
+| 239 | [Sliding Window Maximum](#239-sliding-window-maximum) | [Explanation](#239-sliding-window-maximum) | [Python Code](./239_sliding_window_maximum.py) |
 
 ## 76. Minimum Window Substring
 
@@ -43,3 +44,32 @@ This approach efficiently narrows down the minimal window containing all charact
 **Notes**:
 - Time complexity: O(N), where `N` is the length of `s`.
 - Space complexity: O(m + n), where `m` is the number of unique characters in `t` and `n` is the number of unique characters in `s` (or limited by the alphabet size).
+
+## 239. Sliding Window Maximum
+
+**Description**:
+Given an array `nums` and an integer `k`, you need to find the maximum value in every sliding window of size `k` in the array.
+
+**Example**:
+```plaintext
+Input: nums = [1,3,-1,-3,5,3,6,7], k = 3
+Output: [3,3,5,5,6,7]
+```
+
+**Solution**:
+This problem is efficiently solved using a deque (double-ended queue). The deque is used to store the indices of elements in the array. The core idea is to maintain the deque in such a way that:
+1. The indices in the deque are in decreasing order of the values in `nums`.
+2. The element at the front of the deque is always the largest element in the current window.
+
+The algorithm processes each element of the array in linear time (`O(n)`), ensuring that each element is added and removed from the deque only once. This approach is significantly faster than a brute-force approach, which would involve recalculating the maximum for each window from scratch.
+
+- The `deque` stores the indices of the elements, not the elements themselves. This allows easy comparison and maintenance of the sliding window.
+- For each new element, the algorithm removes elements from the deque that are smaller than the new element, as they are no longer useful.
+- If the index at the front of the deque is out of the current window (i.e., its index is less than `left`), it is removed from the deque.
+- After the first `k` elements are processed, the algorithm starts appending the maximum value of each window (which is at the front of the deque) to the result list.
+
+This solution is optimal for the problem's constraints and ensures that the sliding window maximum is found in linear time.
+
+**Notes**:
+- Time complexity: O(n), where `n` is the length of the array `nums`.
+- Space complexity: O(k), due to the maximum size of the deque being equal to the window size `k`.
