@@ -6,6 +6,7 @@
 | 104 | [Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree) | [Explanation](#104-maximum-depth-of-binary-tree) | [Python Code](./104_max_depth_bin_tree.py) |
 | 110 | [Balanced Binary Tree](#110-balanced-binary-tree) | [Explanation](#110-balanced-binary-tree) | [Python Code](./110_bal_bin_tree.py) |
 | 543 | [Diameter of Binary Tree](#543-diameter-of-binary-tree) | [Explanation](#543-diameter-of-binary-tree) | [Python Code](./543_diameter_bin_tree.py) |
+| 100 | [Same Tree](#100-same-tree) | [Explanation](#100-same-tree) | [Python Code](./100_same_tree.py) |
 
 ## 226. Invert Binary Tree
 
@@ -118,3 +119,28 @@ The solution involves calculating the height of the left and right subtrees for 
 **Notes**:
 - Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
 - Space complexity: O(h), where `h` is the height of the tree, due to the recursive call stack. In the worst case (a skewed tree), the space complexity could be O(n).
+
+## 100. Same Tree
+
+**Description**:
+Given the roots of two binary trees, determine if they are the same or not. Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
+
+**Example**:
+```plaintext
+Input:
+    p:    1       q:    1
+         / \          / \
+        2   3        2   3
+
+Output:
+True
+```
+
+**Solution**:
+This problem is solved using a recursive approach. The function checks if both nodes are `None`, in which case they are the same up to that point. If one node is `None` and the other is not, or their values don't match, the trees are not the same. The function then recursively checks the left and right subtrees, and both must be identical for the trees to be considered the same.
+
+[Link to code](100_same_tree.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
+- Space complexity: O(h), where `h` is the height of the tree, due to the recursive call stack.
