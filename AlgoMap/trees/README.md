@@ -8,6 +8,7 @@
 | 543 | [Diameter of Binary Tree](#543-diameter-of-binary-tree) | [Explanation](#543-diameter-of-binary-tree) | [Python Code](./543_diameter_bin_tree.py) |
 | 100 | [Same Tree](#100-same-tree) | [Explanation](#100-same-tree) | [Python Code](./100_same_tree.py) |
 | 101 | [Symmetric Tree](#101-symmetric-tree) | [Explanation](#101-symmetric-tree) | [Python Code](./101_symmetric_tree.py) |
+| 112 | [Path Sum](#112-path-sum) | [Explanation](#112-path-sum) | [Python Code](./112_path_sum.py) |
 
 ## 226. Invert Binary Tree
 
@@ -168,6 +169,37 @@ True
 The solution involves comparing the left and right subtrees of the tree. For the tree to be symmetric, the left subtree of the left child must be a mirror image of the right subtree of the right child, and vice versa. This comparison is done recursively. The base case checks if both nodes are `None`, in which case they are symmetric. If one is `None` or their values do not match, the tree is not symmetric.
 
 [Link to code](101_symmetric_tree.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
+- Space complexity: O(h), where `h` is the height of the tree, due to the recursive call stack.
+
+## 112. Path Sum
+
+**Description**:
+Given the root of a binary tree and a target sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the target sum.
+
+**Example**:
+```plaintext
+Input:
+    5
+   / \
+  4   8
+ /   / \
+11  13  4
+/  \      \
+7    2      1
+
+Target Sum: 22
+
+Output:
+True
+```
+
+**Solution**:
+The solution involves traversing the tree recursively to check if any root-to-leaf path sums up to the target value. If a leaf node is reached and the sum of the path from the root to this node equals the target sum, the path is valid. The function recursively checks each node and updates the current path sum. If the path sum equals the target sum at any leaf node, it returns `True`. Otherwise, it continues checking other paths.
+
+[Link to code](112_path_sum.py)
 
 **Notes**:
 - Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
