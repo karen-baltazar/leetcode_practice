@@ -9,6 +9,7 @@
 | 100 | [Same Tree](#100-same-tree) | [Explanation](#100-same-tree) | [Python Code](./100_same_tree.py) |
 | 101 | [Symmetric Tree](#101-symmetric-tree) | [Explanation](#101-symmetric-tree) | [Python Code](./101_symmetric_tree.py) |
 | 112 | [Path Sum](#112-path-sum) | [Explanation](#112-path-sum) | [Python Code](./112_path_sum.py) |
+| 572 | [Subtree of Another Tree](#572-subtree-of-another-tree) | [Explanation](#572-subtree-of-another-tree) | [Python Code](./572_subtree.py) |
 
 ## 226. Invert Binary Tree
 
@@ -204,3 +205,30 @@ The solution involves traversing the tree recursively to check if any root-to-le
 **Notes**:
 - Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
 - Space complexity: O(h), where `h` is the height of the tree, due to the recursive call stack.
+
+## 572. Subtree of Another Tree
+
+**Description**:
+Given the roots of two binary trees, `root` and `subRoot`, determine if `subRoot` is a subtree of `root`. A subtree is a tree that consists of a node and all its descendants.
+
+**Example**:
+```plaintext
+Input:
+    root:    3              subRoot:  4
+           / \                     / \
+          4   5                   1   2
+         / \
+        1   2
+
+Output:
+True
+```
+
+**Solution**:
+The solution involves checking if any node in the main tree is identical to the `subRoot`. This is done using a helper function `is_identical` that recursively checks if two trees are the same. The main function checks if `subRoot` is identical to the current node's subtree and recursively checks the left and right subtrees of `root` to find a match.
+
+[Link to code](572_subtree.py)
+
+**Notes**:
+- Time complexity: O(n * m), where `n` is the number of nodes in the main tree and `m` is the number of nodes in `subRoot`. Each node in the main tree is compared to the root of `subRoot`.
+- Space complexity: O(h1 + h2), where `h1` and `h2` are the heights of the main tree and `subRoot`, respectively, due to the recursive call stack.
