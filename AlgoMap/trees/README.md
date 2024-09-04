@@ -10,6 +10,7 @@
 | 101 | [Symmetric Tree](#101-symmetric-tree) | [Explanation](#101-symmetric-tree) | [Python Code](./101_symmetric_tree.py) |
 | 112 | [Path Sum](#112-path-sum) | [Explanation](#112-path-sum) | [Python Code](./112_path_sum.py) |
 | 572 | [Subtree of Another Tree](#572-subtree-of-another-tree) | [Explanation](#572-subtree-of-another-tree) | [Python Code](./572_subtree.py) |
+| 102 | [Binary Tree Level Order Traversal](#102-binary-tree-level-order-traversal) | [Explanation](#102-binary-tree-level-order-traversal) | [Python Code](./102_level_order.py) |
 
 ## 226. Invert Binary Tree
 
@@ -232,3 +233,34 @@ The solution involves checking if any node in the main tree is identical to the 
 **Notes**:
 - Time complexity: O(n * m), where `n` is the number of nodes in the main tree and `m` is the number of nodes in `subRoot`. Each node in the main tree is compared to the root of `subRoot`.
 - Space complexity: O(h1 + h2), where `h1` and `h2` are the heights of the main tree and `subRoot`, respectively, due to the recursive call stack.
+
+## 102. Binary Tree Level Order Traversal
+
+**Description**:
+Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+
+**Example**:
+```plaintext
+Input:
+    3
+   / \
+  9  20
+    /  \
+   15   7
+
+Output:
+[
+  [3],
+  [9,20],
+  [15,7]
+]
+```
+
+**Solution**:
+This problem can be solved using a breadth-first search (BFS) approach with a queue. Starting from the root, the nodes are processed level by level. For each level, all nodes are dequeued, their values are recorded, and their children are enqueued for the next level. This process continues until all levels have been traversed.
+
+[Link to code](102_level_order.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
+- Space complexity: O(n), accounting for the queue, which may hold up to the entire width of the tree at the deepest level.
