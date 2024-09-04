@@ -5,6 +5,7 @@
 | 226 | [Invert Binary Tree](#226-invert-binary-tree) | [Explanation](#226-invert-binary-tree) | [Python Code](./226_invert_binary_tree.py) |
 | 104 | [Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree) | [Explanation](#104-maximum-depth-of-binary-tree) | [Python Code](./104_max_depth_bin_tree.py) |
 | 110 | [Balanced Binary Tree](#110-balanced-binary-tree) | [Explanation](#110-balanced-binary-tree) | [Python Code](./110_bal_bin_tree.py) |
+| 543 | [Diameter of Binary Tree](#543-diameter-of-binary-tree) | [Explanation](#543-diameter-of-binary-tree) | [Python Code](./543_diameter_bin_tree.py) |
 
 ## 226. Invert Binary Tree
 
@@ -86,6 +87,33 @@ True
 The solution uses a recursive function to calculate the height of each subtree and checks the balance condition at each node. The function returns early if it detects that the tree is unbalanced. A list is used to track the balance status across recursive calls.
 
 [Link to code](110_bal_bin_tree.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
+- Space complexity: O(h), where `h` is the height of the tree, due to the recursive call stack. In the worst case (a skewed tree), the space complexity could be O(n).
+
+## 543. Diameter of Binary Tree
+
+**Description**:
+Given the root of a binary tree, return the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+
+**Example**:
+```plaintext
+Input:
+    1
+   / \
+  2   3
+ / \
+4   5
+
+Output:
+3
+```
+
+**Solution**:
+The solution involves calculating the height of the left and right subtrees for each node and summing these heights to get the diameter passing through that node. The largest diameter encountered during the traversal is stored and returned. The height function is used recursively to calculate both the height and the diameter at each node.
+
+[Link to code](543_diameter_bin_tree.py)
 
 **Notes**:
 - Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
