@@ -7,6 +7,7 @@
 | 110 | [Balanced Binary Tree](#110-balanced-binary-tree) | [Explanation](#110-balanced-binary-tree) | [Python Code](./110_bal_bin_tree.py) |
 | 543 | [Diameter of Binary Tree](#543-diameter-of-binary-tree) | [Explanation](#543-diameter-of-binary-tree) | [Python Code](./543_diameter_bin_tree.py) |
 | 100 | [Same Tree](#100-same-tree) | [Explanation](#100-same-tree) | [Python Code](./100_same_tree.py) |
+| 101 | [Symmetric Tree](#101-symmetric-tree) | [Explanation](#101-symmetric-tree) | [Python Code](./101_symmetric_tree.py) |
 
 ## 226. Invert Binary Tree
 
@@ -140,6 +141,33 @@ True
 This problem is solved using a recursive approach. The function checks if both nodes are `None`, in which case they are the same up to that point. If one node is `None` and the other is not, or their values don't match, the trees are not the same. The function then recursively checks the left and right subtrees, and both must be identical for the trees to be considered the same.
 
 [Link to code](100_same_tree.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
+- Space complexity: O(h), where `h` is the height of the tree, due to the recursive call stack.
+
+## 101. Symmetric Tree
+
+**Description**:
+Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+
+**Example**:
+```plaintext
+Input:
+    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3
+
+Output:
+True
+```
+
+**Solution**:
+The solution involves comparing the left and right subtrees of the tree. For the tree to be symmetric, the left subtree of the left child must be a mirror image of the right subtree of the right child, and vice versa. This comparison is done recursively. The base case checks if both nodes are `None`, in which case they are symmetric. If one is `None` or their values do not match, the tree is not symmetric.
+
+[Link to code](101_symmetric_tree.py)
 
 **Notes**:
 - Time complexity: O(n), where `n` is the number of nodes in the tree. Each node is visited once.
