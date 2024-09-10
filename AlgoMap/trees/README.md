@@ -13,6 +13,7 @@
 | 102 | [Binary Tree Level Order Traversal](#102-binary-tree-level-order-traversal) | [Explanation](#102-binary-tree-level-order-traversal) | [Python Code](./102_level_order.py) |
 | 230 | [Kth Smallest Element in a BST](#230-kth-smallest-element-in-a-bst) | [Explanation](#230-kth-smallest-element-in-a-bst) | [Python Code](./230_kth_smallest.py) |
 | 530            | [Minimum Absolute Difference in BST](#530-minimum-absolute-difference-in-bst) | [Explanation](#530-minimum-absolute-difference-in-bst) | [Python Code](./530_min_abs_diff_bst.py)  |
+| 98             | [Validate Binary Search Tree](#98-validate-binary-search-tree) | [Explanation](#98-validate-binary-search-tree)       | [Python Code](./098_validate_bst.py)        |
 
 ## 226. Invert Binary Tree
 
@@ -320,3 +321,29 @@ The solution uses an in-order traversal to process the nodes in sorted order. Du
 **Notes**:  
 - Time complexity: O(n), where n is the number of nodes in the tree, since we visit each node once.
 - Space complexity: O(h), where h is the height of the tree, due to the recursion stack used during DFS.
+
+## 98. Validate Binary Search Tree
+
+**Description**:  
+Given the `root` of a binary tree, determine if it is a valid binary search tree (BST). A valid BST is defined as follows:
+- The left subtree of a node contains only nodes with keys **less than** the node's key.
+- The right subtree of a node contains only nodes with keys **greater than** the node's key.
+- Both the left and right subtrees must also be binary search trees.
+
+**Example**:
+```plaintext
+Input: root = [2, 1, 3]
+Output: true
+
+Input: root = [5, 1, 4, null, null, 3, 6]
+Output: false
+```
+
+**Solution**:  
+To validate whether a tree is a binary search tree, the solution uses a recursive helper function to ensure that each node's value is within a valid range. Initially, the range is `(-∞, ∞)`, but as we move down the tree, the range is adjusted according to the value of the current node. The left subtree must have values smaller than the current node, and the right subtree must have values larger.
+
+[Link to code](./098_validate_bst.py)
+
+**Notes**:  
+- Time complexity: O(n), where n is the number of nodes in the tree, since we visit each node exactly once.
+- Space complexity: O(h), where h is the height of the tree, due to the recursion stack.
