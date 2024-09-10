@@ -12,6 +12,7 @@
 | 572 | [Subtree of Another Tree](#572-subtree-of-another-tree) | [Explanation](#572-subtree-of-another-tree) | [Python Code](./572_subtree.py) |
 | 102 | [Binary Tree Level Order Traversal](#102-binary-tree-level-order-traversal) | [Explanation](#102-binary-tree-level-order-traversal) | [Python Code](./102_level_order.py) |
 | 230 | [Kth Smallest Element in a BST](#230-kth-smallest-element-in-a-bst) | [Explanation](#230-kth-smallest-element-in-a-bst) | [Python Code](./230_kth_smallest.py) |
+| 530            | [Minimum Absolute Difference in BST](#530-minimum-absolute-difference-in-bst) | [Explanation](#530-minimum-absolute-difference-in-bst) | [Python Code](./530_min_abs_diff_bst.py)  |
 
 ## 226. Invert Binary Tree
 
@@ -296,3 +297,26 @@ This problem is solved using an in-order depth-first search (DFS) traversal. The
 **Notes**:
 - Time complexity: O(h + k), where `h` is the height of the tree and `k` is the number of nodes we need to visit to find the `k`th smallest element.
 - Space complexity: O(h), due to the recursive call stack, where `h` is the height of the tree.
+
+## 530. Minimum Absolute Difference in BST
+
+**Description**:  
+Given a binary search tree (BST), find the minimum absolute difference between the values of any two different nodes.
+
+**Example**:
+```plaintext
+Input: root = [4, 2, 6, 1, 3]
+Output: 1
+
+Input: root = [0, null, 2236, 1277, 2776, 519]
+Output: 519
+```
+
+**Solution**:  
+The solution uses an in-order traversal to process the nodes in sorted order. During the traversal, we compare the value of each node with the previously visited node and update the minimum difference. We store the previous node’s value and the minimum difference found so far. This ensures we get the smallest possible difference between any two nodes in the BST.
+
+[Link to code](./530_min_abs_diff_bst.py)
+
+**Notes**:  
+- Time complexity: O(n), where n is the number of nodes in the tree, since we visit each node once.
+- Space complexity: O(h), where h is the height of the tree, due to the recursion stack used during DFS.
