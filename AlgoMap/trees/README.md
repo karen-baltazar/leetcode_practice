@@ -14,6 +14,7 @@
 | 230 | [Kth Smallest Element in a BST](#230-kth-smallest-element-in-a-bst) | [Explanation](#230-kth-smallest-element-in-a-bst) | [Python Code](./230_kth_smallest.py) |
 | 530            | [Minimum Absolute Difference in BST](#530-minimum-absolute-difference-in-bst) | [Explanation](#530-minimum-absolute-difference-in-bst) | [Python Code](./530_min_abs_diff_bst.py)  |
 | 98             | [Validate Binary Search Tree](#98-validate-binary-search-tree) | [Explanation](#98-validate-binary-search-tree)       | [Python Code](./098_validate_bst.py)        |
+| 235            | [Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree) | [Explanation](#235-lowest-common-ancestor-of-a-binary-search-tree) | [Python Code](./235_lca_bst.py) |
 
 ## 226. Invert Binary Tree
 
@@ -347,3 +348,29 @@ To validate whether a tree is a binary search tree, the solution uses a recursiv
 **Notes**:  
 - Time complexity: O(n), where n is the number of nodes in the tree, since we visit each node exactly once.
 - Space complexity: O(h), where h is the height of the tree, due to the recursion stack.
+
+## 235. Lowest Common Ancestor of a Binary Search Tree
+
+**Description**:  
+Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes `p` and `q`. The LCA is defined as the lowest node in the tree that has both `p` and `q` as descendants (where a node can be a descendant of itself).
+
+**Example**:
+```plaintext
+Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
+Output: 6
+
+Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
+Output: 2
+```
+
+**Solution**:  
+The solution leverages the properties of a BST. For a given node:
+- If both `p` and `q` are smaller, search in the left subtree.
+- If both `p` and `q` are larger, search in the right subtree.
+- If one node is smaller and the other larger, the current node is the lowest common ancestor.
+
+[Link to code](./235_lca_bst.py)
+
+**Notes**:  
+- Time complexity: O(h), where h is the height of the tree.
+- Space complexity: O(h), due to the recursive call stack.
