@@ -12,9 +12,10 @@
 | 572 | [Subtree of Another Tree](#572-subtree-of-another-tree) | [Explanation](#572-subtree-of-another-tree) | [Python Code](./572_subtree.py) |
 | 102 | [Binary Tree Level Order Traversal](#102-binary-tree-level-order-traversal) | [Explanation](#102-binary-tree-level-order-traversal) | [Python Code](./102_level_order.py) |
 | 230 | [Kth Smallest Element in a BST](#230-kth-smallest-element-in-a-bst) | [Explanation](#230-kth-smallest-element-in-a-bst) | [Python Code](./230_kth_smallest.py) |
-| 530            | [Minimum Absolute Difference in BST](#530-minimum-absolute-difference-in-bst) | [Explanation](#530-minimum-absolute-difference-in-bst) | [Python Code](./530_min_abs_diff_bst.py)  |
-| 98             | [Validate Binary Search Tree](#98-validate-binary-search-tree) | [Explanation](#98-validate-binary-search-tree)       | [Python Code](./098_validate_bst.py)        |
-| 235            | [Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree) | [Explanation](#235-lowest-common-ancestor-of-a-binary-search-tree) | [Python Code](./235_lca_bst.py) |
+| 530 | [Minimum Absolute Difference in BST](#530-minimum-absolute-difference-in-bst) | [Explanation](#530-minimum-absolute-difference-in-bst) | [Python Code](./530_min_abs_diff_bst.py)  |
+| 98 | [Validate Binary Search Tree](#98-validate-binary-search-tree) | [Explanation](#98-validate-binary-search-tree)       | [Python Code](./098_validate_bst.py)        |
+| 235 | [Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree) | [Explanation](#235-lowest-common-ancestor-of-a-binary-search-tree) | [Python Code](./235_lca_bst.py) |
+| 208 | [Implement Trie (Prefix Tree)](#208-implement-trie-prefix-tree) | [Explanation](#208-implement-trie-prefix-tree)       | [Python Code](./208_implement_trie.py)     |
 
 ## 226. Invert Binary Tree
 
@@ -374,3 +375,34 @@ The solution leverages the properties of a BST. For a given node:
 **Notes**:  
 - Time complexity: O(h), where h is the height of the tree.
 - Space complexity: O(h), due to the recursive call stack.
+
+## 208. Implement Trie (Prefix Tree)
+
+**Description**:
+Implement a Trie (Prefix Tree) that supports three operations:
+- `insert(word)`: Inserts a word into the trie.
+- `search(word)`: Returns `True` if the word is in the trie (with a valid end marker), otherwise returns `False`.
+- `startsWith(prefix)`: Returns `True` if there is any word in the trie that starts with the given prefix, otherwise returns `False`.
+
+**Example**:
+```plaintext
+Input:
+    trie = Trie()
+    trie.insert("apple")
+    trie.search("apple")   # Returns True
+    trie.search("app")     # Returns False
+    trie.startsWith("app") # Returns True
+    trie.insert("app")
+    trie.search("app")     # Returns True
+```
+
+**Solution**:
+The Trie is implemented as a dictionary where each character in a word leads to a new dictionary (representing the next level of the trie). Words are inserted character by character, and the end of a word is marked using a special `#` symbol. The `insert()` method adds characters to the trie as needed. The `search()` method verifies if a word exists in the trie by checking each character and looking for the end marker `#`. The `startsWith()` method checks if a given prefix exists by traversing the trie without checking for the end marker.
+
+[Link to code](./208_implement_trie.py)
+
+**Notes**:
+- Time complexity:
+  - `insert(word)`: O(n), where n is the length of the word.
+  - `search(word)` and `startsWith(prefix)`: O(m), where m is the length of the word or prefix.
+- Space complexity: O(n), where n is the total number of characters inserted into the trie.
