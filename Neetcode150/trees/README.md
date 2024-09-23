@@ -4,6 +4,7 @@
 |----------------|------------------------------------------------|------------------------------------------------------|--------------------------------------------|
 | 199 | [Binary Tree Right Side View](#199-binary-tree-right-side-view) | [Explanation](#199-binary-tree-right-side-view)      | [Python Code](./199_right_side_view.py)    |
 | 1448 | [Count Good Nodes in Binary Tree](#1448-count-good-nodes-in-binary-tree) | [Explanation](#1448-count-good-nodes-in-binary-tree) | [Python Code](./1448_good_nodes_bst.py)    |
+| 105 | [Construct Binary Tree from Preorder and Inorder Traversal](#105-construct-binary-tree-from-preorder-and-inorder-traversal) | [Explanation](#105-construct-binary-tree-from-preorder-and-inorder-traversal) | [Python Code](./105_construct_tree.py)     |
 
 ## 199. Binary Tree Right Side View
 
@@ -51,3 +52,29 @@ The problem can be solved using a Depth-First Search (DFS) traversal of the tree
 **Notes**:
 - Time complexity: O(n), where n is the number of nodes in the tree, as we need to visit each node once.
 - Space complexity: O(h), where h is the height of the tree, due to the recursion stack.
+
+## 105. Construct Binary Tree from Preorder and Inorder Traversal
+
+**Description**:
+Given two integer arrays `preorder` and `inorder` representing the preorder and inorder traversal of a binary tree, construct and return the binary tree.
+
+**Example**:
+```plaintext
+Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+Output: [3,9,20,null,null,15,7]
+Explanation: The binary tree corresponding to these traversals is:
+    3
+   / \
+  9  20
+     /  \
+    15   7
+```
+
+**Solution**:
+The root of the binary tree is always the first element in the `preorder` array. Using this root value, find its index in the `inorder` array, which divides the tree into left and right subtrees. Recursively apply this process for both the left and right subtrees.
+
+[Link to code](./105_construct_tree.py)
+
+**Notes**:
+- Time complexity: O(n^2) in the worst case due to the slicing and index search in each recursive step.
+- Space complexity: O(n) due to the space required by the recursive call stack.
