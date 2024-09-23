@@ -5,6 +5,7 @@
 | 199 | [Binary Tree Right Side View](#199-binary-tree-right-side-view) | [Explanation](#199-binary-tree-right-side-view)      | [Python Code](./199_right_side_view.py)    |
 | 1448 | [Count Good Nodes in Binary Tree](#1448-count-good-nodes-in-binary-tree) | [Explanation](#1448-count-good-nodes-in-binary-tree) | [Python Code](./1448_good_nodes_bst.py)    |
 | 105 | [Construct Binary Tree from Preorder and Inorder Traversal](#105-construct-binary-tree-from-preorder-and-inorder-traversal) | [Explanation](#105-construct-binary-tree-from-preorder-and-inorder-traversal) | [Python Code](./105_construct_tree.py)     |
+| 124 | [Binary Tree Maximum Path Sum](#124-binary-tree-maximum-path-sum) | [Explanation](#124-binary-tree-maximum-path-sum) | [Python Code](./124_max_path_sum.py)       |
 
 ## 199. Binary Tree Right Side View
 
@@ -78,3 +79,24 @@ The root of the binary tree is always the first element in the `preorder` array.
 **Notes**:
 - Time complexity: O(n^2) in the worst case due to the slicing and index search in each recursive step.
 - Space complexity: O(n) due to the space required by the recursive call stack.
+
+## 124. Binary Tree Maximum Path Sum
+
+**Description**:
+Given a non-empty binary tree, return the maximum path sum. A path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root.
+
+**Example**:
+```plaintext
+Input: root = [-10,9,20,null,null,15,7]
+Output: 42
+Explanation: The maximum path sum is 15 + 20 + 7 = 42.
+```
+
+**Solution**:
+The solution uses a Depth-First Search (DFS) approach. At each node, the algorithm calculates the maximum path sum for both left and right subtrees, ignoring negative values. It then updates the global maximum sum if the current node can form a larger path including both subtrees. The result is the maximum sum for any path in the tree.
+
+[Link to code](./124_max_path_sum.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the tree.
+- Space complexity: O(n) due to the recursion stack.
