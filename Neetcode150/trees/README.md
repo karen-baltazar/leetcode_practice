@@ -6,6 +6,7 @@
 | 1448 | [Count Good Nodes in Binary Tree](#1448-count-good-nodes-in-binary-tree) | [Explanation](#1448-count-good-nodes-in-binary-tree) | [Python Code](./1448_good_nodes_bst.py)    |
 | 105 | [Construct Binary Tree from Preorder and Inorder Traversal](#105-construct-binary-tree-from-preorder-and-inorder-traversal) | [Explanation](#105-construct-binary-tree-from-preorder-and-inorder-traversal) | [Python Code](./105_construct_tree.py)     |
 | 124 | [Binary Tree Maximum Path Sum](#124-binary-tree-maximum-path-sum) | [Explanation](#124-binary-tree-maximum-path-sum) | [Python Code](./124_max_path_sum.py)       |
+| 297 | [Serialize and Deserialize Binary Tree](#297-serialize-and-deserialize-binary-tree) | [Explanation](#297-serialize-and-deserialize-binary-tree) | [Python Code](./297_serialize_deserialize_tree.py) |
 
 ## 199. Binary Tree Right Side View
 
@@ -100,3 +101,25 @@ The solution uses a Depth-First Search (DFS) approach. At each node, the algorit
 **Notes**:
 - Time complexity: O(n), where n is the number of nodes in the tree.
 - Space complexity: O(n) due to the recursion stack.
+
+## 297. Serialize and Deserialize Binary Tree
+
+**Description**:
+Serialization is the process of converting a data structure or object into a sequence of bits to store in a file or memory, or transmit across a network. The inverse process is called deserialization. Implement a function to serialize a binary tree to a string and another function to deserialize this string back to the original binary tree.
+
+**Example**:
+```plaintext
+Input: root = [1,2,3,null,null,4,5]
+Output: [1,2,3,null,null,4,5]
+Explanation: The binary tree is serialized to "1,2,N,N,3,4,N,N,5,N,N", and deserialized back to the same tree.
+```
+
+**Solution**:
+- The `serialize` function uses DFS to convert the tree to a string, where 'N' represents null nodes.
+- The `deserialize` function splits the serialized string and recursively reconstructs the tree using DFS, keeping track of the current index of the serialized data.
+
+[Link to code](./297_serialize_deserialize_tree.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of nodes in the tree.
+- Space complexity: O(n), due to the recursion stack and storage for the serialized data.
