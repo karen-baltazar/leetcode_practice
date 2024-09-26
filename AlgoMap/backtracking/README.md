@@ -4,7 +4,8 @@
 |----------------|-------------------|-------------------------------------------------|----------------------------------------------|
 | 78   | [Subsets](#78-subsets) | [Explanation](#78-subsets) | [Python Code](./078_subsets.py) |
 | 46   | [Permutations](#46-permutations)  | [Explanation](#46-permutations) | [Python Code](./046_permutations.py) |
-| 77    | [Combinations](#77-combinations)   | [Explanation](#77-combinations) | [Python Code](./077_combinations.py) |
+| 77   | [Combinations](#77-combinations)   | [Explanation](#77-combinations) | [Python Code](./077_combinations.py) |
+| 39   | [Combination Sum](#39-combination-sum) | [Explanation](#39-combination-sum) | [Python Code](./039_combination_sum.py) |
 
 ## 78. Subsets
 
@@ -65,3 +66,27 @@ The approach uses backtracking to explore all possible combinations of k element
 **Notes**:
 - Time complexity: O(C(n, k)), where C(n, k) is the number of combinations.
 - Space complexity: O(k), due to the recursion stack and storing current combinations.
+
+## 39. Combination Sum
+
+**Description**:
+Given an array of distinct integers `nums` and a target integer `target`, find all unique combinations in `nums` where the numbers sum to `target`. Each number can be used multiple times.
+
+**Example**:
+```plaintext
+Input: nums = [2, 3, 6, 7], target = 7
+Output: [[7], [2, 2, 3]]
+Explanation: The number 2 can be used multiple times.
+```
+
+**Solution**:
+The approach uses backtracking to explore all possible combinations:
+- If the sum matches the target, store the combination.
+- If the sum exceeds the target, backtrack.
+- Recursive calls decide to include or skip a number.
+
+[Link to code](./039_combination_sum.py)
+
+**Notes**:
+- Time complexity: O(2^t), where `t` is the target value due to exploring combinations.
+- Space complexity: O(t), due to the recursion depth and storing combinations.
