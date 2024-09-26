@@ -4,6 +4,7 @@
 |----------------|-------------------|-------------------------------------------------|----------------------------------------------|
 | 78   | [Subsets](#78-subsets) | [Explanation](#78-subsets) | [Python Code](./078_subsets.py) |
 | 46   | [Permutations](#46-permutations)  | [Explanation](#46-permutations) | [Python Code](./046_permutations.py) |
+| 77    | [Combinations](#77-combinations)   | [Explanation](#77-combinations) | [Python Code](./077_combinations.py) |
 
 ## 78. Subsets
 
@@ -44,3 +45,23 @@ We use a backtracking approach to explore all permutations. The function recursi
 **Notes**:
 - Time complexity: O(n * n!), where n is the length of the input list. Each permutation is generated, and each is stored.
 - Space complexity: O(n), for the recursion stack and storage of the result.
+
+## 77. Combinations
+
+**Description**:
+Given two integers n and k, return all possible combinations of k numbers out of the range [1, n]. You can return the answer in any order.
+
+**Example**:
+```plaintext
+Input: n = 4, k = 2
+Output: [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
+```
+
+**Solution**:
+The approach uses backtracking to explore all possible combinations of k elements from 1 to n. It builds combinations recursively by adding elements one at a time and backtracks when the desired combination length is reached.
+
+[Link to code](./077_combinations.py)
+
+**Notes**:
+- Time complexity: O(C(n, k)), where C(n, k) is the number of combinations.
+- Space complexity: O(k), due to the recursion stack and storing current combinations.
