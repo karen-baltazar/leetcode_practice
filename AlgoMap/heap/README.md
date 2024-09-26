@@ -6,6 +6,7 @@
 | 215  | [Kth Largest Element in an Array](#215-kth-largest-element-in-an-array) | [Explanation](#215-kth-largest-element-in-an-array) | [Python Code](./215_kth_largest_element.py)      |
 | 347  | [Top K Frequent Elements](#347-top-k-frequent-elements) | [Explanation](#347-top-k-frequent-elements)    | [Python Code](./347_top_k_frequent_elements.py)  |
 | 973  | [K Closest Points to Origin](#973-k-closest-points-to-origin) | [Explanation](#973-k-closest-points-to-origin) | [Python Code](./973_k_closest_points.py)         |
+| 23   | [Merge k Sorted Lists](#23-merge-k-sorted-lists) | [Explanation](#23-merge-k-sorted-lists) | [Python Code](./023_merge_k_sorted_lists.py) |
 
 ## 1046. Last Stone Weight
 
@@ -86,3 +87,23 @@ The approach uses a min-heap to maintain the closest points. The distance to the
 **Notes**:
 - Time complexity: O(n log k), where n is the number of points. Each insertion into the heap takes log k time.
 - Space complexity: O(k) for storing the k closest points.
+
+## 23. Merge k Sorted Lists
+
+**Description**:
+Merge `k` sorted linked lists and return it as one sorted list. The linked lists are represented as arrays of `ListNode`.
+
+**Example**:
+```plaintext
+Input: lists = [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+```
+
+**Solution**:
+This approach uses a min-heap to efficiently merge the lists. The heap is initialized with the first node of each list. The smallest node is repeatedly popped from the heap, and its next node is pushed into the heap until all nodes are merged.
+
+[Link to code](./023_merge_k_sorted_lists.py)
+
+**Notes**:
+- Time complexity: O(n log k), where `n` is the total number of nodes across all lists. Each insertion and removal operation from the heap takes log k time.
+- Space complexity: O(k) for storing the nodes in the heap.
