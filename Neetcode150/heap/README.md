@@ -5,6 +5,7 @@
 | 703  | [Kth Largest Element in a Stream](#703-kth-largest-element-in-a-stream) | [Explanation](#703-kth-largest-element-in-a-stream) | [Python Code](./703_kth_largest_element_stream.py) |
 | 621  | [Task Scheduler](#621-task-scheduler) | [Explanation](#621-task-scheduler) | [Python Code](./621_task_scheduler.py) |
 | 355  | [Design Twitter](#355-design-twitter) | [Explanation](#355-design-twitter) | [Python Code](./355_design_twitter.py)         |
+| 295  | [Find Median from Data Stream](#295-find-median-from-data-stream) | [Explanation](#295-find-median-from-data-stream) | [Python Code](./295_find_median_from_stream.py) |
 
 ## 703. Kth Largest Element in a Stream
 
@@ -86,3 +87,29 @@ The class should support the following methods:
   - `getNewsFeed`: O(f + log k), where `f` is the number of followed users with tweets, and `k` is the number of tweets retrieved (at most 10).
   - `follow` and `unfollow`: O(1)
 - Space Complexity: O(t + f), where `t` is the total number of tweets and `f` is the number of follow relationships.
+
+## 295. Find Median from Data Stream
+
+**Description**:  
+The task is to find the median of a number stream. Numbers are being added continuously, and the goal is to design a data structure that efficiently finds the median at any given time.
+
+**Example**:
+```plaintext
+Input: addNum(1), addNum(2), findMedian(), addNum(3), findMedian()
+Output: 1.5, 2
+Explanation: 
+- After adding 1 and 2, the median is (1 + 2) / 2 = 1.5.
+- After adding 3, the median is 2.
+```
+
+**Solution**:  
+We use two heaps: 
+- `max_heap` to store the smaller half of the numbers (negated values to simulate max heap behavior).
+- `min_heap` to store the larger half.  
+When adding a number, we ensure the balance between both heaps. The heaps maintain the order, making it easy to calculate the median depending on the heaps' sizes.
+
+[Link to code](./295_find_median_from_stream.py)
+
+**Notes**:
+- Time Complexity: O(log n) per `addNum()` operation due to heap insertion, and O(1) for `findMedian()`.
+- Space Complexity: O(n) where n is the total number of elements added, since each element is stored in one of the heaps.
