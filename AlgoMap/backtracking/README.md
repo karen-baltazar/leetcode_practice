@@ -6,6 +6,7 @@
 | 46   | [Permutations](#46-permutations)  | [Explanation](#46-permutations) | [Python Code](./046_permutations.py) |
 | 77   | [Combinations](#77-combinations)   | [Explanation](#77-combinations) | [Python Code](./077_combinations.py) |
 | 39   | [Combination Sum](#39-combination-sum) | [Explanation](#39-combination-sum) | [Python Code](./039_combination_sum.py) |
+| 17   | [Letter Combinations of a Phone Number](#17-letter-combinations-of-a-phone-number) | [Explanation](#17-letter-combinations-of-a-phone-number) | [Python Code](./017_letter_combinations.py) |
 
 ## 78. Subsets
 
@@ -90,3 +91,23 @@ The approach uses backtracking to explore all possible combinations:
 **Notes**:
 - Time complexity: O(2^t), where `t` is the target value due to exploring combinations.
 - Space complexity: O(t), due to the recursion depth and storing combinations.
+
+## 17. Letter Combinations of a Phone Number
+
+**Description**:
+Given a string containing digits from `2-9`, return all possible letter combinations that the number could represent. A mapping of digits to letters (as on the telephone buttons) is used.
+
+**Example**:
+```plaintext
+Input: digits = "23"
+Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
+```
+
+**Solution**:
+We use backtracking to explore all combinations of letters for the given digits. For each digit, we iterate through its corresponding letters and recursively build combinations until we reach the length of the input digits.
+
+[Link to code](./017_letter_combinations.py)
+
+**Notes**:
+- Time complexity: O(4^n), where n is the length of the input digits. Each digit can map to 3 or 4 letters.
+- Space complexity: O(n), due to the recursion stack and storing combinations.
