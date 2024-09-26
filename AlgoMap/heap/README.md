@@ -3,6 +3,7 @@
 | Problem Number | Problem Name                                   | Explanation                                      | Code                                           |
 |----------------|------------------------------------------------|--------------------------------------------------|------------------------------------------------|
 | 1046 | [Last Stone Weight](#1046-last-stone-weight) | [Explanation](#1046-last-stone-weight)         | [Python Code](./1046_last_stone_weight.py)  |
+| 215  | [Kth Largest Element in an Array](#215-kth-largest-element-in-an-array) | [Explanation](#215-kth-largest-element-in-an-array) | [Python Code](./215_kth_largest_element.py)      |
 
 ## 1046. Last Stone Weight
 
@@ -23,3 +24,23 @@ We use a max-heap to track the heaviest stones. By negating the weights, we can 
 **Notes**:
 - Time complexity: O(n log n). This arises from the need to heapify the list and perform heap operations (push and pop), which each take O(log n) time.
 - Space complexity: O(n) due to storing the stones in the heap.
+
+## 215. Kth Largest Element in an Array
+
+**Description**:
+Given an integer array `nums` and an integer `k`, return the k-th largest element in the array. Note that it is the k-th largest element in sorted order, not the k-th distinct element.
+
+**Example**:
+```plaintext
+Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
+```
+
+**Solution**:
+To find the k-th largest element, we use a min-heap of size `k`. We iterate through the array, maintaining the heap with only the k largest elements. At the end, the root of the heap (the smallest in the heap) is the k-th largest element.
+
+[Link to code](./215_kth_largest_element.py)
+
+**Notes**:
+- Time complexity: O(n log k). Each insertion and removal operation in the heap takes O(log k), and we do this for all `n` elements.
+- Space complexity: O(k) for the heap that stores the k largest elements.
