@@ -4,6 +4,7 @@
 |----------------|-----------------------------------------------|--------------------------------------------------|------------------------------------------------|
 | 703  | [Kth Largest Element in a Stream](#703-kth-largest-element-in-a-stream) | [Explanation](#703-kth-largest-element-in-a-stream) | [Python Code](./703_kth_largest_element_stream.py) |
 | 621  | [Task Scheduler](#621-task-scheduler) | [Explanation](#621-task-scheduler) | [Python Code](./621_task_scheduler.py) |
+| 355  | [Design Twitter](#355-design-twitter) | [Explanation](#355-design-twitter) | [Python Code](./355_design_twitter.py)         |
 
 ## 703. Kth Largest Element in a Stream
 
@@ -49,3 +50,39 @@ We use a max-heap to keep track of task frequencies. The process consists of inc
 **Notes**:
 - Time complexity: O(m log m), where m is the number of unique tasks. Each task can be pushed and popped from the heap.
 - Space complexity: O(m) for storing the task counts and wait queue.
+
+## 355. Design Twitter
+
+**Description**:
+Design a simplified version of Twitter where users can post tweets, follow/unfollow other users, and retrieve the 10 most recent tweets from the user's news feed. Each tweet has a timestamp, and the news feed must show tweets from followed users in reverse chronological order.
+
+**Example**:
+```plaintext
+Input: 
+["Twitter", "postTweet", "getNewsFeed", "follow", "postTweet", "getNewsFeed", "unfollow", "getNewsFeed"]
+[[], [1, 5], [1], [1, 2], [2, 6], [1], [1, 2], [1]]
+
+Output: 
+[null, null, [5], null, null, [6, 5], null, [5]]
+```
+
+The class should support the following methods:
+1. `postTweet(userId, tweetId)`: Post a tweet by a user.
+2. `getNewsFeed(userId)`: Retrieve the 10 most recent tweet IDs in the user's news feed.
+3. `follow(followerId, followeeId)`: The user `followerId` follows the user `followeeId`.
+4. `unfollow(followerId, followeeId)`: The user `followerId` unfollows `followeeId`.
+
+**Solution**:
+- A max-heap (priority queue) is used to track the latest tweets from each followed user.
+- The `user_follow` dictionary stores the follow relationships, while `user_tweets` keeps a list of (time, tweetId) for each user.
+- Each time a tweet is posted, the global `time` counter is decremented to ensure that more recent tweets appear first in the feed.
+- To generate the news feed, the algorithm checks the last tweet of each followed user, then uses a heap to extract the 10 most recent tweets.
+
+[Link to code](./355_design_twitter.py)
+
+**Notes**:
+- Time Complexity:
+  - `postTweet`: O(1)
+  - `getNewsFeed`: O(f + log k), where `f` is the number of followed users with tweets, and `k` is the number of tweets retrieved (at most 10).
+  - `follow` and `unfollow`: O(1)
+- Space Complexity: O(t + f), where `t` is the total number of tweets and `f` is the number of follow relationships.
