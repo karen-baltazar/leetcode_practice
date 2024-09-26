@@ -5,6 +5,7 @@
 | 1046 | [Last Stone Weight](#1046-last-stone-weight) | [Explanation](#1046-last-stone-weight)         | [Python Code](./1046_last_stone_weight.py)  |
 | 215  | [Kth Largest Element in an Array](#215-kth-largest-element-in-an-array) | [Explanation](#215-kth-largest-element-in-an-array) | [Python Code](./215_kth_largest_element.py)      |
 | 347  | [Top K Frequent Elements](#347-top-k-frequent-elements) | [Explanation](#347-top-k-frequent-elements)    | [Python Code](./347_top_k_frequent_elements.py)  |
+| 973  | [K Closest Points to Origin](#973-k-closest-points-to-origin) | [Explanation](#973-k-closest-points-to-origin) | [Python Code](./973_k_closest_points.py)         |
 
 ## 1046. Last Stone Weight
 
@@ -65,3 +66,23 @@ The solution employs a bucket sort approach. After counting the frequency of eac
 **Notes**:
 - Time complexity: O(n). Counting frequencies and iterating through the buckets are linear operations.
 - Space complexity: O(n), as extra space is used for the frequency map and buckets.
+
+## 973. K Closest Points to Origin
+
+**Description**:
+Given an array of points where `points[i] = [x, y]` represents a point on the X-Y plane, return the `k` closest points to the origin (0, 0).
+
+**Example**:
+```plaintext
+Input: points = [[1,3],[-2,2],[5,8],[0,1]], k = 2
+Output: [[-2,2],[1,3]]
+```
+
+**Solution**:
+The approach uses a min-heap to maintain the closest points. The distance to the origin is calculated, and points are pushed into the heap. If the heap exceeds size `k`, the farthest point is removed. The resulting heap contains the `k` closest points.
+
+[Link to code](./973_k_closest_points.py)
+
+**Notes**:
+- Time complexity: O(n log k), where n is the number of points. Each insertion into the heap takes log k time.
+- Space complexity: O(k) for storing the k closest points.
