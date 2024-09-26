@@ -4,6 +4,7 @@
 |----------------|------------------------------------------------|--------------------------------------------------|------------------------------------------------|
 | 1046 | [Last Stone Weight](#1046-last-stone-weight) | [Explanation](#1046-last-stone-weight)         | [Python Code](./1046_last_stone_weight.py)  |
 | 215  | [Kth Largest Element in an Array](#215-kth-largest-element-in-an-array) | [Explanation](#215-kth-largest-element-in-an-array) | [Python Code](./215_kth_largest_element.py)      |
+| 347  | [Top K Frequent Elements](#347-top-k-frequent-elements) | [Explanation](#347-top-k-frequent-elements)    | [Python Code](./347_top_k_frequent_elements.py)  |
 
 ## 1046. Last Stone Weight
 
@@ -44,3 +45,23 @@ To find the k-th largest element, we use a min-heap of size `k`. We iterate thro
 **Notes**:
 - Time complexity: O(n log k). Each insertion and removal operation in the heap takes O(log k), and we do this for all `n` elements.
 - Space complexity: O(k) for the heap that stores the k largest elements.
+
+## 347. Top K Frequent Elements
+
+**Description**:
+Given an integer array `nums` and an integer `k`, return the `k` most frequent elements. You may return the answer in any order.
+
+**Example**:
+```plaintext
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+```
+
+**Solution**:
+The solution employs a bucket sort approach. After counting the frequency of each number, elements are placed into frequency-based buckets. We then collect elements starting from the highest frequency bucket, stopping once we have gathered `k` elements.
+
+[Link to code](./347_top_k_frequent_elements.py)
+
+**Notes**:
+- Time complexity: O(n). Counting frequencies and iterating through the buckets are linear operations.
+- Space complexity: O(n), as extra space is used for the frequency map and buckets.
