@@ -7,6 +7,8 @@
 | 77   | [Combinations](#77-combinations)   | [Explanation](#77-combinations) | [Python Code](./077_combinations.py) |
 | 39   | [Combination Sum](#39-combination-sum) | [Explanation](#39-combination-sum) | [Python Code](./039_combination_sum.py) |
 | 17   | [Letter Combinations of a Phone Number](#17-letter-combinations-of-a-phone-number) | [Explanation](#17-letter-combinations-of-a-phone-number) | [Python Code](./017_letter_combinations.py) |
+| 22   | [Generate Parentheses](#22-generate-parentheses) | [Explanation](#22-generate-parentheses) | [Python Code](./022_generate_parentheses.py)      |
+| 79   | [Word Search](#79-word-search) | [Explanation](#79-word-search) | [Python Code](./079_word_search.py) |
 
 ## 78. Subsets
 
@@ -111,3 +113,58 @@ We use backtracking to explore all combinations of letters for the given digits.
 **Notes**:
 - Time complexity: O(4^n), where n is the length of the input digits. Each digit can map to 3 or 4 letters.
 - Space complexity: O(n), due to the recursion stack and storing combinations.
+
+## 22. Generate Parentheses
+
+**Description**:
+Given `n` pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+**Example**:
+```plaintext
+Input: n = 3
+Output: ["((()))","(()())","(())()","()(())","()()()"]
+```
+
+**Solution**:
+The solution uses backtracking to generate all valid combinations of parentheses. We maintain two counters: one for open parentheses and one for close parentheses. At each step, we decide whether to add an open or close parenthesis based on the current state of these counters. The algorithm ensures that at no point do we have more close parentheses than open ones, which would make the sequence invalid.
+
+[Link to code](022_generate_parentheses.py)
+
+**Notes**:
+- Time complexity: O(4^n / sqrt(n)), this is Catalan number time complexity.
+- Space complexity: O(n), the space used by the recursion stack.
+
+## 79. Word Search
+
+**Description**:
+Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where "adjacent" cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+**Example**:
+```plaintext
+Input:
+board = [
+  ['A','B','C','E'],
+  ['S','F','C','S'],
+  ['A','D','E','E']
+]
+word = "ABCCED"
+
+Output:
+True
+```
+
+**Solution**:
+This problem can be solved using a backtracking approach. The algorithm starts from each cell of the grid and attempts to match the given word by exploring neighboring cells (up, down, left, right). If the word is found, it returns `True`; otherwise, it continues searching. If at any point the word cannot be matched, it backtracks by restoring the previous state.
+
+**Steps**:
+1. Traverse each cell of the grid and attempt to match the word starting from that cell.
+2. Use backtracking to explore all four possible directions (up, down, left, right) from the current cell.
+3. Mark cells as visited temporarily to avoid reusing the same cell in the current path.
+4. If all letters are matched, return `True`.
+5. Restore the original cell's value if the current path does not lead to a solution.
+
+[Link to code](./079_word_search.py)
+
+**Notes**:
+- Time Complexity: `O(N * M * 3^L)`, where `N * M` is the number of cells in the grid, and `L` is the length of the word. For each cell, we have at most 3 directions to explore (excluding the direction we came from).
+- Space Complexity: `O(L)`, where `L` is the length of the word, as we store the recursion stack.
