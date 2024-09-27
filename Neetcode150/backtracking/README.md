@@ -3,7 +3,8 @@
 | Problem Number | Problem Name                      | Explanation                                           | Code                                            |
 |----------------|-----------------------------------|-------------------------------------------------------|-------------------------------------------------|
 | 90  | [Subsets II](#90-subsets-ii)     | [Explanation](#90-subsets-ii) | [Python Code](./090_subsets_ii.py) |
-| 40  | [Combination Sum II](#40-combination-sum-ii) | [Explanation](#40-combination-sum-ii) | [Python Code](./040_combination_sum_ii.py)      |
+| 40  | [Combination Sum II](#40-combination-sum-ii) | [Explanation](#40-combination-sum-ii) | [Python Code](./040_combination_sum_ii.py) |
+| 131 | [Palindrome Partitioning](#131-palindrome-partitioning) | [Explanation](#131-palindrome-partitioning)       | [Python Code](./131_palindrome_partitioning.py) |
 
 ## 90. Subsets II
 
@@ -52,3 +53,27 @@ The approach uses backtracking with a sorted list to handle duplicates:
 **Notes**:
 - Time complexity: O(2^n), as each element can be included or excluded in subsets.
 - Space complexity: O(n), due to the recursion stack and current combination storage.
+
+## 131. Palindrome Partitioning
+
+**Description**:
+Given a string `s`, partition `s` such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of `s`.
+
+**Example**:
+```plaintext
+Input: s = "aab"
+Output: [["a", "a", "b"], ["aa", "b"]]
+Explanation: Possible partitions include single letters or "aa" as a palindrome.
+```
+
+**Solution**:
+The approach uses backtracking to explore all possible partitions:
+- If the current substring is a palindrome, add it to the current partition.
+- Recursively partition the remaining substring.
+- Backtrack to explore other possible partitions.
+
+[Link to code](./131_palindrome_partitioning.py)
+
+**Notes**:
+- Time complexity: O(n * 2^n), due to checking palindromes and generating all subsets.
+- Space complexity: O(n), for the recursion stack and storing partitions.
