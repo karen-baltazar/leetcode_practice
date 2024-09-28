@@ -5,6 +5,7 @@
 | 90  | [Subsets II](#90-subsets-ii)     | [Explanation](#90-subsets-ii) | [Python Code](./090_subsets_ii.py) |
 | 40  | [Combination Sum II](#40-combination-sum-ii) | [Explanation](#40-combination-sum-ii) | [Python Code](./040_combination_sum_ii.py) |
 | 131 | [Palindrome Partitioning](#131-palindrome-partitioning) | [Explanation](#131-palindrome-partitioning)       | [Python Code](./131_palindrome_partitioning.py) |
+| 51  | [N-Queens](#51-n-queens) | [Explanation](#51-n-queens) | [Python Code](./051_n_queens.py) |
 
 ## 90. Subsets II
 
@@ -77,3 +78,39 @@ The approach uses backtracking to explore all possible partitions:
 **Notes**:
 - Time complexity: O(n * 2^n), due to checking palindromes and generating all subsets.
 - Space complexity: O(n), for the recursion stack and storing partitions.
+
+## 51. N-Queens
+
+**Description**:  
+The N-Queens problem asks you to place N queens on an N x N chessboard such that no two queens threaten each other. A queen can attack horizontally, vertically, and diagonally. Find all distinct solutions to the N-Queens problem.
+
+**Example**:
+```plaintext
+Input: n = 4
+Output: 
+[
+ [".Q..",  // Solution 1
+  "...Q",
+  "Q...",
+  "..Q."],
+
+ ["..Q.",  // Solution 2
+  "Q...",
+  "...Q",
+  ".Q.."]
+]
+Explanation: There are two distinct solutions to the 4-Queens puzzle.
+```
+
+**Solution**:  
+This approach uses backtracking to explore all possible placements of queens:
+- The board is initialized as a list of lists (`n x n`), filled with `"."`.
+- Three sets track columns (`cols`), positive diagonals (`posDiag`), and negative diagonals (`negDiag`) to ensure valid placements.
+- Recursion is used to try placing a queen row by row. If a placement is valid, the state is updated, and the algorithm proceeds to the next row.
+- When all rows are filled, the current configuration is added to the result. The algorithm backtracks to explore other possibilities.
+
+[Link to code](./51_n_queens.py)
+
+**Notes**:
+- Time complexity: O(N!), where N is the size of the board. This results from trying N options for each row, then N-1 for the next, and so on.
+- Space complexity: O(N^2), for the board representation and the recursion stack.
