@@ -4,6 +4,7 @@
 | 200  | [Number of Islands](#200-number-of-islands) | [Explanation](#200-number-of-islands) | [Python Code](./200_num_islands.py) |
 | 695  | [Max Area of Island](#695-max-area-of-island) | [Explanation](#695-max-area-of-island) | [Python Code](./695_max_area_of_island.py)|
 | 207  | [Course Schedule](#207-course-schedule) | [Explanation](#207-course-schedule) | [Python Code](./207_course_schedule.py)|
+| 210  | [Course Schedule II](#210-course-schedule-ii) | [Explanation](#210-course-schedule-ii) | [Python Code](./210_course_schedule_ii.py)|
 
 ## 1971. Find if Path Exists in Graph
 
@@ -109,6 +110,31 @@ This problem can be solved using a Depth-First Search (DFS) approach:
 - If a cycle is detected during the DFS traversal, it means that the course requirements cannot be satisfied, and we return `False`.
 
 [Link to code](./207_course_schedule.py)
+
+**Notes**:
+- Time complexity: O(n + e), where n is the number of courses and e is the number of prerequisite pairs.
+- Space complexity: O(n), due to the recursive call stack and the prerequisite map.
+
+## 210. Course Schedule II
+
+**Description**:
+You are given the total number of courses (`numCourses`) you have to take, labeled from 0 to `numCourses-1`. You are also given a list of prerequisite pairs, where each pair `[a, b]` indicates that to take course `a`, you must first complete course `b`. Return the ordering of courses you should take to finish all courses. If there are multiple valid answers, return any of them. If it is impossible to finish all courses, return an empty list.
+
+**Example**:
+```plaintext
+Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+Output: [0,2,1,3] or [0,1,2,3]
+Explanation: Both are valid course orders.
+```
+
+**Solution**:
+This problem is solved using DFS to detect cycles and build the course order:
+- We use a `defaultdict` to map each course to its prerequisites.
+- DFS is used to check for cycles (courses that are prerequisites of themselves) and to build the course order.
+- If a cycle is found, it means that the courses cannot be completed, and we return an empty list.
+- The result is constructed in reverse order since we append the courses after all their prerequisites have been processed.
+
+[Link to code](./210_course_schedule_ii.py)
 
 **Notes**:
 - Time complexity: O(n + e), where n is the number of courses and e is the number of prerequisite pairs.
