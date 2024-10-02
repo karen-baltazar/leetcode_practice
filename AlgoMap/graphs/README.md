@@ -2,6 +2,7 @@
 |----------------|-------------------------|-------------------------------------|-----------------------------|
 | 1971 | [Find if Path Exists in Graph](#1971-find-if-path-exists-in-graph) | [Explanation](#1971-find-if-path-exists-in-graph) | [Python Code](./1971_valid_path.py)       |
 | 200  | [Number of Islands](#200-number-of-islands) | [Explanation](#200-number-of-islands) | [Python Code](./200_num_islands.py) |
+| 695  | [Max Area of Island](#695-max-area-of-island) | [Explanation](#695-max-area-of-island) | [Python Code](./695_max_area_of_island.py)|
 
 ## 1971. Find if Path Exists in Graph
 
@@ -58,3 +59,32 @@ This problem is solved using Depth-First Search (DFS):
 **Notes**:
 - Time complexity: O(n * m), where n is the number of rows and m is the number of columns. Every cell is visited once.
 - Space complexity: O(n * m), due to the recursion stack and the `visited` set.
+
+## 695. Max Area of Island
+
+**Description**:
+Given a 2D grid of `1`s (land) and `0`s (water), return the maximum area of an island in the grid. An island is a group of adjacent lands connected horizontally or vertically. You may assume all four edges of the grid are surrounded by water.
+
+**Example**:
+```plaintext
+Input: grid = [
+  [0,0,1,0,0],
+  [0,1,1,1,0],
+  [0,0,0,1,1],
+  [0,0,0,0,1]
+]
+Output: 4
+Explanation: The largest island has an area of 4.
+```
+
+**Solution**:
+This problem is solved using Depth-First Search (DFS):
+- Iterate through the grid and perform DFS when encountering land ('1').
+- Each DFS call calculates the area of the connected island and returns it.
+- Track the maximum area encountered during the DFS calls.
+
+[Link to code](./695_max_area_of_island.py)
+
+**Notes**:
+- Time complexity: O(n * m), where n is the number of rows and m is the number of columns. Every cell is visited once.
+- Space complexity: O(n * m), due to the recursion stack for DFS.
