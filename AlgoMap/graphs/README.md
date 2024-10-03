@@ -10,6 +10,7 @@
 | 417  | [Pacific Atlantic Water Flow](#417-pacific-atlantic-water-flow) | [Explanation](#417-pacific-atlantic-water-flow)     | [Python Code](./417_pacific_atlantic.py)   |
 | 133  | [Clone Graph](#133-clone-graph) | [Explanation](#133-clone-graph) | [Python Code](./133_clone_graph.py)       |
 | 994  | [Rotting Oranges](#994-rotting-oranges) | [Explanation](#994-rotting-oranges) | [Python Code](./994_rotting_oranges.py)   |
+| 1584 | [Min Cost to Connect All Points](#1584-min-cost-to-connect-all-points) | [Explanation](#1584-min-cost-to-connect-all-points) | [Python Code](./1584_min_cost_connect_points.py) |
 
 ## 1971. Find if Path Exists in Graph
 
@@ -245,3 +246,32 @@ This problem can be solved using a Breadth-First Search (BFS) approach:
 **Notes**:
 - Time complexity: O(N), where `N` is the number of cells in the grid.
 - Space complexity: O(N) for the queue used in BFS.
+
+## 1584. Min Cost to Connect All Points
+
+**Description**:
+You are given `n` points in a 2D plane where `points[i] = [x_i, y_i]` represents the coordinates of the i-th point. The task is to connect all the points with the minimum cost, where the cost of connecting two points is the **Manhattan distance** between them:  
+`distance = |x1 - x2| + |y1 - y2|`.  
+Return the minimum cost required to make all points connected. All points must be connected directly or indirectly.
+
+**Example**:
+```plaintext
+Input: points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
+Output: 20
+```
+
+**Solution**:
+This problem can be solved efficiently using **Prim's Algorithm** to build a **Minimum Spanning Tree (MST)**. The idea is to start with an arbitrary point and grow the MST by always adding the closest (cheapest) unvisited point. The edge weights between points are determined by the Manhattan distance, making this a variation of the MST problem in 2D space.
+
+**Approach**:
+1. **Initialization**: Start by selecting an arbitrary point, usually the first one. Push it into a min-heap (priority queue) with an initial cost of 0 because the cost to connect the first point is zero.
+2. **Visit Nodes**: At each step, pick the point with the smallest cost from the heap. Mark this point as visited, which means it is now part of the MST.
+3. **Update Costs**: For the current point, calculate the Manhattan distance to all unvisited points. For each unvisited point, if the calculated cost to connect it is smaller than any previously recorded cost, update the heap with this new cost.
+4. **Repeat**: Repeat this process until all points are visited and connected.
+5. **Result**: The sum of the edge weights (distances) added to the MST will be the minimum cost to connect all points.
+
+[Link to code](./1584_min_cost_connect_points.py)
+
+**Notes**:
+- Time complexity: O(N² log N), where `N` is the number of points. This arises from calculating the Manhattan distances between all pairs of points (O(N²)) and managing the priority queue (heap) for edge selection (O(log N)).
+- Space complexity: O(N), due to the storage of the heap and visited set.
