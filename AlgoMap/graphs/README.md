@@ -1,3 +1,5 @@
+# Problems
+
 | Problem Number | Problem Name | Explanation | Code |
 |----------------|-------------------------|-------------------------------------|-----------------------------|
 | 1971 | [Find if Path Exists in Graph](#1971-find-if-path-exists-in-graph) | [Explanation](#1971-find-if-path-exists-in-graph) | [Python Code](./1971_valid_path.py)       |
@@ -5,6 +7,7 @@
 | 695  | [Max Area of Island](#695-max-area-of-island) | [Explanation](#695-max-area-of-island) | [Python Code](./695_max_area_of_island.py)|
 | 207  | [Course Schedule](#207-course-schedule) | [Explanation](#207-course-schedule) | [Python Code](./207_course_schedule.py)|
 | 210  | [Course Schedule II](#210-course-schedule-ii) | [Explanation](#210-course-schedule-ii) | [Python Code](./210_course_schedule_ii.py)|
+| 417  | [Pacific Atlantic Water Flow](#417-pacific-atlantic-water-flow) | [Explanation](#417-pacific-atlantic-water-flow)     | [Python Code](./417_pacific_atlantic.py)   |
 
 ## 1971. Find if Path Exists in Graph
 
@@ -139,3 +142,30 @@ This problem is solved using DFS to detect cycles and build the course order:
 **Notes**:
 - Time complexity: O(n + e), where n is the number of courses and e is the number of prerequisite pairs.
 - Space complexity: O(n), due to the recursive call stack and the prerequisite map.
+
+## 417. Pacific Atlantic Water Flow
+
+**Description**:
+You are given an `m x n` matrix of heights, where `heights[r][c]` represents the height of land at position `(r, c)`. Water can flow from a cell to another if the next cell is both within bounds and has an equal or lower height. The Pacific Ocean touches the left and top edges of the matrix, while the Atlantic Ocean touches the right and bottom edges. Return a list of all cells where water can flow to both the Pacific and Atlantic oceans.
+
+**Example**:
+```plaintext
+Input: heights = [[1,2,2,3,5],
+                  [3,2,3,4,4],
+                  [2,4,5,3,1],
+                  [6,7,1,4,5],
+                  [5,1,1,2,4]]
+Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
+```
+
+**Solution**:
+We solve this problem using Depth-First Search (DFS):
+- We start from the edges of the matrix (the cells adjacent to both oceans) and perform DFS to find all cells that can reach each ocean.
+- We keep track of visited cells for both the Pacific and Atlantic oceans using two sets.
+- The result is the intersection of the two sets, which contains cells that can reach both oceans.
+
+[Link to code](./417_pacific_atlantic.py)
+
+**Notes**:
+- Time complexity: O(m * n), where `m` is the number of rows and `n` is the number of columns in the grid.
+- Space complexity: O(m * n) due to the recursive call stack and the visited sets.
