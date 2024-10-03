@@ -8,6 +8,7 @@
 | 207  | [Course Schedule](#207-course-schedule) | [Explanation](#207-course-schedule) | [Python Code](./207_course_schedule.py)|
 | 210  | [Course Schedule II](#210-course-schedule-ii) | [Explanation](#210-course-schedule-ii) | [Python Code](./210_course_schedule_ii.py)|
 | 417  | [Pacific Atlantic Water Flow](#417-pacific-atlantic-water-flow) | [Explanation](#417-pacific-atlantic-water-flow)     | [Python Code](./417_pacific_atlantic.py)   |
+| 133  | [Clone Graph](#133-clone-graph) | [Explanation](#133-clone-graph) | [Python Code](./133_clone_graph.py)       |
 
 ## 1971. Find if Path Exists in Graph
 
@@ -169,3 +170,30 @@ We solve this problem using Depth-First Search (DFS):
 **Notes**:
 - Time complexity: O(m * n), where `m` is the number of rows and `n` is the number of columns in the grid.
 - Space complexity: O(m * n) due to the recursive call stack and the visited sets.
+
+## 133. Clone Graph
+
+**Description**:
+You are given a reference to a node in a connected undirected graph. Each node has a value and a list of neighbors. Your task is to return a deep copy (clone) of the graph.
+
+**Example**:
+```plaintext
+Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
+Output: [[2,4],[1,3],[2,4],[1,3]]
+Explanation: The graph has 4 nodes as follows:
+1 -- 2
+|    |
+4 -- 3
+```
+
+**Solution**:
+We can solve this problem using Depth-First Search (DFS):
+- We maintain a dictionary (`old_to_new`) to map original nodes to their cloned counterparts.
+- We recursively clone each node and its neighbors using DFS.
+- The cloned graph is built from the given starting node.
+
+[Link to code](./133_clone_graph.py)
+
+**Notes**:
+- Time complexity: O(N + E), where `N` is the number of nodes and `E` is the number of edges.
+- Space complexity: O(N) for the recursion stack and the mapping dictionary.
