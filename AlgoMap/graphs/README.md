@@ -11,6 +11,7 @@
 | 133  | [Clone Graph](#133-clone-graph) | [Explanation](#133-clone-graph) | [Python Code](./133_clone_graph.py)       |
 | 994  | [Rotting Oranges](#994-rotting-oranges) | [Explanation](#994-rotting-oranges) | [Python Code](./994_rotting_oranges.py)   |
 | 1584 | [Min Cost to Connect All Points](#1584-min-cost-to-connect-all-points) | [Explanation](#1584-min-cost-to-connect-all-points) | [Python Code](./1584_min_cost_connect_points.py) |
+| 743  | [Network Delay Time](#743-network-delay-time) | [Explanation](#743-network-delay-time) | [Python Code](./743_network_delay_time.py) |
 
 ## 1971. Find if Path Exists in Graph
 
@@ -261,9 +262,8 @@ Output: 20
 ```
 
 **Solution**:
-This problem can be solved efficiently using **Prim's Algorithm** to build a **Minimum Spanning Tree (MST)**. The idea is to start with an arbitrary point and grow the MST by always adding the closest (cheapest) unvisited point. The edge weights between points are determined by the Manhattan distance, making this a variation of the MST problem in 2D space.
+This problem can be solved efficiently using **Prim's Algorithm** to build a **Minimum Spanning Tree (MST)**. The idea is to start with an arbitrary point and grow the MST by always adding the closest (cheapest) unvisited point. 
 
-**Approach**:
 1. **Initialization**: Start by selecting an arbitrary point, usually the first one. Push it into a min-heap (priority queue) with an initial cost of 0 because the cost to connect the first point is zero.
 2. **Visit Nodes**: At each step, pick the point with the smallest cost from the heap. Mark this point as visited, which means it is now part of the MST.
 3. **Update Costs**: For the current point, calculate the Manhattan distance to all unvisited points. For each unvisited point, if the calculated cost to connect it is smaller than any previously recorded cost, update the heap with this new cost.
@@ -275,3 +275,33 @@ This problem can be solved efficiently using **Prim's Algorithm** to build a **M
 **Notes**:
 - Time complexity: O(N² log N), where `N` is the number of points. This arises from calculating the Manhattan distances between all pairs of points (O(N²)) and managing the priority queue (heap) for edge selection (O(log N)).
 - Space complexity: O(N), due to the storage of the heap and visited set.
+
+## 743. Network Delay Time
+
+**Description**:
+You are given a directed, weighted graph represented by a list of travel times between pairs of nodes. Each entry in `times` is a tuple (u, v, w), where `u` is the starting node, `v` is the destination node, and `w` is the time it takes to travel from `u` to `v`. Given the number of nodes `n` and a starting node `k`, you need to determine how long it will take for all nodes to receive the signal from `k`. If not all nodes can be reached, return `-1`.
+
+**Example**:
+```plaintext
+Input: times = [[2, 1, 1], [2, 3, 1], [3, 4, 1]], n = 4, k = 2
+Output: 2
+Explanation: Signal starts at node 2 and takes:
+- 1 unit of time to reach node 1
+- 1 unit of time to reach node 3
+- 2 units of time to reach node 4 (via node 3)
+```
+
+**Solution**:
+The problem can be solved using **Dijkstra's algorithm**, which is designed to find the shortest path from a single source node to all other nodes in a weighted graph. We use a priority queue (or min-heap) to always process the node with the smallest accumulated time first, ensuring that the minimum time to each node is found.
+
+- First, the graph is represented as an adjacency list.
+- We initialize a min-heap with the starting node and set the time to zero.
+- For each node, we extract the one with the smallest current time from the heap, mark it as visited, and explore its neighbors, adding them to the heap with updated times.
+- The process continues until all nodes are visited or the heap is empty.
+- Finally, the maximum time taken to reach any node is returned. If not all nodes were visited, we return `-1`.
+
+[Link to code](./743_network_delay_time.py)
+
+**Notes**:
+- Time complexity: O(E log V), where E is the number of edges and V is the number of nodes. This comes from processing each edge and performing heap operations.
+- Space complexity: O(V + E) for storing the graph and the priority queue.
