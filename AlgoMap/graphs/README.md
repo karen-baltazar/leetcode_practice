@@ -9,6 +9,7 @@
 | 210  | [Course Schedule II](#210-course-schedule-ii) | [Explanation](#210-course-schedule-ii) | [Python Code](./210_course_schedule_ii.py)|
 | 417  | [Pacific Atlantic Water Flow](#417-pacific-atlantic-water-flow) | [Explanation](#417-pacific-atlantic-water-flow)     | [Python Code](./417_pacific_atlantic.py)   |
 | 133  | [Clone Graph](#133-clone-graph) | [Explanation](#133-clone-graph) | [Python Code](./133_clone_graph.py)       |
+| 994  | [Rotting Oranges](#994-rotting-oranges) | [Explanation](#994-rotting-oranges) | [Python Code](./994_rotting_oranges.py)   |
 
 ## 1971. Find if Path Exists in Graph
 
@@ -197,3 +198,50 @@ We can solve this problem using Depth-First Search (DFS):
 **Notes**:
 - Time complexity: O(N + E), where `N` is the number of nodes and `E` is the number of edges.
 - Space complexity: O(N) for the recursion stack and the mapping dictionary.
+
+## 994. Rotting Oranges
+
+**Description**:
+You are given a grid where:
+- `0` represents an empty cell.
+- `1` represents a fresh orange.
+- `2` represents a rotten orange.
+Your task is to determine the minimum number of minutes that must elapse until no fresh orange remains. If this is impossible, return `-1`.
+
+**Example**:
+```plaintext
+Input: grid = [[2,1,1],[1,1,0],[0,1,1]]
+Output: 4
+Explanation: The grid looks like this:
+2 1 1
+1 1 0
+0 1 1
+After 1 minute: 
+2 2 1
+2 1 0
+0 1 1
+After 2 minutes:
+2 2 2
+2 2 0
+0 1 1
+After 3 minutes:
+2 2 2
+2 2 0
+0 2 1
+After 4 minutes:
+2 2 2
+2 2 0
+0 2 2
+```
+
+**Solution**:
+This problem can be solved using a Breadth-First Search (BFS) approach:
+- Add all the initially rotten oranges to a queue and process them level by level (minute by minute).
+- For each rotten orange, rot its neighboring fresh oranges and reduce the count of fresh oranges.
+- Continue this process until either all fresh oranges have rotted or no more fresh oranges can be rotted.
+
+[Link to code](./994_rotting_oranges.py)
+
+**Notes**:
+- Time complexity: O(N), where `N` is the number of cells in the grid.
+- Space complexity: O(N) for the queue used in BFS.
