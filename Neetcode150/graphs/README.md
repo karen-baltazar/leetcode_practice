@@ -6,6 +6,7 @@
 | 130  | [Surrounded Regions](#130-surrounded-regions) | [Explanation](#130-surrounded-regions) | [Python Code](./130_surrounded_regions.py) |
 | 261  | [Graph Valid Tree](#261-graph-valid-tree) | [Explanation](#261-graph-valid-tree) | [Python Code](./261_graph_valid_tree.py) |
 | 323  | [Number of Connected Components](#323-number-of-connected-components) | [Explanation](#323-number-of-connected-components) | [Python Code](./323_connected_components.py) |
+| 684  | [Redundant Connection](#684-redundant-connection) | [Explanation](#684-redundant-connection) | [Python Code](./684_redundant_connection.py)  |
 
 ## 286. Walls and Gates
 
@@ -126,3 +127,36 @@ For each edge, we:
 **Notes**:
 - Time complexity: O(n + e * α(n)), where `n` is the number of nodes, `e` is the number of edges, and `α(n)` is the inverse Ackermann function (very small, almost constant).
 - Space complexity: O(n) for the parent and rank arrays.
+
+## 684. Redundant Connection
+
+**Description**:
+You are given a tree (an acyclic graph) with `n` nodes where exactly one edge is added, making it into a cycle. You need to find and return that redundant edge.
+
+The input consists of a 2D array `edges`, where each element is an edge between two nodes. The task is to identify the edge that, if removed, leaves the graph as a valid tree.
+
+**Example**:
+```plaintext
+Input: edges = [[1, 2], [1, 3], [2, 3]]
+Output: [2, 3]
+```
+
+**Solution**:
+This problem is solved using the **Union-Find (Disjoint Set Union)** data structure to detect cycles in the graph. A cycle exists when two nodes that are already in the same connected component are connected by an edge.
+
+The **Union-Find** algorithm operates as follows:
+1. **Find**: Determine which component (or set) a node belongs to using path compression.
+2. **Union**: Combine two components if they are different using union by rank to keep the tree balanced.
+
+In the solution:
+1. We initialize a `parent` array where each node is its own parent.
+2. Path compression is applied to the `find` function to make future lookups faster.
+3. Union by rank ensures that we attach smaller trees to larger ones.
+
+As we process each edge, we attempt to union the two nodes it connects. If they are already connected, this edge forms a cycle and is the redundant edge we are looking for.
+
+[Link to code](./684_redundant_connection.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the number of edges. Both `find` and `union` operations run in almost constant time due to path compression and union by rank.
+- Space complexity: O(n), due to the `parent` and `rank` arrays.
