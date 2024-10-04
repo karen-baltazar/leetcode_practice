@@ -4,6 +4,7 @@
 |----------------|----------------------------------|----------------------------------|----------------------------------|
 | 286  | [Walls and Gates](#286-walls-and-gates) | [Explanation](#286-walls-and-gates) | [Python Code](./286_walls_and_gates.py) |
 | 130  | [Surrounded Regions](#130-surrounded-regions) | [Explanation](#130-surrounded-regions) | [Python Code](./130_surrounded_regions.py) |
+| 261  | [Graph Valid Tree](#261-graph-valid-tree) | [Explanation](#261-graph-valid-tree) | [Python Code](./261_graph_valid_tree.py) |
 
 ## 286. Walls and Gates
 
@@ -66,3 +67,29 @@ To solve this problem, we use Depth-First Search (DFS) to mark all `'O'`s connec
 **Notes**:
 - Time complexity: O(m * n), where m is the number of rows and n is the number of columns.
 - Space complexity: O(m * n), due to the recursion stack in the worst case.
+
+## 261. Graph Valid Tree
+
+**Description**:
+Given `n` nodes labeled from `0` to `n - 1` and a list of edges where each edge connects two nodes, determine if the nodes form a valid tree. A valid tree must be:
+1. **Connected**: All nodes must be reachable from any other node.
+2. **Acyclic**: There should be no cycles in the graph.
+
+**Example**:
+```plaintext
+Input: n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+Output: True
+```
+
+**Solution**:
+To solve this, we use Depth-First Search (DFS). The key is to traverse the graph and check for:
+1. **Cycles**: If we revisit a node we've already visited (that isn't the parent node), there is a cycle.
+2. **Connectivity**: After the DFS, if all nodes have been visited, the graph is connected.
+
+We keep track of visited nodes and ensure no cycles exist using a `prev_node` to avoid revisiting the previous node from which we came.
+
+[Link to code](./261_graph_valid_tree.py)
+
+**Notes**:
+- Time complexity: O(n + e), where `n` is the number of nodes and `e` is the number of edges.
+- Space complexity: O(n + e) due to the adjacency list and DFS stack.
