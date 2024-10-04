@@ -5,6 +5,7 @@
 | 286  | [Walls and Gates](#286-walls-and-gates) | [Explanation](#286-walls-and-gates) | [Python Code](./286_walls_and_gates.py) |
 | 130  | [Surrounded Regions](#130-surrounded-regions) | [Explanation](#130-surrounded-regions) | [Python Code](./130_surrounded_regions.py) |
 | 261  | [Graph Valid Tree](#261-graph-valid-tree) | [Explanation](#261-graph-valid-tree) | [Python Code](./261_graph_valid_tree.py) |
+| 323  | [Number of Connected Components](#323-number-of-connected-components) | [Explanation](#323-number-of-connected-components) | [Python Code](./323_connected_components.py) |
 
 ## 286. Walls and Gates
 
@@ -93,3 +94,35 @@ We keep track of visited nodes and ensure no cycles exist using a `prev_node` to
 **Notes**:
 - Time complexity: O(n + e), where `n` is the number of nodes and `e` is the number of edges.
 - Space complexity: O(n + e) due to the adjacency list and DFS stack.
+
+## 323. Number of Connected Components
+
+**Description**:
+You are given `n` nodes, labeled from `0` to `n-1`, and a list of `edges` where each edge connects two nodes. Your task is to return the number of connected components in the graph. A connected component is a subset of nodes such that there is a path between any two nodes in the subset.
+
+**Example**:
+```plaintext
+Input: n = 5, edges = [[0,1],[1,2],[3,4]]
+Output: 2
+Explanation: There are two connected components: {0, 1, 2} and {3, 4}.
+```
+
+**Solution**:
+We can solve this problem using the **Union-Find** (or Disjoint Set Union) algorithm. The goal is to group nodes into connected components by performing two operations:
+1. **Find**: Identify which component a particular node belongs to.
+2. **Union**: Connect two components if an edge exists between them.
+
+The **Union-Find** algorithm works efficiently when optimized with:
+- **Path compression**: This technique speeds up the `find` operation by making each node point directly to the root of its set during the traversal, thereby flattening the structure.
+- **Union by rank**: When connecting two components, we attach the smaller component to the larger one. This keeps the tree representing the components balanced and reduces the overall height.
+
+For each edge, we:
+1. Check the components of both nodes using `find`.
+2. If they belong to different components, we merge them using `union` and reduce the total number of components by 1.
+3. Finally, return the total number of components left.
+
+[Link to code](./323_connected_components.py)
+
+**Notes**:
+- Time complexity: O(n + e * α(n)), where `n` is the number of nodes, `e` is the number of edges, and `α(n)` is the inverse Ackermann function (very small, almost constant).
+- Space complexity: O(n) for the parent and rank arrays.
