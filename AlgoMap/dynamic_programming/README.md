@@ -4,9 +4,10 @@
 |----------------|---------------|-------------|--------------|
 | 509  | [Fibonacci Number](#509-fibonacci-number) | [Explanation](#509-fibonacci-number) | [Python Code](./509_fibonacci_number.py) |
 | 70   | [Climbing Stairs](#70-climbing-stairs) | [Explanation](#70-climbing-stairs) | [Python Code](./070_climbing_stairs.py) |
-| 746  | [Min Cost Climbing Stairs](#746-min-cost-climbing-stairs) | [Explanation](#746-min-cost-climbing-stairs) | [Python Code](./746_min_cost_climbing_stairs.py)   |
+| 746  | [Min Cost Climbing Stairs](#746-min-cost-climbing-stairs) | [Explanation](#746-min-cost-climbing-stairs) | [Python Code](./746_min_cost_climbing_stairs.py) |
 | 198  | [House Robber](#198-house-robber)  | [Explanation](#198-house-robber) | [Python Code](./198_house_robber.py) |
-| 62   | [Unique Paths](#62-unique-paths)    | [Explanation](#62-unique-paths) | [Python Code](./062_unique_paths.py)       |
+| 62   | [Unique Paths](#62-unique-paths)    | [Explanation](#62-unique-paths) | [Python Code](./062_unique_paths.py) |
+| 55   | [Jump Game](#55-jump-game) | [Explanation](#55-jump-game) | [Python Code](./055_jump_game.py) |
 
 ## 509. Fibonacci Number
 
@@ -145,3 +146,25 @@ This problem can be efficiently solved using **dynamic programming**. The idea i
 **Notes**:
 - Time complexity: O(m * n), where `m` is the number of rows and `n` is the number of columns.
 - Space complexity: O(n), as we use a single array to store the number of paths for each column.
+
+## 55. Jump Game
+
+**Description**:
+You are given an array of non-negative integers `nums` where each element represents the maximum jump length at that position. Your goal is to determine if you can reach the last index starting from the first index.
+
+**Example**:
+```plaintext
+Input:
+nums = [2,3,1,1,4]
+
+Output: True
+```
+
+**Solution**:
+This problem can be efficiently solved by traversing the array from the back to the front. We maintain a `target` that starts at the last index, and for each index, we check if the value at that index is sufficient to reach the current target. If it is, we update the target to the current index. By the end of the loop, if the target reaches the starting index (0), it means it's possible to reach the last index.
+
+[Link to code](./055_jump_game.py)
+
+**Notes**:
+- Time complexity: O(n), where `n` is the length of the input array `nums`.
+- Space complexity: O(1), as we only use a constant amount of extra space.
