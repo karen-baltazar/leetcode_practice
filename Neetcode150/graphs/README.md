@@ -7,6 +7,7 @@
 | 261  | [Graph Valid Tree](#261-graph-valid-tree) | [Explanation](#261-graph-valid-tree) | [Python Code](./261_graph_valid_tree.py) |
 | 323  | [Number of Connected Components](#323-number-of-connected-components) | [Explanation](#323-number-of-connected-components) | [Python Code](./323_connected_components.py) |
 | 684  | [Redundant Connection](#684-redundant-connection) | [Explanation](#684-redundant-connection) | [Python Code](./684_redundant_connection.py)  |
+| 127  | [Word Ladder](#127-word-ladder) | [Explanation](#127-word-ladder) | [Python Code](./127_word_ladder.py)       |
 
 ## 286. Walls and Gates
 
@@ -160,3 +161,41 @@ As we process each edge, we attempt to union the two nodes it connects. If they 
 **Notes**:
 - Time complexity: O(n), where `n` is the number of edges. Both `find` and `union` operations run in almost constant time due to path compression and union by rank.
 - Space complexity: O(n), due to the `parent` and `rank` arrays.
+
+## 127. Word Ladder
+
+**Description**:
+Given two words, `beginWord` and `endWord`, and a dictionary `wordList`, return the length of the shortest transformation sequence from `beginWord` to `endWord`, such that:
+1. Only one letter can be changed at a time.
+2. Each transformed word must exist in the wordList.
+
+If no such transformation sequence exists, return `0`.
+
+**Example**:
+```plaintext
+Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
+Output: 5
+Explanation: One shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog", which takes 5 steps.
+```
+
+**Solution**:
+This problem can be solved using Breadth-First Search (BFS) to find the shortest path (in terms of transformations) from `beginWord` to `endWord`. Here's a breakdown of the approach:
+
+1. **Pattern Mapping**:
+   - First, we preprocess the `wordList` by creating a dictionary that maps patterns (words with one character replaced by `*`) to all words that can fit that pattern.
+   - For example, for the word "hot", patterns like `*ot`, `h*t`, and `ho*` are created, and this word is mapped to each of those patterns in a dictionary. This helps in quickly finding neighboring words that differ by only one character.
+
+2. **Breadth-First Search (BFS)**:
+   - We start BFS from the `beginWord` and try to transform it to the `endWord` by exploring all possible words that can be reached by changing just one letter.
+   - For each word, we generate all possible patterns and look for neighboring words (words that match those patterns) in the dictionary.
+   - We use a queue to perform BFS and a set to keep track of visited words.
+
+3. **Stopping Condition**:
+   - The BFS stops when the `endWord` is found, and the number of transformations (or steps) taken is returned.
+   - If the `endWord` is not found, return `0`.
+
+[Link to code](./127_word_ladder.py)
+
+**Notes**:
+- Time Complexity: `O(N * M^2)`, where `N` is the number of words in `wordList`, and `M` is the length of the words. We iterate through each word in the list, and for each word, we create `M` patterns and search through the neighbors.
+- Space Complexity: `O(N * M)`, since we store the dictionary of patterns and the queue for BFS.
