@@ -4,6 +4,7 @@
 |----------------|---------------|-------------|--------------|
 | 509  | [Fibonacci Number](#509-fibonacci-number) | [Explanation](#509-fibonacci-number) | [Python Code](./509_fibonacci_number.py) |
 | 70   | [Climbing Stairs](#70-climbing-stairs) | [Explanation](#70-climbing-stairs) | [Python Code](./070_climbing_stairs.py) |
+| 746  | [Min Cost Climbing Stairs](#746-min-cost-climbing-stairs) | [Explanation](#746-min-cost-climbing-stairs) | [Python Code](./746_min_cost_climbing_stairs.py)   |
 
 ## 509. Fibonacci Number
 
@@ -70,3 +71,28 @@ Steps:
 **Notes**:
 - Time complexity: O(n) because we calculate the number of ways for each step in a single pass.
 - Space complexity: O(1) because we only use two variables to store the results of the previous two steps.
+
+## 746. Min Cost Climbing Stairs
+
+**Description**:
+You are given an integer array `cost` where `cost[i]` is the cost of `i`-th step on a staircase. Once you pay the cost, you can either climb one or two steps. You need to find the minimum cost to reach the top of the floor. You can either start from step 0 or step 1.
+
+**Example**:
+```plaintext
+Input: cost = [10, 15, 20]
+Output: 15
+Explanation: You can start from step 1, pay 15, and reach the top.
+
+Input: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+Output: 6
+Explanation: Start from step 0, and pay the following steps: 1 → 2 → 3 → 4 → 6 → top. Total cost = 1 + 1 + 1 + 1 + 1 = 6.
+```
+
+**Solution**:  
+This problem can be solved using dynamic programming by calculating the minimum cost to reach each step. For each step, you can either come from the step before it or from two steps back. The cost to reach the current step is the minimum of these two options. By keeping track of the minimum costs for the last two steps as you move through the staircase, you can efficiently find the minimum cost to reach the top.
+
+[Link to code](./746_min_cost_climbing_stairs.py)
+
+**Notes**:
+- Time complexity: O(n) because we go through the steps once.
+- Space complexity: O(1) since we only use two variables (`prev` and `cur`) to store the minimum costs.
