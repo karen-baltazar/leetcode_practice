@@ -6,6 +6,7 @@
 | 70   | [Climbing Stairs](#70-climbing-stairs) | [Explanation](#70-climbing-stairs) | [Python Code](./070_climbing_stairs.py) |
 | 746  | [Min Cost Climbing Stairs](#746-min-cost-climbing-stairs) | [Explanation](#746-min-cost-climbing-stairs) | [Python Code](./746_min_cost_climbing_stairs.py)   |
 | 198  | [House Robber](#198-house-robber)  | [Explanation](#198-house-robber) | [Python Code](./198_house_robber.py) |
+| 62   | [Unique Paths](#62-unique-paths)    | [Explanation](#62-unique-paths) | [Python Code](./062_unique_paths.py)       |
 
 ## 509. Fibonacci Number
 
@@ -122,3 +123,25 @@ Instead of using an array to store all results, we optimize space by keeping tra
 **Notes**:
 - Time complexity: O(n), where n is the number of houses.
 - Space complexity: O(1), as we only use two variables to store intermediate results.
+
+## 62. Unique Paths
+
+**Description**:
+A robot is located at the top-left corner of an `m x n` grid. The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (i.e., `(m-1, n-1)`). How many possible unique paths are there to get to the destination?
+
+**Example**:
+```plaintext
+Input:
+m = 3, n = 7
+
+Output: 28
+```
+
+**Solution**:
+This problem can be efficiently solved using **dynamic programming**. The idea is to use a 1D array (`dp`) to store the number of ways to reach each cell in a row, reusing this array to calculate the result for the entire grid. At each cell, the number of unique paths is the sum of the paths from the cell above and the cell to the left. This reduces space complexity compared to a full 2D matrix.
+
+[Link to code](./062_unique_paths.py)
+
+**Notes**:
+- Time complexity: O(m * n), where `m` is the number of rows and `n` is the number of columns.
+- Space complexity: O(n), as we use a single array to store the number of paths for each column.
