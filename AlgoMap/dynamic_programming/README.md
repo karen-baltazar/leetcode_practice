@@ -5,6 +5,7 @@
 | 509  | [Fibonacci Number](#509-fibonacci-number) | [Explanation](#509-fibonacci-number) | [Python Code](./509_fibonacci_number.py) |
 | 70   | [Climbing Stairs](#70-climbing-stairs) | [Explanation](#70-climbing-stairs) | [Python Code](./070_climbing_stairs.py) |
 | 746  | [Min Cost Climbing Stairs](#746-min-cost-climbing-stairs) | [Explanation](#746-min-cost-climbing-stairs) | [Python Code](./746_min_cost_climbing_stairs.py)   |
+| 198  | [House Robber](#198-house-robber)  | [Explanation](#198-house-robber) | [Python Code](./198_house_robber.py) |
 
 ## 509. Fibonacci Number
 
@@ -96,3 +97,28 @@ This problem can be solved using dynamic programming by calculating the minimum 
 **Notes**:
 - Time complexity: O(n) because we go through the steps once.
 - Space complexity: O(1) since we only use two variables (`prev` and `cur`) to store the minimum costs.
+
+## 198. House Robber
+
+**Description**:
+You are a robber planning to steal from houses along a street. Each house has a certain amount of money, but if you rob two adjacent houses, you'll trigger the alarm. Determine the maximum amount of money you can steal without robbing two consecutive houses.
+
+**Example**:
+```plaintext
+Input: nums = [2,7,9,3,1]
+Output: 12
+Explanation: Rob house 1 (money = 2), then rob house 3 (money = 9), and then rob house 5 (money = 1).
+Total money you can rob = 2 + 9 + 1 = 12.
+```
+
+**Solution**:
+This problem can be solved using dynamic programming. At each house, you can either rob it (and add its value to the maximum amount from two houses before) or skip it and take the maximum amount from the previous house. The recurrence relation is:  
+`dp[i] = max(nums[i] + dp[i-2], dp[i-1])`
+
+Instead of using an array to store all results, we optimize space by keeping track of the last two results (`prev` for `dp[i-2]` and `cur` for `dp[i-1]`), which we update as we move through the houses.
+
+[Link to code](./198_house_robber.py)
+
+**Notes**:
+- Time complexity: O(n), where n is the number of houses.
+- Space complexity: O(1), as we only use two variables to store intermediate results.
