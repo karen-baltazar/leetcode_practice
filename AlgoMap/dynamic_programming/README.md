@@ -8,6 +8,7 @@
 | 198  | [House Robber](#198-house-robber)  | [Explanation](#198-house-robber) | [Python Code](./198_house_robber.py) |
 | 62   | [Unique Paths](#62-unique-paths)    | [Explanation](#62-unique-paths) | [Python Code](./062_unique_paths.py) |
 | 55   | [Jump Game](#55-jump-game) | [Explanation](#55-jump-game) | [Python Code](./055_jump_game.py) |
+| 322  | [Coin Change](#322-coin-change)    | [Explanation](#322-coin-change) | [Python Code](./322_coin_change.py) |
 
 ## 509. Fibonacci Number
 
@@ -168,3 +169,26 @@ This problem can be efficiently solved by traversing the array from the back to 
 **Notes**:
 - Time complexity: O(n), where `n` is the length of the input array `nums`.
 - Space complexity: O(1), as we only use a constant amount of extra space.
+
+## 322. Coin Change
+
+**Description**:
+You are given an integer array `coins` representing different denominations of coins, and an integer `amount` representing a total amount of money. The goal is to find the fewest number of coins needed to make up that amount. If it's not possible to make that amount, return -1.
+
+**Example**:
+```plaintext
+Input:
+coins = [1, 2, 5]
+amount = 11
+
+Output: 3
+```
+
+**Solution**:
+This problem is a classic **dynamic programming** problem where we build up the solution for each amount from `1` to `amount`. We initialize a DP array where each entry represents the minimum number of coins required for that amount. For each amount, we check each coin denomination and calculate the fewest number of coins needed by comparing the current coin option with the previous results in the DP array.
+
+[Link to code](./322_coin_change.py)
+
+**Notes**:
+- Time complexity: O(n * m), where `n` is the amount and `m` is the number of coins.
+- Space complexity: O(n), where `n` is the amount.
